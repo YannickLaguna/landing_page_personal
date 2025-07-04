@@ -30,7 +30,7 @@ sections:
         elementId: ''
     media:
       type: ImageBlock
-      url: /images/about.jpg
+      url: /images/_LOS1552.jpg
       altText: Hero image
       caption: Caption of the image
       elementId: ''
