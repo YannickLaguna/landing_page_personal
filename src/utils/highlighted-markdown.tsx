@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
-import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
-import { funky } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import js from 'react-syntax-highlighter/dist/languages/javascript';
+import css from 'react-syntax-highlighter/dist/languages/css';
+import { atomOneDark } from 'react-syntax-highlighter/dist/styles/atom-one-dark';
 
 SyntaxHighlighter.registerLanguage('javascript', js);
 SyntaxHighlighter.registerLanguage('css', css);
@@ -13,7 +13,7 @@ const CodeBlock = ({ className, children }) => {
         lang = className.replace('lang-', '');
     }
     return (
-        <SyntaxHighlighter language={lang} style={funky} wrapLongLines>
+        <SyntaxHighlighter language={lang} style={atomOneDark} wrapLongLines>
             {children}
         </SyntaxHighlighter>
     );
