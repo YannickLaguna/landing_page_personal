@@ -1,5 +1,6 @@
 import { generateGlobalCssVariables } from '@/utils/theme-style-utils';
 import { useEffect, useState } from 'react';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 import '../css/main.css';
 
 export default function MyApp({ Component, pageProps }) {
@@ -15,13 +16,13 @@ export default function MyApp({ Component, pageProps }) {
     }, [page.colors]);
 
     return (
-        <>
+        <LanguageProvider>
             <style jsx global>{`
                 :root {
                     ${cssVars}
                 }
             `}</style>
             {isMounted ? <Component {...pageProps} /> : null}
-        </>
+        </LanguageProvider>
     );
 }

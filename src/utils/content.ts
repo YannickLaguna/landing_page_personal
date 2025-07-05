@@ -10,6 +10,11 @@ import { PAGE_MODEL_NAMES, PageModelType } from '@/types/generated';
 const contentBaseDir = 'content';
 const pagesBaseDir = contentBaseDir + '/pages';
 
+// Función para obtener el sufijo del idioma
+function getLanguageSuffix(locale: string): string {
+    return locale === 'es' ? '.es' : '';
+}
+
 const allReferenceFields = {};
 allModels.forEach((model) => {
     model.fields.forEach((field) => {
@@ -102,8 +107,24 @@ function contentUrl(obj: types.ContentObject) {
     return url;
 }
 
-export function allContent(): types.ContentObject[] {
-    let objects = contentFilesInPath(contentBaseDir).map((file) => readContent(file));
+export function allContent(locale: string = 'en'): types.ContentObject[] {
+    let allObjects = contentFilesInPath(contentBaseDir).map((file) => readContent(file));
+
+    // Filtrar archivos de configuración (si tienes config.es.json, etc.)
+    const configObjects = allObjects.filter((obj) => obj.__metadata.id.includes('/data/'));
+
+    // Filtrar páginas por idioma
+    const pageObjects = allObjects.filter((obj) => {
+        const fileName = obj.__metadata.id;
+        if (fileName.includes('/data/')) return false;
+        if (locale === 'es') {
+            return fileName.endsWith('.es.md') || fileName.endsWith('.es.json');
+        }
+        // Inglés: solo archivos sin sufijo .es
+        return !fileName.endsWith('.es.md') && !fileName.endsWith('.es.json');
+    });
+
+    let objects = [...configObjects, ...pageObjects];
 
     allPages(objects).forEach((obj) => {
         obj.__metadata.urlPath = contentUrl(obj);

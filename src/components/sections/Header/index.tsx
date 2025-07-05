@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { Link, Social } from '@/components/atoms';
+import { Link, Social, LanguageToggle } from '@/components/atoms';
 import ImageBlock from '@/components/molecules/ImageBlock';
 import CloseIcon from '@/components/svgs/close';
 import MenuIcon from '@/components/svgs/menu';
@@ -11,6 +11,7 @@ import HeaderLink from './HeaderLink';
 export default function Header(props) {
     const { isSticky, styles = {}, ...rest } = props;
     const headerWidth = styles.self?.width ?? 'narrow';
+    
     return (
         <header className={classNames(isSticky ? 'sticky top-0 z-10' : 'relative', 'border-b border-current')}>
             <div
@@ -56,6 +57,9 @@ function HeaderVariantA(props) {
                     <ListOfSocialLinks links={socialLinks} inMobileMenu={false} />
                 </ul>
             )}
+            <div className="hidden border-l border-current lg:flex">
+                <LanguageToggle />
+            </div>
             {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
         </div>
     );
@@ -148,20 +152,18 @@ function MobileMenu(props) {
                             </button>
                         </div>
                     </div>
-                    {(primaryLinks.length > 0 || socialLinks.length > 0) && (
-                        <div className="flex flex-col items-center justify-center px-4 py-20 space-y-12 grow">
-                            {primaryLinks.length > 0 && (
-                                <ul className="space-y-6">
-                                    <ListOfLinks links={primaryLinks} inMobileMenu={true} />
-                                </ul>
-                            )}
-                            {socialLinks.length > 0 && (
-                                <ul className="flex flex-wrap justify-center border border-current divide-x divide-current">
-                                    <ListOfSocialLinks links={socialLinks} inMobileMenu={true} />
-                                </ul>
-                            )}
-                        </div>
-                    )}
+                    <div className="flex flex-col items-center justify-center px-4 py-20 space-y-12 grow">
+                        {primaryLinks.length > 0 && (
+                            <ul className="space-y-6">
+                                <ListOfLinks links={primaryLinks} inMobileMenu={true} />
+                            </ul>
+                        )}
+                        {socialLinks.length > 0 && (
+                            <ul className="flex flex-wrap justify-center border border-current divide-x divide-current">
+                                <ListOfSocialLinks links={socialLinks} inMobileMenu={true} />
+                            </ul>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
