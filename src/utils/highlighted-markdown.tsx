@@ -1,11 +1,6 @@
 import * as React from 'react';
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import js from 'react-syntax-highlighter/dist/languages/javascript';
-import css from 'react-syntax-highlighter/dist/languages/css';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/styles/atom-one-dark';
-
-SyntaxHighlighter.registerLanguage('javascript', js);
-SyntaxHighlighter.registerLanguage('css', css);
 
 const CodeBlock = ({ className, children }) => {
     let lang = 'text'; // default monospaced text
