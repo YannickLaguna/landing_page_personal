@@ -48,6 +48,17 @@ Here are a few suggestions on what to do next if you're new to Netlify Visual Ed
 - Learn [how Netlify Visual Editor works](https://docs.netlify.com/visual-editor/overview/)
 - Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
 
+## Dependencias Comentadas
+
+### Dependencias deshabilitadas temporalmente:
+- `react-syntax-highlighter`: Para resaltado de sintaxis en bloques de código (actualmente deshabilitado por problemas de compatibilidad con versiones recientes)
+- `@types/react-syntax-highlighter`: Tipos de TypeScript para react-syntax-highlighter
+
+Para reactivar estas dependencias en el futuro:
+1. Descomenta las líneas en `package.json`
+2. Ejecuta `npm install`
+3. Actualiza `src/utils/highlighted-markdown.tsx` para usar la sintaxis correcta de la versión actual
+
 ## Support
 
 If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
