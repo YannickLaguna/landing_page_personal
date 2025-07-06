@@ -127,6 +127,13 @@ export const HeaderModel: Model = {
                     width: 'narrow'
                 }
             }
+        },
+        {
+            type: 'model',
+            name: 'languageToggle',
+            label: 'Language Toggle',
+            models: ['LanguageToggle'],
+            required: false
         }
     ]
 };
