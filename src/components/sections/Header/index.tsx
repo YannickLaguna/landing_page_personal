@@ -57,7 +57,7 @@ function HeaderVariantA(props) {
                     <ListOfSocialLinks links={socialLinks} inMobileMenu={false} />
                 </ul>
             )}
-            <div className="hidden border-l border-current lg:flex">
+            <div className="border-l border-current flex items-center">
                 <LanguageToggle />
             </div>
             {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
@@ -84,6 +84,9 @@ function HeaderVariantB(props) {
                     <ListOfSocialLinks links={socialLinks} inMobileMenu={false} />
                 </ul>
             )}
+            <div className="border-l border-current flex items-center">
+                <LanguageToggle />
+            </div>
             {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
         </div>
     );
@@ -108,6 +111,9 @@ function HeaderVariantC(props) {
                     <ListOfLinks links={primaryLinks} inMobileMenu={false} />
                 </ul>
             )}
+            <div className="border-l border-current flex items-center">
+                <LanguageToggle />
+            </div>
             {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
         </div>
     );
@@ -163,6 +169,9 @@ function MobileMenu(props) {
                                 <ListOfSocialLinks links={socialLinks} inMobileMenu={true} />
                             </ul>
                         )}
+                        <div className="border border-current mt-8">
+                            <LanguageToggle inMobileMenu={true} />
+                        </div>
                     </div>
                 </div>
             </div>
