@@ -76,7 +76,7 @@ function PostGrid(props) {
                 'mt-12': hasTopMargin
             })}
         >
-            {posts.map((post, index) => (
+            {posts.filter(Boolean).map((post, index) => (
                 <Link key={index} href={post} className="block max-w-3xl pb-10 border-b border-current group">
                     {showFeaturedImage && post.featuredImage && (
                         <div className="w-full mb-6 overflow-hidden aspect-3/2">
@@ -129,7 +129,7 @@ function PostList(props) {
                 'mt-12': hasTopMargin
             })}
         >
-            {posts.map((post, index) => (
+            {posts.filter(Boolean).map((post, index) => (
                 <Link key={index} href={post} className="block pb-10 border-b border-current group md:pb-12 md:px-4">
                     <div className="flex flex-col gap-8 md:flex-row md:items-center">
                         {showFeaturedImage && post.featuredImage && (

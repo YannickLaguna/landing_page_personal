@@ -85,6 +85,44 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
             ...props,
             projects: recentProjects
         };
+    },
+    FeaturedProjectsSection: (props, allData) => {
+        const projects = Array.isArray(props.projects)
+            ? props.projects.map((projRef: any) => {
+                if (typeof projRef === 'string') {
+                    return allData.find(
+                        (obj) =>
+                            obj.__metadata &&
+                            obj.__metadata.sourceFilePath &&
+                            obj.__metadata.sourceFilePath.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
+                    ) || null;
+                }
+                return projRef;
+            }).filter(Boolean)
+            : [];
+        return {
+            ...props,
+            projects
+        };
+    },
+    PostFeedSection: (props, allData) => {
+        const posts = Array.isArray(props.posts)
+            ? props.posts.map((postRef: any) => {
+                if (typeof postRef === 'string') {
+                    return allData.find(
+                        (obj) =>
+                            obj.__metadata &&
+                            obj.__metadata.sourceFilePath &&
+                            obj.__metadata.sourceFilePath.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
+                    ) || null;
+                }
+                return postRef;
+            }).filter(Boolean)
+            : [];
+        return {
+            ...props,
+            posts
+        };
     }
 };
 
