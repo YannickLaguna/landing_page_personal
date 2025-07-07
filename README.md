@@ -62,3 +62,17 @@ Para reactivar estas dependencias en el futuro:
 ## Support
 
 If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
+
+## Mapeo de Iconos en Secciones Personalizadas
+
+Para mostrar iconos en secciones como `AreasOfInterestSection`, se utiliza un sistema de mapeo basado en el archivo `src/components/svgs/index.js`. Este archivo exporta un objeto `iconMap` que asocia nombres de iconos (por ejemplo, `github`, `mail`, `arrowRight`) con componentes SVG de React.
+
+Para usar un icono, simplemente especifica el nombre correspondiente en el campo `icon` del contenido. Por ejemplo:
+
+```yaml
+- icon: github
+  title: GitHub
+  description: Repositorios y proyectos open source.
+```
+
+El componente buscará el icono en `iconMap` y lo renderizará automáticamente. Puedes ver y ampliar la lista de iconos disponibles en `src/components/svgs/index.js`.

@@ -38,6 +38,39 @@ sections:
           - pr-4
         flexDirection: row
         textAlign: left
+  - type: AreasOfInterestSection
+    title: Areas of Interest
+    subtitle: Take a look at some of the things I love working on.
+    interests:
+      - icon: cloud
+        title: Cloud Compute
+        description: I maintain servers for database storage, model training, and model deployment.
+      - icon: chat
+        title: NLP
+        description: I have worked with researchers to apply NLP techniques to make sense of the motivations behind human interactions.
+      - icon: brain
+        title: Machine Learning
+        description: Machine learning is more than an API call to scikit-learn. I love the math and theory as well as the implementation.
+      - icon: layers
+        title: Parallel Computing
+        description: I regularly extract data from Hadoop databases using the HIVE framework.
+      - icon: upload
+        title: Model Deployment
+        description: I implement machine learning models in real world production systems using REST APIs.
+      - icon: bar-chart
+        title: Data Analytics
+        description: I love telling a story. Making a beautiful and compelling presentation is one of my favorite skills.
+    colors: colors-f
+    styles:
+      self:
+        height: auto
+        width: wide
+        padding:
+          - pt-24
+          - pb-24
+          - pl-4
+          - pr-4
+        textAlign: center
   - colors: colors-f
     type: FeaturedProjectsSection
     elementId: ''
