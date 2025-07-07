@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-import { Link, Social, LanguageToggle } from '@/components/atoms';
+import { LanguageToggle, Link, Social } from '@/components/atoms';
 import ImageBlock from '@/components/molecules/ImageBlock';
 import CloseIcon from '@/components/svgs/close';
 import MenuIcon from '@/components/svgs/menu';
@@ -11,7 +11,7 @@ import HeaderLink from './HeaderLink';
 export default function Header(props) {
     const { isSticky, styles = {}, ...rest } = props;
     const headerWidth = styles.self?.width ?? 'narrow';
-    
+
     return (
         <header className={classNames(isSticky ? 'sticky top-0 z-10' : 'relative', 'border-b border-current')}>
             <div
@@ -43,7 +43,7 @@ function HeaderVariants(props) {
 }
 
 function HeaderVariantA(props) {
-    const { primaryLinks = [], socialLinks = [], ...logoProps } = props;
+    const { primaryLinks = [], socialLinks = [], languageToggle, ...logoProps } = props;
     return (
         <div className="relative flex items-stretch">
             <SiteLogoLink {...logoProps} />
@@ -58,7 +58,7 @@ function HeaderVariantA(props) {
                 </ul>
             )}
             <div className="border-l border-current flex items-center">
-                <LanguageToggle />
+                <LanguageToggle {...(languageToggle || {})} />
             </div>
             {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
         </div>
@@ -66,7 +66,7 @@ function HeaderVariantA(props) {
 }
 
 function HeaderVariantB(props) {
-    const { primaryLinks = [], socialLinks = [], ...logoProps } = props;
+    const { primaryLinks = [], socialLinks = [], languageToggle, ...logoProps } = props;
     return (
         <div className="relative flex items-stretch">
             <SiteLogoLink {...logoProps} />
@@ -85,7 +85,7 @@ function HeaderVariantB(props) {
                 </ul>
             )}
             <div className="border-l border-current flex items-center">
-                <LanguageToggle />
+                <LanguageToggle {...(languageToggle || {})} />
             </div>
             {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
         </div>
@@ -93,7 +93,7 @@ function HeaderVariantB(props) {
 }
 
 function HeaderVariantC(props) {
-    const { primaryLinks = [], socialLinks = [], ...logoProps } = props;
+    const { primaryLinks = [], socialLinks = [], languageToggle, ...logoProps } = props;
     return (
         <div className="relative flex items-stretch">
             <SiteLogoLink {...logoProps} />
@@ -112,7 +112,7 @@ function HeaderVariantC(props) {
                 </ul>
             )}
             <div className="border-l border-current flex items-center">
-                <LanguageToggle />
+                <LanguageToggle {...(languageToggle || {})} />
             </div>
             {(primaryLinks.length > 0 || socialLinks.length > 0) && <MobileMenu {...props} />}
         </div>
@@ -120,7 +120,7 @@ function HeaderVariantC(props) {
 }
 
 function MobileMenu(props) {
-    const { primaryLinks = [], socialLinks = [], ...logoProps } = props;
+    const { primaryLinks = [], socialLinks = [], languageToggle, ...logoProps } = props;
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const router = useRouter();
 
@@ -170,7 +170,7 @@ function MobileMenu(props) {
                             </ul>
                         )}
                         <div className="border border-current mt-8">
-                            <LanguageToggle inMobileMenu={true} />
+                            <LanguageToggle inMobileMenu={true} {...(languageToggle || {})} />
                         </div>
                     </div>
                 </div>

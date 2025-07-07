@@ -1,3 +1,4 @@
+import { AreasOfInterestSectionModel } from './AreasOfInterestSection';
 import { BackgroundImageModel } from './BackgroundImage';
 import { ButtonModel } from './Button';
 import { CheckboxFormControlModel } from './CheckboxFormControl';
@@ -18,6 +19,7 @@ import { HeroSectionModel } from './HeroSection';
 import { ImageBlockModel } from './ImageBlock';
 import { LabelModel } from './Label';
 import { LabelsSectionModel } from './LabelsSection';
+import { LanguageToggleModel } from './LanguageToggle';
 import { LinkModel } from './Link';
 import { MediaGallerySectionModel } from './MediaGallerySection';
 import { MetaTagModel } from './MetaTag';
@@ -41,7 +43,6 @@ import { TextFormControlModel } from './TextFormControl';
 import { TextSectionModel } from './TextSection';
 import { ThemeStyleModel } from './ThemeStyle';
 import { VideoBlockModel } from './VideoBlock';
-import { LanguageToggleModel } from './LanguageToggle';
 
 export const allModels = [
     BackgroundImageModel,
@@ -87,5 +88,6 @@ export const allModels = [
     TextSectionModel,
     ThemeStyleModel,
     VideoBlockModel,
-    LanguageToggleModel
+    LanguageToggleModel,
+    AreasOfInterestSectionModel
 ];
