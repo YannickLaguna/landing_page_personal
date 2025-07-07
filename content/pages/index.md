@@ -10,7 +10,7 @@ sections:
     subtitle: ''
     actions:
       - type: Button
-        label: Hire me
+        label: Get in touch
         altText: ''
         url: /
         showIcon: true
