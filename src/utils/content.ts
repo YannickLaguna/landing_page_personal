@@ -1,11 +1,12 @@
-import * as fs from 'fs';
-import path from 'path';
-import glob from 'glob';
-import frontmatter from 'front-matter';
 import { allModels } from '.stackbit/models';
+import type { ContentObject } from '@/types';
 import * as types from '@/types';
-import { isDev } from './common';
 import { PAGE_MODEL_NAMES, PageModelType } from '@/types/generated';
+import frontmatter from 'front-matter';
+import * as fs from 'fs';
+import glob from 'glob';
+import path from 'path';
+import { isDev } from './common';
 
 const contentBaseDir = 'content';
 const pagesBaseDir = contentBaseDir + '/pages';
@@ -34,7 +35,7 @@ function contentFilesInPath(dir: string) {
     return glob.sync(globPattern);
 }
 
-function readContent(file: string): types.ContentObject {
+function readContent(file: string): ContentObject {
     const rawContent = fs.readFileSync(file, 'utf8');
     let content = null;
     switch (path.extname(file).substring(1)) {
@@ -60,7 +61,7 @@ function readContent(file: string): types.ContentObject {
     return content;
 }
 
-function resolveReferences(content: types.ContentObject, fileToContent: Record<string, types.ContentObject>) {
+function resolveReferences(content: ContentObject, fileToContent: Record<string, ContentObject>) {
     if (!content || !content.type) return;
 
     const modelName = content.type;
@@ -92,7 +93,7 @@ function resolveReferences(content: types.ContentObject, fileToContent: Record<s
     }
 }
 
-function contentUrl(obj: types.ContentObject) {
+function contentUrl(obj: ContentObject) {
     const fileName = obj.__metadata.id;
     if (!fileName.startsWith(pagesBaseDir)) {
         console.warn('Content file', fileName, 'expected to be a page, but is not under', pagesBaseDir);
@@ -107,7 +108,7 @@ function contentUrl(obj: types.ContentObject) {
     return url;
 }
 
-export function allContent(locale: string = 'en'): types.ContentObject[] {
+export function allContent(locale: string = 'en'): ContentObject[] {
     let allObjects = contentFilesInPath(contentBaseDir).map((file) => readContent(file));
 
     // Filtrar archivos de configuración (si tienes config.es.json, etc.)
@@ -130,7 +131,7 @@ export function allContent(locale: string = 'en'): types.ContentObject[] {
         obj.__metadata.urlPath = contentUrl(obj);
     });
 
-    const fileToContent: Record<string, types.ContentObject> = Object.fromEntries(objects.map((e) => [e.__metadata.id, e]));
+    const fileToContent: Record<string, ContentObject> = Object.fromEntries(objects.map((e) => [e.__metadata.id, e]));
     objects.forEach((e) => resolveReferences(e, fileToContent));
 
     objects = objects.map((e) => deepClone(e));
@@ -139,7 +140,7 @@ export function allContent(locale: string = 'en'): types.ContentObject[] {
     return objects;
 }
 
-export function allPages(allData: types.ContentObject[]): PageModelType[] {
+export function allPages(allData: ContentObject[]): PageModelType[] {
     return allData.filter((obj) => {
         return PAGE_MODEL_NAMES.includes(obj.__metadata.modelName);
     }) as PageModelType[];

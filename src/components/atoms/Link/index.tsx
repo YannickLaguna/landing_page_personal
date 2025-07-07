@@ -1,4 +1,4 @@
-import { ContentObject, PageModelType } from '@/types';
+import { BaseContentObject, PageModelType } from '@/types';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 import * as React from 'react';
 
@@ -11,7 +11,7 @@ type LinkProps = RegularLinkProps | (Omit<RegularLinkProps, 'href'> & { href: Pa
 const Link: React.FC<LinkProps> = (props) => {
     const { children, href: hrefArgument, ...other } = props;
     let hrefString: string = null;
-    let hrefContent: ContentObject = null;
+    let hrefContent: BaseContentObject = null;
 
     if (typeof hrefArgument === 'string') {
         hrefString = hrefArgument;

@@ -22,7 +22,7 @@ export type SectionModels =
     | TestimonialsSection
     | TextSection;
 
-export type ContentObject =
+export type GeneratedContentObjectMetadata =
     | BackgroundImage
     | Button
     | CheckboxFormControl
@@ -117,15 +117,15 @@ export type BackgroundImage = BaseContentObject & {
     url?: string;
     backgroundSize: 'auto' | 'cover' | 'contain';
     backgroundPosition:
-        | 'bottom'
-        | 'center'
-        | 'left'
-        | 'left-bottom'
-        | 'left-top'
-        | 'right'
-        | 'right-bottom'
-        | 'right-top'
-        | 'top';
+    | 'bottom'
+    | 'center'
+    | 'left'
+    | 'left-bottom'
+    | 'left-top'
+    | 'right'
+    | 'right-bottom'
+    | 'right-top'
+    | 'top';
     backgroundRepeat: 'repeat' | 'repeat-x' | 'repeat-y' | 'no-repeat';
     opacity?: number;
 };
@@ -137,29 +137,29 @@ export type Button = BaseContentObject & {
     url: string;
     showIcon?: boolean;
     icon?:
-        | 'apple'
-        | 'arrowLeft'
-        | 'arrowLeftCircle'
-        | 'arrowRight'
-        | 'arrowRightCircle'
-        | 'arrowUpLeft'
-        | 'arrowUpRight'
-        | 'cart'
-        | 'chevronLeft'
-        | 'chevronRight'
-        | 'facebook'
-        | 'github'
-        | 'googlePlay'
-        | 'instagram'
-        | 'linkedin'
-        | 'mail'
-        | 'play'
-        | 'playCircle'
-        | 'reddit'
-        | 'send'
-        | 'twitter'
-        | 'vimeo'
-        | 'youtube';
+    | 'apple'
+    | 'arrowLeft'
+    | 'arrowLeftCircle'
+    | 'arrowRight'
+    | 'arrowRightCircle'
+    | 'arrowUpLeft'
+    | 'arrowUpRight'
+    | 'cart'
+    | 'chevronLeft'
+    | 'chevronRight'
+    | 'facebook'
+    | 'github'
+    | 'googlePlay'
+    | 'instagram'
+    | 'linkedin'
+    | 'mail'
+    | 'play'
+    | 'playCircle'
+    | 'reddit'
+    | 'send'
+    | 'twitter'
+    | 'vimeo'
+    | 'youtube';
     iconPosition?: 'left' | 'right';
     style: 'primary' | 'secondary';
     elementId?: string;
@@ -367,29 +367,29 @@ export type Link = BaseContentObject & {
     url: string;
     showIcon?: boolean;
     icon?:
-        | 'apple'
-        | 'arrowLeft'
-        | 'arrowLeftCircle'
-        | 'arrowRight'
-        | 'arrowRightCircle'
-        | 'arrowUpLeft'
-        | 'arrowUpRight'
-        | 'cart'
-        | 'chevronLeft'
-        | 'chevronRight'
-        | 'facebook'
-        | 'github'
-        | 'googlePlay'
-        | 'instagram'
-        | 'linkedin'
-        | 'mail'
-        | 'play'
-        | 'playCircle'
-        | 'reddit'
-        | 'send'
-        | 'twitter'
-        | 'vimeo'
-        | 'youtube';
+    | 'apple'
+    | 'arrowLeft'
+    | 'arrowLeftCircle'
+    | 'arrowRight'
+    | 'arrowRightCircle'
+    | 'arrowUpLeft'
+    | 'arrowUpRight'
+    | 'cart'
+    | 'chevronLeft'
+    | 'chevronRight'
+    | 'facebook'
+    | 'github'
+    | 'googlePlay'
+    | 'instagram'
+    | 'linkedin'
+    | 'mail'
+    | 'play'
+    | 'playCircle'
+    | 'reddit'
+    | 'send'
+    | 'twitter'
+    | 'vimeo'
+    | 'youtube';
     iconPosition?: 'left' | 'right';
     elementId?: string;
 };
@@ -412,23 +412,23 @@ export type MediaGallerySection = BaseContentObject & {
 export type MetaTag = BaseContentObject & {
     type: 'MetaTag';
     property?:
-        | 'og:title'
-        | 'og:type'
-        | 'og:image'
-        | 'og:image:alt'
-        | 'og:url'
-        | 'og:description'
-        | 'og:locale'
-        | 'og:site_name'
-        | 'og:video'
-        | 'twitter:card'
-        | 'twitter:site'
-        | 'twitter:creator'
-        | 'twitter:description'
-        | 'twitter:title'
-        | 'twitter:image'
-        | 'twitter:image:alt'
-        | 'twitter:player';
+    | 'og:title'
+    | 'og:type'
+    | 'og:image'
+    | 'og:image:alt'
+    | 'og:url'
+    | 'og:description'
+    | 'og:locale'
+    | 'og:site_name'
+    | 'og:video'
+    | 'twitter:card'
+    | 'twitter:site'
+    | 'twitter:creator'
+    | 'twitter:description'
+    | 'twitter:title'
+    | 'twitter:image'
+    | 'twitter:image:alt'
+    | 'twitter:player';
     content?: string;
 };
 

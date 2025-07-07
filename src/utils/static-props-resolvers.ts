@@ -87,16 +87,16 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
         };
     },
     FeaturedProjectsSection: (props, allData) => {
-        if (props.type !== 'FeaturedProjectsSection' || !Array.isArray(props.projects)) {
+        if (props.type !== 'FeaturedProjectsSection' || !Array.isArray((props as any).projects)) {
             return props;
         }
-        const projects = props.projects.map((projRef: any) => {
+        const projects = (props as any).projects.map((projRef: any) => {
             if (typeof projRef === 'string') {
                 return allData.find(
                     (obj) =>
                         obj.__metadata &&
-                        obj.__metadata.sourceFilePath &&
-                        obj.__metadata.sourceFilePath.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
+                        typeof (obj.__metadata as any).sourceFilePath === 'string' &&
+                        (obj.__metadata as any).sourceFilePath.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
                 ) || null;
             }
             return projRef;
@@ -107,16 +107,16 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
         };
     },
     PostFeedSection: (props, allData) => {
-        if (props.type !== 'PostFeedSection' || !Array.isArray(props.posts)) {
+        if (props.type !== 'PostFeedSection' || !Array.isArray((props as any).posts)) {
             return props;
         }
-        const posts = props.posts.map((postRef: any) => {
+        const posts = (props as any).posts.map((postRef: any) => {
             if (typeof postRef === 'string') {
                 return allData.find(
                     (obj) =>
                         obj.__metadata &&
-                        obj.__metadata.sourceFilePath &&
-                        obj.__metadata.sourceFilePath.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
+                        typeof (obj.__metadata as any).sourceFilePath === 'string' &&
+                        (obj.__metadata as any).sourceFilePath.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
                 ) || null;
             }
             return postRef;
@@ -127,16 +127,16 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
         };
     },
     FeaturedPostsSection: (props, allData) => {
-        if (props.type !== 'FeaturedPostsSection' || !Array.isArray(props.posts)) {
+        if (props.type !== 'FeaturedPostsSection' || !Array.isArray((props as any).posts)) {
             return props;
         }
-        const posts = props.posts.map((postRef: any) => {
+        const posts = (props as any).posts.map((postRef: any) => {
             if (typeof postRef === 'string') {
                 return allData.find(
                     (obj) =>
                         obj.__metadata &&
-                        obj.__metadata.sourceFilePath &&
-                        obj.__metadata.sourceFilePath.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
+                        typeof (obj.__metadata as any).sourceFilePath === 'string' &&
+                        (obj.__metadata as any).sourceFilePath.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
                 ) || null;
             }
             return postRef;
@@ -147,16 +147,16 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
         };
     },
     ProjectFeedSection: (props, allData) => {
-        if (props.type !== 'ProjectFeedSection' || !Array.isArray(props.projects)) {
+        if (props.type !== 'ProjectFeedSection' || !Array.isArray((props as any).projects)) {
             return props;
         }
-        const projects = props.projects.map((projRef: any) => {
+        const projects = (props as any).projects.map((projRef: any) => {
             if (typeof projRef === 'string') {
                 return allData.find(
                     (obj) =>
                         obj.__metadata &&
-                        obj.__metadata.sourceFilePath &&
-                        obj.__metadata.sourceFilePath.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
+                        typeof (obj.__metadata as any).sourceFilePath === 'string' &&
+                        (obj.__metadata as any).sourceFilePath.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
                 ) || null;
             }
             return projRef;
