@@ -12,7 +12,7 @@ sections:
       - type: Button
         label: Get in touch
         altText: ''
-        url: /
+        url: '/https://cal.com/ylaguna'
         showIcon: true
         icon: arrowRight
         iconPosition: right
