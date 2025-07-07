@@ -92,6 +92,7 @@ sections:
           - pl-4
           - pr-4
         textAlign: left
+    title: waka
   - type: ContactSection
     colors: colors-f
     backgroundSize: full
