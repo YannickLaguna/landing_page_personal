@@ -43,25 +43,23 @@ sections:
       - icon: optimizacion
         title: Optimización
         description: >-
-          Los recursos a nuestra disposición siempre están limitados, por lo que es importante saber distribuirlos de la mejor manera posible.
-      - icon: chat
-        title: PNL
+          Reduzco costos y maximizo resultados identificando ineficiencias operativas. Implemento modelos matemáticos y algoritmos que optimizan el uso de recursos y aumentan la rentabilidad de tu organización.
+      - icon: dashboard
+        title: Business Intelligence
         description: >-
-          I have worked with researchers to apply NLP techniques to make sense of the motivations behind human
-          interactions.
+          Transformo datos complejos en insights accionables que impulsan decisiones estratégicas. Desde dashboards interactivos hasta análisis predictivos, ayudo a las organizaciones a descubrir patrones ocultos y oportunidades de crecimiento en sus datos.
       - icon: brain
         title: Machine Learning
         description: >-
-          Machine learning is more than an API call to scikit-learn. Me encanta tanto la matemática y la teoría tanto como la implementación.
-      - icon: layers
+          Desarrollo soluciones de ML personalizadas que van más allá de herramientas básicas. Me encanta tanto la matemática y la teoría tanto como la implementación.
+      - icon: cog
         title: Automatización
-        description: I regularly extract data from Hadoop databases using the HIVE framework.
-      - icon: upload
-        title: Model Deployment
-        description: I implement machine learning models in real world production systems using REST APIs.
-      - icon: bar-chart
-        title: Data Analytics
-        description: I love telling a story. Making a beautiful and compelling presentation is one of my favorite skills.
+        description: >-
+          Elimino tareas repetitivas y optimizo workflows. Libero tiempo valioso de tu equipo para que lo dediques a lo que realmente importa.
+      - icon: chart
+        title: Análisis de datos
+        description: >-
+          Convierto datos complejos en historias que impulsan la acción. Creo presentaciones y reportes que comunican insights de manera clara para stakeholders de todos los niveles.
     colors: colors-f
     styles:
       self:

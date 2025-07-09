@@ -6,9 +6,13 @@ import ArrowRightCircle from './arrow-right-circle';
 import ArrowUpLeft from './arrow-up-left';
 import ArrowUpRight from './arrow-up-right';
 import Bluesky from './bluesky';
+import Brain from './brain';
 import Cart from './cart';
+import Chart from './chart';
 import ChevronLeft from './chevron-left';
 import ChevronRight from './chevron-right';
+import Cog from './cog';
+import Dashboard from './dashboard';
 import Facebook from './facebook';
 import GitHub from './github';
 import GooglePlay from './google-play';
@@ -49,5 +53,9 @@ export const iconMap = {
     send: Send,
     twitter: Twitter,
     vimeo: Vimeo,
-    youtube: YouTube
+    youtube: YouTube,
+    brain: Brain,
+    dashboard: Dashboard,
+    cog: Cog,
+    chart: Chart
 };
