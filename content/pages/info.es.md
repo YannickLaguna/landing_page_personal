@@ -1,17 +1,10 @@
 ---
 type: PageLayout
 title: About
-colors: colors-a
-backgroundImage:
-  type: BackgroundImage
-  url: /images/bg4.jpg
-  backgroundSize: cover
-  backgroundPosition: center
-  backgroundRepeat: no-repeat
-  opacity: 75
+colors: colors-b
 sections:
   - elementId: ''
-    colors: colors-f
+    colors: colors-b
     backgroundSize: full
     text: >+
       # Hey I’m a developer. I’ve been born and raised in the world, and that’s also where I’m based. I’m currently a
@@ -20,22 +13,18 @@ sections:
 
     media:
       type: ImageBlock
-      url: /images/about.jpg
+      url: /images/_LOS1552.jpg
       altText: Hero image
     styles:
       self:
         height: auto
         width: wide
-        margin:
-          - mt-0
-          - mb-0
-          - ml-0
-          - mr-0
         padding:
-          - pt-16
-          - pb-12
+          - pt-36
+          - pb-48
           - pl-4
           - pr-4
+        flexDirection: row
         textAlign: left
     type: HeroSection
   - type: DividerSection

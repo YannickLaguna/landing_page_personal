@@ -52,8 +52,7 @@ sections:
       - icon: brain
         title: Machine Learning
         description: >-
-          Machine learning is more than an API call to scikit-learn. I love the math and theory as well as the
-          implementation.
+          Machine learning is more than an API call to scikit-learn. Me encanta tanto la matemática y la teoría tanto como la implementación.
       - icon: layers
         title: Automatización
         description: I regularly extract data from Hadoop databases using the HIVE framework.

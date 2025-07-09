@@ -27,16 +27,16 @@
         "socialLinks": [
             {
                 "type": "Social",
-                "altText": "Twitter",
-                "label": "Twitter",
-                "url": "https://twitter.com/netlify",
-                "icon": "twitter"
+                "altText": "LinkedIn",
+                "label": "LinkedIn",
+                "url": "https://www.linkedin.com/in/yannick-laguna-piceda/",
+                "icon": "linkedin"
             },
             {
                 "type": "Social",
                 "altText": "GitHub",
                 "label": "GitHub",
-                "url": "https://github.com/netlify-templates",
+                "url": "https://github.com/YannickLaguna",
                 "icon": "github"
             }
         ],
@@ -58,7 +58,7 @@
             {
                 "type": "Link",
                 "label": "Contacto",
-                "url": "mailto:thisismyemail.@myemail.me",
+                "url": "mailto:ylaguna000@gmail.com",
                 "altText": ""
             },
             {
@@ -70,18 +70,18 @@
             {
                 "type": "Link",
                 "label": "GitHub",
-                "url": "https://github.com/netlify-templates",
-                "altText": "Plantillas de Netlify"
+                "url": "https://github.com/YannickLaguna",
+                "altText": "GitHub"
             }
         ],
         "contacts": {
             "type": "ContactBlock",
             "title": "Detalles de contacto",
-            "phoneNumber": "850-123-5021",
+            "phoneNumber": "+34 619 231 987",
             "phoneAltText": "Mi número de teléfono",
-            "email": "thisismyemail.@myemail.me",
+            "email": "ylaguna000@gmail.com",
             "emailAltText": "Mi correo electrónico",
-            "address": "312 Lovely Street, Brooklyn, NY, 123456",
+            "address": "Bilbao - Lanzarote",
             "addressAltText": "Mi dirección"
         },
         "copyrightText": "Desarrollado con [Netlify](https://www.netlify.com/)",
