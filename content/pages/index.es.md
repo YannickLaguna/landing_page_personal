@@ -4,8 +4,8 @@ title: Inicio
 colors: colors-b
 sections:
   - type: HeroSection
-    title: Soy desarrollador, artista digital, consultor y un montón de otros títulos impresionantes y palabras de moda.
-    subtitle: ''
+    title: Yannick Laguna
+    subtitle: 'Apasionado por las finanzas, el análisis, y la resolución de problemas'
     actions:
       - type: Button
         label: Póngase en contacto
@@ -37,14 +37,13 @@ sections:
         flexDirection: row
         textAlign: left
   - type: AreasOfInterestSection
-    title: Areas of Interest
+    title: Áreas de interés
     subtitle: Eche un vistazo a algunas de las cosas en las que me encanta trabajar.
     interests:
-      - icon: cloud
-        title: Computación en nube
+      - icon: optimizacion
+        title: Optimización
         description: >-
-          Mantengo servidores para el almacenamiento de bases de datos, la formación de modelos y la implantación de
-          modelos.
+          Los recursos a nuestra disposición siempre están limitados, por lo que es importante saber distribuirlos de la mejor manera posible.
       - icon: chat
         title: PNL
         description: >-
@@ -56,7 +55,7 @@ sections:
           Machine learning is more than an API call to scikit-learn. I love the math and theory as well as the
           implementation.
       - icon: layers
-        title: Parallel Computing
+        title: Automatización
         description: I regularly extract data from Hadoop databases using the HIVE framework.
       - icon: upload
         title: Model Deployment

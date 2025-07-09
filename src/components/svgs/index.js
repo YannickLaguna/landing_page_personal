@@ -15,6 +15,7 @@ import GooglePlay from './google-play';
 import Instagram from './instagram';
 import LinkedIn from './linkedin';
 import Mail from './mail';
+import Optimizacion from './optimizacion';
 import Play from './play';
 import PlayCircle from './play-circle';
 import Reddit from './reddit';
@@ -41,6 +42,7 @@ export const iconMap = {
     instagram: Instagram,
     linkedin: LinkedIn,
     mail: Mail,
+    optimizacion: Optimizacion,
     play: Play,
     playCircle: PlayCircle,
     reddit: Reddit,
