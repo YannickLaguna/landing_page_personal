@@ -215,44 +215,43 @@ sections:
     colors: colors-f
     items:
       - type: FeaturedItem
-        subtitle: 'Experience:'
+        subtitle: 'Experiencia:'
         text: |-
-          **Current**
+          **Actualmente**
 
-          * freelance @freelance.me
+          * Freelancer
 
-          **2018-2021**
+          **2024**
 
-          * fullstack at this startup
+          * Técnico contable en Vocento
 
-          **2015**
+          **2023**
 
-          * senior front-end at this place
+          * Auxiliar contable en Fullcarga Ibérica
 
-          **2013**
+          **2023**
 
-          * intern developer at a big company
+          * Becario en Instituto de Capital Riesgo (INCARI)
 
-          **2011**
-
-          * flipping burgers
         styles:
           self:
             textAlign: left
       - type: FeaturedItem
-        subtitle: 'Education:'
+        subtitle: 'Formación:'
         text: |-
-          **2015-2018**
+          **2025**
 
-          * ba computer sciense at a semi fancy school
+          * Máster en Modelización e Investigación Matemática, Estadística y Computación
 
-          **2014**
+          **2023**
 
-          * react certificate somewhere
+          * Grado en Economía en Universidad del País Vasco (UPV)
 
-          **2011**
+          **Certificados**
 
-          * my highschool
+          * Contabilidad y fiscalidad (Plan General Contable) - 2024
+
+          * IBM Data Science - 2023
         styles:
           self:
             textAlign: left
