@@ -7,13 +7,18 @@ sections:
     colors: colors-b
     backgroundSize: full
     text: >+
-      # Hey I’m a developer. I’ve been born and raised in the world, and that’s also where I’m based. I’m currently a
-      free agent, ex-this, ex-that, ex-super big name. When I’m not coding, writing or creating, I eat cereals. I have a
-      dog, check her out [@mygod](https://www.stackbit.com/).
+      
+      ¡Hola! Soy Yannick, canario de nacimiento y curioso por naturaleza. Mi especialidad es la economía, con un enfoque claro hacia la empresa y el sector privado. Me apasiona entender cómo funcionan las organizaciones y los mercados, y por eso he orientado mi formación y experiencia hacia este ámbito.
+
+
+      Disfruto trabajando de forma transversal, colaborando con personas de distintas disciplinas y aprendiendo de cada perspectiva. Creo firmemente que el aprendizaje nunca termina y que cada proyecto es una oportunidad para crecer, tanto profesional como personalmente.
+
+
+      Fuera del trabajo, me encanta estar en contacto con la naturaleza y suelo ser quien organiza los planes con amigos o familia. Me motivan los retos, el trabajo en equipo y la posibilidad de aportar mi granito de arena para hacer del mundo un lugar mejor. Si compartes esa visión o simplemente quieres charlar sobre economía, empresas o cualquier tema interesante, ¡me encantará conectar contigo!
 
     media:
       type: ImageBlock
-      url: /images/_LOS1552.jpg
+      url: /images/boscoso.jpg
       altText: Hero image
     styles:
       self:
