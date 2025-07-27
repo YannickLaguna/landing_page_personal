@@ -25,7 +25,7 @@ async function getNotebooksList() {
             .map(item => ({
                 name: item.name.replace('.ipynb', ''),
                 filename: item.name,
-                url: `${NOTEBOOKS_BASE_URL}${item.name}`,
+                url: `${NOTEBOOKS_BASE_URL}${item.name.replace('.ipynb', '.html')}`,
                 lastModified: item.updated_at,
                 size: item.size
             }))
@@ -38,60 +38,18 @@ async function getNotebooksList() {
     }
 }
 
-// Función para generar la sección de notebooks destacados
-function generateFeaturedNotebooksSection(notebooks) {
-    if (notebooks.length === 0) return '';
 
-    const featuredNotebooks = notebooks.slice(0, 3); // Mostrar solo los 3 más recientes
-    
-    return `
-  - type: FeaturedItemsSection
-    title: "📓 Notebooks de Jupyter"
-    subtitle: "Análisis de datos, machine learning y optimización"
-    colors: colors-f
-    items:
-${featuredNotebooks.map(notebook => `      - title: "${notebook.name}"
-        text: "Notebook de Jupyter con análisis de datos y machine learning. Última actualización: ${new Date(notebook.lastModified).toLocaleDateString('es-ES')}"
-        url: "${notebook.url}"
-        image:
-          type: ImageBlock
-          url: /images/featured-Image1.jpg
-          altText: ${notebook.name} - Jupyter Notebook`).join('\n')}
-    styles:
-      self:
-        width: narrow
-        padding:
-          - pt-12
-          - pb-12
-          - pl-4
-          - pr-4
-        textAlign: center
-    actions:
-      - label: "Ver todos los notebooks"
-        url: "${NOTEBOOKS_BASE_URL}"
-        style: primary
-        icon: arrow-right`;
-}
 
 // Función para actualizar la página de proyectos en inglés
 function updateProjectsPage(notebooks) {
-    const notebooksSection = generateFeaturedNotebooksSection(notebooks);
-    
     const content = `---
 type: ProjectFeedLayout
 title: Projects
-colors: colors-a
-backgroundImage:
-  type: BackgroundImage
-  url: /images/bg1.jpg
-  backgroundSize: cover
-  backgroundPosition: center
-  backgroundRepeat: no-repeat
-  opacity: 50
+colors: colors-f
 projectFeed:
   type: ProjectFeedSection
   colors: colors-f
-  showDate: false
+  showDate: true
   showDescription: true
   showReadMoreLink: true
   showFeaturedImage: true
@@ -122,7 +80,21 @@ topSections:
           - pl-4
           - pr-4
         flexDirection: row
-        textAlign: left${notebooksSection}
+        textAlign: center
+  - type: NotebooksSection
+    title: "📓 Notebooks de Jupyter"
+    subtitle: "Análisis de datos, machine learning y optimización"
+    maxItems: 6
+    colors: colors-f
+    styles:
+      self:
+        width: narrow
+        padding:
+          - pt-12
+          - pb-12
+          - pl-4
+          - pr-4
+        textAlign: center
 bottomSections:
   - type: ContactSection
     backgroundSize: full
@@ -192,23 +164,14 @@ bottomSections:
 
 // Función para actualizar la página de proyectos en español
 function updateProjectsPageES(notebooks) {
-    const notebooksSection = generateFeaturedNotebooksSection(notebooks);
-    
     const content = `---
 type: ProjectFeedLayout
 title: Proyectos
-colors: colors-a
-backgroundImage:
-  type: BackgroundImage
-  url: /images/bg1.jpg
-  backgroundSize: cover
-  backgroundPosition: center
-  backgroundRepeat: no-repeat
-  opacity: 50
+colors: colors-f
 projectFeed:
   type: ProjectFeedSection
   colors: colors-f
-  showDate: false
+  showDate: true
   showDescription: true
   showReadMoreLink: true
   showFeaturedImage: true
@@ -239,7 +202,21 @@ topSections:
           - pl-4
           - pr-4
         flexDirection: row
-        textAlign: left${notebooksSection}
+        textAlign: center
+  - type: NotebooksSection
+    title: "📓 Notebooks de Jupyter"
+    subtitle: "Análisis de datos, machine learning y optimización"
+    maxItems: 6
+    colors: colors-f
+    styles:
+      self:
+        width: narrow
+        padding:
+          - pt-12
+          - pb-12
+          - pl-4
+          - pr-4
+        textAlign: center
 bottomSections:
   - type: ContactSection
     backgroundSize: full

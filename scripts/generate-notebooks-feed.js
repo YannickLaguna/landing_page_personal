@@ -26,7 +26,7 @@ async function getNotebooksList() {
             .map(item => ({
                 name: item.name.replace('.ipynb', ''),
                 filename: item.name,
-                url: `${NOTEBOOKS_BASE_URL}${item.name}`,
+                url: `${NOTEBOOKS_BASE_URL}${item.name.replace('.ipynb', '.html')}`,
                 lastModified: item.updated_at,
                 size: item.size
             }));
@@ -38,13 +38,23 @@ async function getNotebooksList() {
     }
 }
 
+// Función para formatear el nombre del notebook
+function formatNotebookName(filename) {
+    return filename
+        .replace('.ipynb', '')
+        .replace(/([A-Z])/g, ' $1') // Añadir espacio antes de mayúsculas
+        .replace(/^./, str => str.toUpperCase()) // Primera letra mayúscula
+        .trim();
+}
+
 // Función para generar el contenido markdown de un proyecto
 function generateProjectMarkdown(notebook) {
     const date = new Date(notebook.lastModified).toISOString().split('T')[0];
+    const formattedName = formatNotebookName(notebook.name);
     
     return `---
 type: ProjectLayout
-title: ${notebook.name}
+title: ${formattedName}
 colors: colors-a
 date: '${date}'
 client: Jupyter Notebook
@@ -54,11 +64,11 @@ description: >-
 featuredImage:
   type: ImageBlock
   url: /images/featured-Image1.jpg
-  altText: ${notebook.name} - Jupyter Notebook
+  altText: ${formattedName} - Jupyter Notebook
 media:
   type: ImageBlock
   url: /images/featured-Image1.jpg
-  altText: ${notebook.name} - Captura de pantalla del notebook
+  altText: ${formattedName} - Captura de pantalla del notebook
 externalUrl: '${notebook.url}'
 ---
 
@@ -96,10 +106,11 @@ Puedes ver el notebook completo en: [${notebook.name}](${notebook.url})
 // Función para generar el archivo markdown en español
 function generateProjectMarkdownES(notebook) {
     const date = new Date(notebook.lastModified).toISOString().split('T')[0];
+    const formattedName = formatNotebookName(notebook.name);
     
     return `---
 type: ProjectLayout
-title: ${notebook.name}
+title: ${formattedName}
 colors: colors-a
 date: '${date}'
 client: Jupyter Notebook
@@ -109,11 +120,11 @@ description: >-
 featuredImage:
   type: ImageBlock
   url: /images/featured-Image1.jpg
-  altText: ${notebook.name} - Jupyter Notebook
+  altText: ${formattedName} - Jupyter Notebook
 media:
   type: ImageBlock
   url: /images/featured-Image1.jpg
-  altText: ${notebook.name} - Captura de pantalla del notebook
+  altText: ${formattedName} - Captura de pantalla del notebook
 externalUrl: '${notebook.url}'
 ---
 

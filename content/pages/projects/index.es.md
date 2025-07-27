@@ -1,18 +1,11 @@
 ---
 type: ProjectFeedLayout
 title: Proyectos
-colors: colors-a
-backgroundImage:
-  type: BackgroundImage
-  url: /images/bg1.jpg
-  backgroundSize: cover
-  backgroundPosition: center
-  backgroundRepeat: no-repeat
-  opacity: 50
+colors: colors-f
 projectFeed:
   type: ProjectFeedSection
   colors: colors-f
-  showDate: false
+  showDate: true
   showDescription: true
   showReadMoreLink: true
   showFeaturedImage: true
@@ -43,7 +36,7 @@ topSections:
           - pl-4
           - pr-4
         flexDirection: row
-        textAlign: left
+        textAlign: center
   - type: NotebooksSection
     title: "📓 Notebooks de Jupyter"
     subtitle: "Análisis de datos, machine learning y optimización"
@@ -51,7 +44,7 @@ topSections:
     colors: colors-f
     styles:
       self:
-        width: wide
+        width: narrow
         padding:
           - pt-12
           - pb-12

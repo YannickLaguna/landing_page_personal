@@ -39,6 +39,34 @@ export default function NotebooksSection(props: NotebooksSectionProps) {
 
     const { type, title = '📓 Notebooks de Jupyter', subtitle = 'Análisis de datos, machine learning y optimización', maxItems = 6, colors = 'colors-f', styles = {}, elementId } = props;
 
+    // Función para formatear el nombre del notebook
+    const formatNotebookName = (filename: string): string => {
+        return filename
+            .replace('.ipynb', '')
+            .replace(/([A-Z])/g, ' $1') // Añadir espacio antes de mayúsculas
+            .replace(/^./, str => str.toUpperCase()) // Primera letra mayúscula
+            .trim();
+    };
+
+    // Función para formatear la fecha
+    const formatDate = (dateString: string): string => {
+        try {
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) {
+                console.warn('Fecha inválida:', dateString);
+                return 'Fecha no disponible';
+            }
+            return date.toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        } catch (error) {
+            console.error('Error formateando fecha:', error, dateString);
+            return 'Fecha no disponible';
+        }
+    };
+
     // Función para obtener notebooks desde GitHub API
     const fetchNotebooks = async () => {
         try {
@@ -55,18 +83,28 @@ export default function NotebooksSection(props: NotebooksSectionProps) {
             }
 
             const data = await response.json();
+            console.log('Datos recibidos de GitHub:', data); // Debug
+
             const notebooksList = data
                 .filter((item: any) => item.type === 'file' && item.name.endsWith('.ipynb'))
-                .map((item: any) => ({
-                    name: item.name.replace('.ipynb', ''),
-                    filename: item.name,
-                    url: `https://yannicklaguna.github.io/Notebooks/${item.name}`,
-                    lastModified: item.updated_at,
-                    size: item.size
-                }))
+                .map((item: any) => {
+                    console.log('Procesando notebook:', item.name, 'fecha:', item.updated_at, 'creado:', item.created_at); // Debug
+                    
+                    // Usar updated_at si existe, sino created_at, sino fecha actual
+                    const lastModified = item.updated_at || item.created_at || new Date().toISOString();
+                    
+                    return {
+                        name: formatNotebookName(item.name),
+                        filename: item.name,
+                        url: `https://yannicklaguna.github.io/Notebooks/${item.name.replace('.ipynb', '.html')}`,
+                        lastModified: lastModified,
+                        size: item.size
+                    };
+                })
                 .sort((a: Notebook, b: Notebook) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
                 .slice(0, maxItems);
 
+            console.log('Notebooks procesados:', notebooksList); // Debug
             setNotebooks(notebooksList);
             setError(null);
         } catch (err) {
@@ -139,50 +177,131 @@ export default function NotebooksSection(props: NotebooksSectionProps) {
     }
 
     return (
-        <div id={cssId} className={cssClasses} style={cssStyles} {...getDataAttrs(props)}>
-            <div className="container mx-auto px-4 py-12">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">{title}</h2>
-                    <p className="text-xl text-gray-600">{subtitle}</p>
+        <div 
+            id={cssId} 
+            style={{
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+                textAlign: 'center',
+                padding: '3rem 1rem'
+            }}
+            {...getDataAttrs(props)}
+        >
+            <div style={{
+                width: '100%',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                textAlign: 'center'
+            }}>
+                <div style={{marginBottom: '3rem', textAlign: 'center'}}>
+                    <h2 style={{
+                        fontSize: '1.875rem',
+                        fontWeight: 'bold',
+                        marginBottom: '1rem',
+                        textAlign: 'center'
+                    }}>{title}</h2>
+                    <p style={{
+                        fontSize: '1.25rem',
+                        color: '#6b7280',
+                        textAlign: 'center'
+                    }}>{subtitle}</p>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {notebooks.map((notebook, index) => (
-                        <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                            <div className="p-6">
-                                <h3 className="text-xl font-semibold mb-2">{notebook.name}</h3>
-                                <p className="text-gray-600 mb-4">
-                                    Notebook de Jupyter con análisis de datos y machine learning.
-                                </p>
-                                <div className="text-sm text-gray-500 mb-4">
-                                    <p>Última actualización: {new Date(notebook.lastModified).toLocaleDateString('es-ES')}</p>
-                                    <p>Tamaño: {(notebook.size / 1024).toFixed(1)} KB</p>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    width: '100%'
+                }}>
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                        gap: '2rem',
+                        maxWidth: '1000px',
+                        width: '100%',
+                        margin: '0 auto'
+                    }}>
+                        {notebooks.map((notebook, index) => (
+                            <div key={index} style={{
+                                backgroundColor: 'white',
+                                borderRadius: '0.5rem',
+                                boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                                overflow: 'hidden',
+                                border: '1px solid #e5e7eb',
+                                transition: 'box-shadow 0.3s ease'
+                            }}>
+                                <div style={{padding: '1.5rem'}}>
+                                    <h3 style={{
+                                        fontSize: '1.25rem',
+                                        fontWeight: '600',
+                                        marginBottom: '1rem',
+                                        color: '#111827',
+                                        textAlign: 'center'
+                                    }}>{notebook.name}</h3>
+                                    <div style={{
+                                        fontSize: '0.875rem',
+                                        color: '#6b7280',
+                                        marginBottom: '1rem'
+                                    }}>
+                                        <p style={{marginBottom: '0.25rem'}}>
+                                            <strong>Última actualización:</strong> {formatDate(notebook.lastModified)}
+                                        </p>
+                                        <p>
+                                            <strong>Tamaño:</strong> {(notebook.size / 1024).toFixed(1)} KB
+                                        </p>
+                                    </div>
+                                    <div style={{textAlign: 'center'}}>
+                                        <a 
+                                            href={notebook.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={{
+                                                display: 'inline-flex',
+                                                alignItems: 'center',
+                                                padding: '0.5rem 1rem',
+                                                backgroundColor: '#2563eb',
+                                                color: 'white',
+                                                borderRadius: '0.25rem',
+                                                textDecoration: 'none',
+                                                transition: 'background-color 0.2s ease'
+                                            }}
+                                            onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#1d4ed8'}
+                                            onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#2563eb'}
+                                        >
+                                            Ver Notebook
+                                            <svg style={{marginLeft: '0.5rem', width: '1rem', height: '1rem'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
-                                <a 
-                                    href={notebook.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors duration-200"
-                                >
-                                    Ver Notebook
-                                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                    </svg>
-                                </a>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
                 
-                <div className="text-center mt-12">
+                <div style={{marginTop: '3rem', textAlign: 'center'}}>
                     <a 
                         href="https://yannicklaguna.github.io/Notebooks/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors duration-200"
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            padding: '0.75rem 1.5rem',
+                            backgroundColor: '#374151',
+                            color: 'white',
+                            borderRadius: '0.5rem',
+                            textDecoration: 'none',
+                            transition: 'background-color 0.2s ease'
+                        }}
+                        onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#1f2937'}
+                        onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#374151'}
                     >
                         Ver todos los notebooks
-                        <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg style={{marginLeft: '0.5rem', width: '1.25rem', height: '1.25rem'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
