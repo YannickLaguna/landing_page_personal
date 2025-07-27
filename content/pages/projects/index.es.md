@@ -1,7 +1,7 @@
 ---
 type: ProjectFeedLayout
 title: Proyectos
-colors: colors-f
+colors: colors-b
 projectFeed:
   type: ProjectFeedSection
   colors: colors-f
@@ -29,14 +29,14 @@ topSections:
     styles:
       self:
         height: auto
-        width: narrow
+        width: wide
         padding:
-          - pt-16
-          - pb-16
+          - pt-36
+          - pb-48
           - pl-4
           - pr-4
         flexDirection: row
-        textAlign: center
+        textAlign: left
   - type: NotebooksSection
     title: "📓 Notebooks de Jupyter"
     subtitle: "Análisis de datos, machine learning y optimización"
@@ -44,10 +44,10 @@ topSections:
     colors: colors-f
     styles:
       self:
-        width: narrow
+        width: wide
         padding:
-          - pt-12
-          - pb-12
+          - pt-24
+          - pb-24
           - pl-4
           - pr-4
         textAlign: center
@@ -104,8 +104,8 @@ bottomSections:
         margin:
           - mt-0
           - mb-0
-          - ml-4
-          - mr-4
+          - ml-0
+          - mr-0
         padding:
           - pt-24
           - pb-24
