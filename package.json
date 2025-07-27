@@ -4,7 +4,10 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "generate-notebooks": "node scripts/generate-notebooks-feed.js",
+        "update-projects": "node scripts/update-projects-page.js",
+        "sync-notebooks": "npm run generate-notebooks && npm run update-projects"
     },
     "dependencies": {
         "@tailwindcss/postcss": "^4.0.12",

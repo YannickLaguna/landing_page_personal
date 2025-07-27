@@ -1,6 +1,6 @@
 ---
 type: ProjectFeedLayout
-title: Projects
+title: Proyectos
 colors: colors-a
 backgroundImage:
   type: BackgroundImage
@@ -27,8 +27,8 @@ projectFeed:
         - pb-12
 topSections:
   - type: HeroSection
-    title: Projects
-    subtitle: ''
+    title: Proyectos
+    subtitle: "Explora mis últimos proyectos y notebooks de Jupyter"
     actions: []
     colors: colors-f
     backgroundSize: full
@@ -44,26 +44,40 @@ topSections:
           - pr-4
         flexDirection: row
         textAlign: left
+  - type: NotebooksSection
+    title: "📓 Notebooks de Jupyter"
+    subtitle: "Análisis de datos, machine learning y optimización"
+    maxItems: 6
+    colors: colors-f
+    styles:
+      self:
+        width: wide
+        padding:
+          - pt-12
+          - pb-12
+          - pl-4
+          - pr-4
+        textAlign: center
 bottomSections:
   - type: ContactSection
     backgroundSize: full
-    title: Let’s talk... 💬
+    title: "Hablemos... 💬"
     colors: colors-f
     form:
       type: FormBlock
       elementId: sign-up-form
       fields:
         - name: firstName
-          label: First Name
+          label: Nombre
           hideLabel: true
-          placeholder: First Name
+          placeholder: Nombre
           isRequired: true
           width: 1/2
           type: TextFormControl
         - name: lastName
-          label: Last Name
+          label: Apellido
           hideLabel: true
-          placeholder: Last Name
+          placeholder: Apellido
           isRequired: false
           width: 1/2
           type: TextFormControl
@@ -75,18 +89,18 @@ bottomSections:
           width: full
           type: EmailFormControl
         - name: message
-          label: Message
+          label: Mensaje
           hideLabel: true
-          placeholder: Tell me about your project
+          placeholder: Cuéntame sobre tu proyecto
           isRequired: true
           width: full
           type: TextareaFormControl
         - name: updatesConsent
-          label: Sign me up to recieve my words
+          label: Suscríbeme para recibir mis palabras
           isRequired: false
           width: full
           type: CheckboxFormControl
-      submitLabel: Submit 🚀
+      submitLabel: "Enviar 🚀"
       styles:
         self:
           textAlign: center

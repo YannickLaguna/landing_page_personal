@@ -75,5 +75,6 @@ const components = {
     PostFeedLayout: dynamic(() => import('./layouts/PostFeedLayout')),
     ProjectLayout: dynamic(() => import('./layouts/ProjectLayout')),
     ProjectFeedLayout: dynamic(() => import('./layouts/ProjectFeedLayout')),
-    AreasOfInterestSection: dynamic(() => import('./sections/AreasOfInterestSection'))
+    AreasOfInterestSection: dynamic(() => import('./sections/AreasOfInterestSection')),
+    NotebooksSection: dynamic(() => import('./sections/NotebooksSection'))
 };

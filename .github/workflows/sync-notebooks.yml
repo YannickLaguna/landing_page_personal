@@ -1,0 +1,41 @@
+name: Sync Notebooks Feed
+
+on:
+  schedule:
+    # Ejecutar diariamente a las 6:00 AM UTC
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Permitir ejecución manual
+  repository_dispatch:
+    # Permitir trigger desde otros repositorios
+    types: [notebooks-updated]
+
+jobs:
+  sync-notebooks:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate notebooks feed
+        run: npm run generate-notebooks
+        
+      - name: Update projects pages
+        run: npm run update-projects
+        
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add content/pages/projects/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-sync notebooks feed" && git push) 

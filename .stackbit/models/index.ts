@@ -1,4 +1,5 @@
 import { AreasOfInterestSectionModel } from './AreasOfInterestSection';
+import { NotebooksSectionModel } from './NotebooksSection';
 import { BackgroundImageModel } from './BackgroundImage';
 import { ButtonModel } from './Button';
 import { CheckboxFormControlModel } from './CheckboxFormControl';
@@ -89,5 +90,6 @@ export const allModels = [
     ThemeStyleModel,
     VideoBlockModel,
     LanguageToggleModel,
-    AreasOfInterestSectionModel
+    AreasOfInterestSectionModel,
+    NotebooksSectionModel
 ];
