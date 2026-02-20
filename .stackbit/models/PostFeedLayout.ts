@@ -8,8 +8,8 @@ export const PostFeedLayoutModel: Model = {
     labelField: 'title',
     hideContent: true,
     singleInstance: true,
-    urlPath: '/blog',
-    file: 'content/pages/blog/index.md',
+    urlPath: '/es/blog',
+    file: 'content/pages/blog/index.es.md',
     fieldGroups: [...seoFieldsGroup, ...styleFieldsGroup],
     fields: [
         {

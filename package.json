@@ -7,7 +7,9 @@
         "start": "next start",
         "generate-notebooks": "node scripts/generate-notebooks-feed.js",
         "update-projects": "node scripts/update-projects-page.js",
-        "sync-notebooks": "npm run generate-notebooks && npm run update-projects"
+        "sync-notebooks": "npm run generate-notebooks && npm run update-projects",
+        "translate": "node scripts/translate-md.js",
+        "translate-force": "node scripts/translate-md.js --force"
     },
     "dependencies": {
         "@tailwindcss/postcss": "^4.0.12",

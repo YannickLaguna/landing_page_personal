@@ -43,6 +43,10 @@ export function getStaticPaths({ locales }) {
             if (obj.__metadata.urlPath !== undefined) {
                 const slugArr = obj.__metadata.urlPath === '/' ? [] : obj.__metadata.urlPath.slice(1).split('/');
                 paths.push({ params: { slug: slugArr }, locale });
+                // El editor Stackbit abre /es/index/ para el home (desde urlPath '/es/{slug}' con slug='index')
+                if (obj.__metadata.urlPath === '/' && locale === 'es') {
+                    paths.push({ params: { slug: ['index'] }, locale: 'es' });
+                }
             }
         });
     });
@@ -52,7 +56,9 @@ export function getStaticPaths({ locales }) {
 
 export function getStaticProps({ params, locale }) {
     const allData = allContent(locale);
-    const urlPath = '/' + (params.slug || []).join('/');
+    let urlPath = '/' + (params.slug || []).join('/');
+    // Stackbit abre /es/index/ para la home; lo remapeamos al urlPath real
+    if (urlPath === '/index') urlPath = '/';
     const props = resolveStaticProps(urlPath, allData);
     return { props };
 }

@@ -111,8 +111,13 @@ function contentUrl(obj: ContentObject) {
 export function allContent(locale: string = 'en'): ContentObject[] {
     let allObjects = contentFilesInPath(contentBaseDir).map((file) => readContent(file));
 
-    // Filtrar archivos de configuración (si tienes config.es.json, etc.)
-    const configObjects = allObjects.filter((obj) => obj.__metadata.id.includes('/data/'));
+    // Filtrar archivos de configuración por locale
+    const configObjects = allObjects.filter((obj) => {
+        const id = obj.__metadata.id;
+        if (!id.includes('/data/')) return false;
+        if (locale === 'es') return id.endsWith('.es.json');
+        return !id.endsWith('.es.json'); // inglés: solo .json sin sufijo .es
+    });
 
     // Filtrar páginas por idioma
     const pageObjects = allObjects.filter((obj) => {
@@ -135,7 +140,13 @@ export function allContent(locale: string = 'en'): ContentObject[] {
     objects.forEach((e) => resolveReferences(e, fileToContent));
 
     objects = objects.map((e) => deepClone(e));
-    objects.forEach((e) => annotateContentObject(e));
+
+    // Anotamos el español, que ahora es la fuente primaria del editor visual de Stackbit.
+    // Los archivos .es.md y config.es.json están registrados en GitContentSource,
+    // por lo que las anotaciones permiten la edición directa desde el editor.
+    if (locale === 'es') {
+        objects.forEach((e) => annotateContentObject(e));
+    }
 
     return objects;
 }

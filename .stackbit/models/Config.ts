@@ -6,7 +6,7 @@ export const ConfigModel: Model = {
     label: 'Site configuration',
     labelField: 'fixedLabel',
     singleInstance: true,
-    file: 'content/data/config.json',
+    file: 'content/data/config.es.json',
     canDelete: false,
     fieldGroups: [
         {

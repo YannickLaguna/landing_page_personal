@@ -105,7 +105,8 @@ async function translateFieldsRecursively(obj, targetLangCode) {
 
 async function processFileToTargetLang(filePath, sourceLang, targetLang) {
   const targetPath = getCounterpartPath(filePath, targetLang);
-  if (fs.existsSync(targetPath)) return; // Ya existe la contraparte
+  const forzarSobreescritura = process.argv.includes('--force');
+  if (fs.existsSync(targetPath) && !forzarSobreescritura) return; // Ya existe la contraparte (omitir a menos que --force)
   let content = fs.readFileSync(filePath, 'utf8');
   // Extrae YAML y body
   const match = content.match(/^---([\s\S]*?)---([\s\S]*)/);
