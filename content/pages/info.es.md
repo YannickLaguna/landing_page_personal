@@ -284,65 +284,28 @@ sections:
           - pr-4
         borderWidth: 1
         borderStyle: solid
-  - type: ContactSection
-    backgroundSize: full
-    title: Let’s talk... 💬
+  - type: CtaSection
+    title: "Hablemos \U0001F4AC"
     colors: colors-f
-    form:
-      type: FormBlock
-      elementId: sign-up-form
-      fields:
-        - name: firstName
-          label: First Name
-          hideLabel: true
-          placeholder: First Name
-          isRequired: true
-          width: 1/2
-          type: TextFormControl
-        - name: lastName
-          label: Last Name
-          hideLabel: true
-          placeholder: Last Name
-          isRequired: false
-          width: 1/2
-          type: TextFormControl
-        - name: email
-          label: Email
-          hideLabel: true
-          placeholder: Email
-          isRequired: true
-          width: full
-          type: EmailFormControl
-        - name: message
-          label: Message
-          hideLabel: true
-          placeholder: Tell me about your project
-          isRequired: true
-          width: full
-          type: TextareaFormControl
-        - name: updatesConsent
-          label: Sign me up to recieve my words
-          isRequired: false
-          width: full
-          type: CheckboxFormControl
-      submitLabel: Submit 🚀
-      styles:
-        self:
-          textAlign: center
+    actions:
+      - type: Button
+        label: Póngase en contacto
+        url: ‘https://cal.com/ylaguna’
+        showIcon: true
+        icon: arrowRight
+        iconPosition: right
+        style: primary
+        elementId: ‘’
     styles:
       self:
         height: auto
         width: narrow
-        margin:
-          - mt-0
-          - mb-0
-          - ml-4
-          - mr-4
         padding:
-          - pt-12
-          - pb-12
-          - pr-4
+          - pt-24
+          - pb-24
           - pl-4
-        flexDirection: row
-        textAlign: left
+          - pr-4
+        textAlign: center
+        flexDirection: col
+        alignItems: center
 ---

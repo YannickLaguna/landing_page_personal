@@ -60,6 +60,19 @@ export const ProjectLayoutModel: Model = {
             }
         },
         {
+            type: 'string',
+            name: 'url',
+            label: 'URL del proyecto',
+            description: 'Enlace al proyecto publicado o demo'
+        },
+        {
+            type: 'list',
+            name: 'tags',
+            label: 'Tecnologías',
+            description: 'Tecnologías utilizadas en el proyecto',
+            items: { type: 'string' }
+        },
+        {
             type: 'list',
             name: 'bottomSections',
             label: 'Sections',

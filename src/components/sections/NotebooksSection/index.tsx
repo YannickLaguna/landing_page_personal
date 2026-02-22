@@ -1,3 +1,6 @@
+// este archivo importa la API de GitHub para obtener los notebooks.
+
+
 import React, { useState, useEffect } from 'react';
 import { getDataAttrs } from '../../../utils/get-data-attrs';
 import { mapStylesToClassNames as mapStyles } from '../../../utils/map-styles-to-class-names';
@@ -67,6 +70,22 @@ export default function NotebooksSection(props: NotebooksSectionProps) {
         }
     };
 
+    // Función para obtener la fecha del último commit de un archivo
+    const fetchLastCommitDate = async (filename: string): Promise<string> => {
+        const respuesta = await fetch(
+            `https://api.github.com/repos/yannicklaguna/Notebooks/commits?path=${encodeURIComponent(filename)}&per_page=1`,
+            {
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                    'User-Agent': 'notebooks-section'
+                }
+            }
+        );
+        if (!respuesta.ok) return new Date().toISOString();
+        const commits = await respuesta.json();
+        return commits[0]?.commit?.committer?.date ?? new Date().toISOString();
+    };
+
     // Función para obtener notebooks desde GitHub API
     const fetchNotebooks = async () => {
         try {
@@ -83,29 +102,29 @@ export default function NotebooksSection(props: NotebooksSectionProps) {
             }
 
             const data = await response.json();
-            console.log('Datos recibidos de GitHub:', data); // Debug
 
-            const notebooksList = data
-                .filter((item: any) => item.type === 'file' && item.name.endsWith('.ipynb'))
-                .map((item: any) => {
-                    console.log('Procesando notebook:', item.name, 'fecha:', item.updated_at, 'creado:', item.created_at); // Debug
-                    
-                    // Usar updated_at si existe, sino created_at, sino fecha actual
-                    const lastModified = item.updated_at || item.created_at || new Date().toISOString();
-                    
+            // Filtrar solo archivos .ipynb
+            const archivosFiltrados = data.filter((item: any) => item.type === 'file' && item.name.endsWith('.ipynb'));
+
+            // Obtener la fecha real del último commit para cada notebook en paralelo
+            const notebooksList = await Promise.all(
+                archivosFiltrados.map(async (item: any) => {
+                    const fechaUltimaModificacion = await fetchLastCommitDate(item.name);
                     return {
                         name: formatNotebookName(item.name),
                         filename: item.name,
                         url: `https://yannicklaguna.github.io/Notebooks/${item.name.replace('.ipynb', '.html')}`,
-                        lastModified: lastModified,
+                        lastModified: fechaUltimaModificacion,
                         size: item.size
                     };
                 })
+            );
+
+            const notebooksOrdenados = notebooksList
                 .sort((a: Notebook, b: Notebook) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
                 .slice(0, maxItems);
 
-            console.log('Notebooks procesados:', notebooksList); // Debug
-            setNotebooks(notebooksList);
+            setNotebooks(notebooksOrdenados);
             setError(null);
         } catch (err) {
             console.error('Error fetching notebooks:', err);

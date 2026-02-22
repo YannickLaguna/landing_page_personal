@@ -1,3 +1,5 @@
+// Responsabilidad: renderiza la página individual de un proyecto (ProjectLayout).
+// Se relaciona con: BaseLayout, ImageBlock, DynamicComponent, Link (atoms), ArrowUpRightIcon, tipos ProjectLayout, seo-utils.
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import Markdown from 'markdown-to-jsx';
@@ -6,6 +8,7 @@ import * as React from 'react';
 import { Annotated } from '@/components/Annotated';
 import Link from '@/components/atoms/Link';
 import { DynamicComponent } from '@/components/components-registry';
+import ArrowUpRightIcon from '@/components/svgs/arrow-up-right';
 import ImageBlock from '@/components/molecules/ImageBlock';
 import { PageComponentProps, ProjectLayout } from '@/types';
 import HighlightedPreBlock from '@/utils/highlighted-markdown';
@@ -25,6 +28,8 @@ const Component: React.FC<ComponentProps> = (props) => {
         description,
         markdownContent,
         media,
+        url,
+        tags = [],
         prevProject,
         nextProject,
         bottomSections = []
@@ -43,6 +48,28 @@ const Component: React.FC<ComponentProps> = (props) => {
                         </time>
                         <h1 className="text-5xl sm:text-6xl md:max-w-2xl md:grow">{title}</h1>
                     </div>
+                    {tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mt-6">
+                            {tags.map((etiqueta, indice) => (
+                                <span key={indice} className="text-sm uppercase tracking-wide border border-current px-3 py-1 rounded-full opacity-70">
+                                    {etiqueta}
+                                </span>
+                            ))}
+                        </div>
+                    )}
+                    {url && (
+                        <div className="mt-6">
+                            <a
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-sm uppercase tracking-wide border-b border-current pb-0.5 hover:opacity-70 transition-opacity"
+                            >
+                                Ver proyecto
+                                <ArrowUpRightIcon className="fill-current w-4 h-4" />
+                            </a>
+                        </div>
+                    )}
                 </header>
                 {description && (
                     <div className="max-w-3xl mx-auto mb-10 text-lg uppercase sm:text-xl sm:mb-14">{description}</div>

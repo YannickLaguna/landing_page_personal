@@ -10,7 +10,7 @@ sections:
       - type: Button
         label: Póngase en contacto
         altText: ''
-        url: https://cal.com/ylaguna
+        url: 'https://cal.com/ylaguna'
         showIcon: true
         icon: arrowRight
         iconPosition: right
@@ -38,28 +38,38 @@ sections:
         textAlign: left
   - type: AreasOfInterestSection
     title: Áreas de interés
-    subtitle: Eche un vistazo a algunas de las cosas en las que me encanta trabajar.
+    subtitle: Algunas de las cosas en las que me encanta trabajar.
     interests:
       - icon: optimizacion
         title: Optimización
         description: >-
-          Reduzco costos y maximizo resultados identificando ineficiencias operativas. Implemento modelos matemáticos y algoritmos que optimizan el uso de recursos y aumentan la rentabilidad de tu organización.
+          Reduzco costos y maximizo resultados identificando ineficiencias
+          operativas. Implemento modelos matemáticos y algoritmos que optimizan
+          el uso de recursos y aumentan la rentabilidad de tu organización.
       - icon: dashboard
         title: Business Intelligence
         description: >-
-          Transformo datos complejos en insights accionables que impulsan decisiones estratégicas. Desde dashboards interactivos hasta análisis predictivos, ayudo a las organizaciones a descubrir patrones ocultos y oportunidades de crecimiento en sus datos.
+          Transformo datos complejos en insights accionables que impulsan
+          decisiones estratégicas. Desde dashboards interactivos hasta análisis
+          predictivos, ayudo a las organizaciones a descubrir patrones ocultos y
+          oportunidades de crecimiento en sus datos.
       - icon: brain
         title: Machine Learning
         description: >-
-          Desarrollo soluciones de ML personalizadas que van más allá de herramientas básicas. Me encanta tanto la matemática y la teoría tanto como la implementación.
+          Desarrollo soluciones de ML personalizadas que van más allá de
+          herramientas básicas. Me encanta tanto la matemática y la teoría tanto
+          como la implementación.
       - icon: cog
         title: Automatización
         description: >-
-          Elimino tareas repetitivas y optimizo workflows. Libero tiempo valioso de tu equipo para que lo dediques a lo que realmente importa.
+          Elimino tareas repetitivas y optimizo workflows. Libero tiempo valioso
+          de tu equipo para que lo dediques a lo que realmente importa.
       - icon: chart
         title: Análisis de datos
         description: >-
-          Convierto datos complejos en historias que impulsan la acción. Creo presentaciones y reportes que comunican insights de manera clara para stakeholders de todos los niveles.
+          Convierto datos complejos en historias que impulsan la acción. Creo
+          presentaciones y reportes que comunican insights de manera clara para
+          stakeholders de todos los niveles.
     colors: colors-f
     styles:
       self:
@@ -83,7 +93,8 @@ sections:
     showFeaturedImage: true
     showReadMoreLink: true
     variant: variant-b
-    projects: []
+    projects:
+      - content\pages\projects\growsave.es.md
     styles:
       self:
         height: auto
@@ -94,10 +105,11 @@ sections:
           - pl-4
           - pr-4
         textAlign: left
-    subtitle: Projects
+    subtitle: ''
+    title: Proyectos
   - type: NotebooksSection
-    title: "📓 Notebooks de Jupyter"
-    subtitle: "Análisis de datos, machine learning y optimización"
+    title: "\U0001F4D3 Notebooks de Jupyter"
+    subtitle: 'Análisis de datos, machine learning y optimización'
     maxItems: 6
     colors: colors-f
     styles:
@@ -113,14 +125,14 @@ sections:
     elementId: ''
     colors: colors-f
     variant: variant-d
-    subtitle: Featured Posts
+    subtitle: ''
     showFeaturedImage: false
     actions:
       - type: Link
-        label: See all posts
+        label: Ver todas las publicaciones
         url: /blog
     posts:
-      - content/pages/blog/post-one.es.md
+      - content\pages\blog\aaaa.es.md
     showDate: true
     showExcerpt: true
     showReadMoreLink: true
@@ -134,66 +146,5 @@ sections:
           - pl-4
           - pr-4
         textAlign: left
-    title: ''
-  - type: ContactSection
-    colors: colors-f
-    backgroundSize: full
-    title: Got an interesting project? Tell me more...💬
-    form:
-      type: FormBlock
-      elementId: sign-up-form
-      fields:
-        - name: firstName
-          label: First Name
-          hideLabel: true
-          placeholder: First Name
-          isRequired: true
-          width: 1/2
-          type: TextFormControl
-        - name: lastName
-          label: Last Name
-          hideLabel: true
-          placeholder: Last Name
-          isRequired: false
-          width: 1/2
-          type: TextFormControl
-        - name: email
-          label: Email
-          hideLabel: true
-          placeholder: Email
-          isRequired: true
-          width: 1/2
-          type: EmailFormControl
-        - name: address
-          label: Address
-          hideLabel: true
-          placeholder: Address
-          isRequired: true
-          width: 1/2
-          type: TextFormControl
-        - name: updatesConsent
-          label: Sign me up to recieve updates
-          isRequired: false
-          width: full
-          type: CheckboxFormControl
-      submitLabel: Submit 🚀
-      styles:
-        self:
-          textAlign: center
-    styles:
-      self:
-        height: auto
-        width: narrow
-        margin:
-          - mt-0
-          - mb-0
-          - ml-0
-          - mr-0
-        padding:
-          - pt-24
-          - pb-24
-          - pr-4
-          - pl-4
-        flexDirection: row
-        textAlign: left
+    title: Publicaciones
 ---

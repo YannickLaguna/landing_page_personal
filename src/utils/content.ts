@@ -75,7 +75,7 @@ function resolveReferences(content: ContentObject, fileToContent: Record<string,
         if (Array.isArray(fieldValue)) {
             if (fieldValue.length === 0) continue;
             if (isRef && typeof fieldValue[0] === 'string') {
-                fieldValue = fieldValue.map((filename) => fileToContent[filename]);
+                fieldValue = fieldValue.map((filename) => fileToContent[filename.replace(/\\/g, '/')]);
                 content[fieldName] = fieldValue;
             }
             if (typeof fieldValue[0] === 'object') {
@@ -83,7 +83,7 @@ function resolveReferences(content: ContentObject, fileToContent: Record<string,
             }
         } else {
             if (isRef && typeof fieldValue === 'string') {
-                fieldValue = fileToContent[fieldValue];
+                fieldValue = fileToContent[fieldValue.replace(/\\/g, '/')];
                 content[fieldName] = fieldValue;
             }
             if (typeof fieldValue === 'object') {
@@ -136,7 +136,9 @@ export function allContent(locale: string = 'en'): ContentObject[] {
         obj.__metadata.urlPath = contentUrl(obj);
     });
 
-    const fileToContent: Record<string, ContentObject> = Object.fromEntries(objects.map((e) => [e.__metadata.id, e]));
+    const fileToContent: Record<string, ContentObject> = Object.fromEntries(
+        objects.map((e) => [e.__metadata.id.replace(/\\/g, '/'), e])
+    );
     objects.forEach((e) => resolveReferences(e, fileToContent));
 
     objects = objects.map((e) => deepClone(e));
@@ -169,7 +171,9 @@ function annotateContentObject(o: any, prefix = '', depth = 0) {
     const depthPrefix = '--'.repeat(depth);
     if (depth === 0) {
         if (o.__metadata?.id) {
-            o[types.objectIdAttr] = o.__metadata.id;
+            // path.normalize produce backslashes en Windows, lo que coincide con los IDs
+            // que @stackbit/cms-git asigna internamente (construidos con path.join).
+            o[types.objectIdAttr] = path.normalize(o.__metadata.id);
             if (logAnnotations) console.log('[annotateContentObject] added object ID:', depthPrefix, o[types.objectIdAttr]);
         } else {
             if (logAnnotations) console.warn('[annotateContentObject] NO object ID:', o);

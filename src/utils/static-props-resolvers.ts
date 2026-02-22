@@ -95,8 +95,8 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
                 return allData.find(
                     (obj) =>
                         obj.__metadata &&
-                        typeof (obj.__metadata as any).sourceFilePath === 'string' &&
-                        (obj.__metadata as any).sourceFilePath.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
+                        typeof obj.__metadata.id === 'string' &&
+                        obj.__metadata.id.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
                 ) || null;
             }
             return projRef;
@@ -115,8 +115,8 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
                 return allData.find(
                     (obj) =>
                         obj.__metadata &&
-                        typeof (obj.__metadata as any).sourceFilePath === 'string' &&
-                        (obj.__metadata as any).sourceFilePath.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
+                        typeof obj.__metadata.id === 'string' &&
+                        obj.__metadata.id.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
                 ) || null;
             }
             return postRef;
@@ -135,8 +135,8 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
                 return allData.find(
                     (obj) =>
                         obj.__metadata &&
-                        typeof (obj.__metadata as any).sourceFilePath === 'string' &&
-                        (obj.__metadata as any).sourceFilePath.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
+                        typeof obj.__metadata.id === 'string' &&
+                        obj.__metadata.id.replace(/\\/g, '/') === postRef.replace(/\\/g, '/')
                 ) || null;
             }
             return postRef;
@@ -155,8 +155,8 @@ const PropsResolvers: Partial<Record<ContentObjectType, ResolverFunction>> = {
                 return allData.find(
                     (obj) =>
                         obj.__metadata &&
-                        typeof (obj.__metadata as any).sourceFilePath === 'string' &&
-                        (obj.__metadata as any).sourceFilePath.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
+                        typeof obj.__metadata.id === 'string' &&
+                        obj.__metadata.id.replace(/\\/g, '/') === projRef.replace(/\\/g, '/')
                 ) || null;
             }
             return projRef;

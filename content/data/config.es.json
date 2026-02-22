@@ -5,12 +5,12 @@
         "type": "Header",
         "headerVariant": "variant-c",
         "isSticky": false,
-        "title": "Personal",
+        "title": "Inicio",
         "isTitleVisible": true,
         "primaryLinks": [
             {
                 "type": "Link",
-                "label": "Información",
+                "label": "Sobre mí",
                 "url": "/info"
             },
             {
@@ -63,7 +63,7 @@
             },
             {
                 "type": "Link",
-                "label": "Blog",
+                "label": "Publicaciones",
                 "url": "/blog",
                 "altText": ""
             },
@@ -77,7 +77,7 @@
         "contacts": {
             "type": "ContactBlock",
             "title": "Detalles de contacto",
-            "phoneNumber": "+34 619 231 987",
+            "phoneNumber": "",
             "phoneAltText": "Mi número de teléfono",
             "email": "ylaguna000@gmail.com",
             "emailAltText": "Mi correo electrónico",

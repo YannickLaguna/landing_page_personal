@@ -43,9 +43,13 @@ export function seoGenerateTitle(page, site) {
 
 export function seoGenerateMetaDescription(page, site) {
     let metaDescription = null;
-    // Blog posts use the exceprt as the default meta description
+    // Blog posts use the excerpt as the default meta description
     if (page.__metadata?.modelName === 'PostLayout') {
         metaDescription = page.excerpt;
+    }
+    // Proyectos usan description como meta description por defecto
+    if (page.__metadata?.modelName === 'ProjectLayout') {
+        metaDescription = page.description;
     }
     // page metaDescription field overrides all others
     if (page.metaDescription) {
@@ -60,8 +64,8 @@ export function seoGenerateOgImage(page, site) {
     if (site?.defaultSocialImage) {
         ogImage = site.defaultSocialImage;
     }
-    // Blog posts use the featuredImage as the default og:image
-    if (page.__metadata?.modelName === 'PostLayout') {
+    // Blog posts y proyectos usan featuredImage como og:image por defecto
+    if (page.__metadata?.modelName === 'PostLayout' || page.__metadata?.modelName === 'ProjectLayout') {
         if (page.featuredImage?.url) {
             ogImage = page.featuredImage.url;
         }
