@@ -113,7 +113,7 @@ export default function NotebooksSection(props: NotebooksSectionProps) {
                     return {
                         name: formatNotebookName(item.name),
                         filename: item.name,
-                        url: `https://yannicklaguna.github.io/Notebooks/${item.name.replace('.ipynb', '.html')}`,
+                        url: `https://github.com/YannickLaguna/Notebooks/blob/main/${item.name}`,
                         lastModified: fechaUltimaModificacion,
                         size: item.size
                     };

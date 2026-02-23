@@ -141,6 +141,7 @@ async function obtenerFechaUltimoCommit(nombreArchivo) {
  */
 function generarMarkdownES(notebook, fechaCommit) {
     const titulo = formatearNombreNotebook(notebook.nombre);
+    const githubUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/master/${encodeURIComponent(notebook.nombreArchivo)}`;
 
     return `---
 type: PostLayout
@@ -150,10 +151,9 @@ colors: colors-b
 excerpt: >-
   Notebook de Jupyter: ${titulo}. Análisis de datos e implementación en Python.
 notebookUrl: '${notebook.urlHtml}'
+githubUrl: '${githubUrl}'
 generated: true
 ---
-
-[Ver notebook completo](${notebook.urlHtml})
 `;
 }
 
@@ -162,6 +162,7 @@ generated: true
  */
 function generarMarkdownEN(notebook, fechaCommit) {
     const titulo = formatearNombreNotebook(notebook.nombre);
+    const githubUrl = `https://github.com/${REPO_OWNER}/${REPO_NAME}/blob/master/${encodeURIComponent(notebook.nombreArchivo)}`;
 
     return `---
 type: PostLayout
@@ -171,10 +172,9 @@ colors: colors-b
 excerpt: >-
   Jupyter Notebook: ${titulo}. Data analysis and model implementation in Python.
 notebookUrl: '${notebook.urlHtml}'
+githubUrl: '${githubUrl}'
 generated: true
 ---
-
-[View full notebook](${notebook.urlHtml})
 `;
 }
 

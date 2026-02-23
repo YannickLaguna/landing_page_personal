@@ -15,7 +15,7 @@
             },
             {
                 "type": "Link",
-                "label": "Portfolio",
+                "label": "Projects",
                 "url": "/projects"
             },
             {
@@ -27,10 +27,10 @@
         "socialLinks": [
             {
                 "type": "Social",
-                "altText": "Twitter",
-                "label": "Twitter",
-                "url": "https://twitter.com/netlify",
-                "icon": "twitter"
+                "altText": "LinkedIn",
+                "label": "LinkedIn",
+                "url": "https://www.linkedin.com/in/yannick-laguna-piceda/",
+                "icon": "linkedin"
             },
             {
                 "type": "Social",

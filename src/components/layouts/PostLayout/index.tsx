@@ -27,13 +27,24 @@ import BaseLayout from '../BaseLayout';
 type ComponentProps = PageComponentProps & PostLayout;
 
 const Component: React.FC<ComponentProps> = (props) => {
-    const { title, date, author, markdownContent, media, bottomSections = [], notebookUrl } = props;
+    const { title, date, author, markdownContent, media, bottomSections = [], notebookUrl, githubUrl } = props;
     const dateTimeAttr = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
     const formattedDate = dayjs(date).format('YYYY-MM-DD');
 
     return (
         <BaseLayout {...props}>
             <article className="px-4 py-14 lg:py-20">
+                <div className="max-w-5xl mx-auto mb-6">
+                    <a
+                        href="/blog"
+                        className="inline-flex items-center gap-2 text-sm uppercase tracking-wide opacity-60 hover:opacity-100 transition-opacity"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                        Blog
+                    </a>
+                </div>
                 <header className="max-w-5xl mx-auto mb-10 sm:mb-14">
                     <div className="mb-6 uppercase">
                         <time dateTime={dateTimeAttr}>{formattedDate}</time>
@@ -53,6 +64,19 @@ const Component: React.FC<ComponentProps> = (props) => {
                 )}
                 {notebookUrl ? (
                     <div className="max-w-6xl mx-auto">
+                        <div className="flex justify-end mb-3">
+                            <a
+                                href={githubUrl || notebookUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded bg-gray-800 text-white text-sm hover:bg-gray-700 transition-colors"
+                            >
+                                Abrir notebook
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a>
+                        </div>
                         <iframe
                             src={notebookUrl}
                             className="w-full border-0"

@@ -9,27 +9,50 @@ const REPO_NAME = 'Notebooks';
 const PROJECTS_DIR = path.join(__dirname, '../content/pages/projects');
 const NOTEBOOKS_BASE_URL = 'https://yannicklaguna.github.io/Notebooks/';
 
+// Función para obtener la fecha del último commit de un archivo
+async function getLastCommitDate(filename) {
+    const cabeceras = {
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'notebooks-feed-generator'
+    };
+    if (process.env.GITHUB_TOKEN) {
+        cabeceras['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+    }
+    try {
+        const respuesta = await axios.get(
+            `${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/commits`,
+            { headers: cabeceras, params: { path: filename, per_page: 1 } }
+        );
+        if (respuesta.data.length > 0) {
+            return new Date(respuesta.data[0].commit.committer.date).toISOString().split('T')[0];
+        }
+    } catch (_) {}
+    return new Date().toISOString().split('T')[0];
+}
+
 // Función para obtener la lista de notebooks desde GitHub API
 async function getNotebooksList() {
+    const cabeceras = {
+        'Accept': 'application/vnd.github.v3+json',
+        'User-Agent': 'notebooks-feed-generator'
+    };
+    if (process.env.GITHUB_TOKEN) {
+        cabeceras['Authorization'] = `token ${process.env.GITHUB_TOKEN}`;
+    }
     try {
-        // Obtener el contenido del directorio raíz del repositorio
         const response = await axios.get(`${GITHUB_API_BASE}/repos/${REPO_OWNER}/${REPO_NAME}/contents`, {
-            headers: {
-                'Accept': 'application/vnd.github.v3+json',
-                'User-Agent': 'notebooks-feed-generator'
-            }
+            headers: cabeceras
         });
 
-        // Filtrar solo archivos .ipynb
-        const notebooks = response.data
-            .filter(item => item.type === 'file' && item.name.endsWith('.ipynb'))
-            .map(item => ({
-                name: item.name.replace('.ipynb', ''),
-                filename: item.name,
-                url: `${NOTEBOOKS_BASE_URL}${item.name.replace('.ipynb', '.html')}`,
-                lastModified: item.updated_at,
-                size: item.size
-            }));
+        const archivos = response.data.filter(item => item.type === 'file' && item.name.endsWith('.ipynb'));
+
+        const notebooks = await Promise.all(archivos.map(async item => ({
+            name: item.name.replace('.ipynb', ''),
+            filename: item.name,
+            url: `${NOTEBOOKS_BASE_URL}${item.name.replace('.ipynb', '.html')}`,
+            lastModified: await getLastCommitDate(item.name),
+            size: item.size
+        })));
 
         return notebooks;
     } catch (error) {

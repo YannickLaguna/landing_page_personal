@@ -1,10 +1,11 @@
 ---
 type: PostLayout
-title: Python Hashes
-date: '2025-07-28'
+title: 'Python Hashes'
+date: '2026-02-23'
 colors: colors-b
-excerpt: 'Jupyter Notebook: Python Hashes. Data analysis and implementation in Python.'
-notebookUrl: https://yannicklaguna.github.io/Notebooks/Python%20Hashes.html
+excerpt: >-
+  Jupyter Notebook: Python Hashes. Data analysis and model implementation in Python.
+notebookUrl: 'https://yannicklaguna.github.io/Notebooks/Python_Hashes.html'
+githubUrl: 'https://github.com/yannicklaguna/Notebooks/blob/master/Python_Hashes.ipynb'
 generated: true
 ---
-[See full notebook](https://yannicklaguna.github.io/Notebooks/Python%20Hashes.html)

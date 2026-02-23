@@ -40,6 +40,17 @@ const Component: React.FC<ComponentProps> = (props) => {
     return (
         <BaseLayout {...props}>
             <article className="px-4 py-14 lg:py-20">
+                <div className="max-w-5xl mx-auto mb-6">
+                    <a
+                        href="/projects"
+                        className="inline-flex items-center gap-2 text-sm uppercase tracking-wide opacity-60 hover:opacity-100 transition-opacity"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                        Proyectos
+                    </a>
+                </div>
                 <header className="max-w-5xl mx-auto mb-10 sm:mb-14">
                     {client && <div className="text-lg uppercase md:mb-6">{client}</div>}
                     <div className="flex flex-col gap-6 md:flex-row md:justify-between">
