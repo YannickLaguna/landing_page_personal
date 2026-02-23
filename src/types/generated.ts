@@ -504,6 +504,7 @@ export type PostLayout = BaseContentObject & {
     backgroundImage?: BackgroundImage;
     markdownContent: string;
     notebookUrl?: string;  // URL del HTML en GitHub Pages para mostrar en iframe
+    githubUrl?: string;  // URL del repositorio o archivo en GitHub
 };
 
 export type ProjectFeedLayout = BaseContentObject & {
