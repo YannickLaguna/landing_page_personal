@@ -107,21 +107,21 @@ sections:
         textAlign: left
     subtitle: ''
     title: Proyectos
-  - type: FeaturedPostsSection
+  - type: RecentPostsSection
+    recentCount: 3
+    title: Publicaciones
+    subtitle: ''
     elementId: ''
     colors: colors-f
     variant: variant-d
-    subtitle: ''
+    showDate: true
+    showExcerpt: true
     showFeaturedImage: false
+    showReadMoreLink: true
     actions:
       - type: Link
         label: Ver todas las publicaciones
         url: /blog
-    posts:
-      - content\pages\blog\aaaa.es.md
-    showDate: true
-    showExcerpt: true
-    showReadMoreLink: true
     styles:
       self:
         height: auto
@@ -132,5 +132,4 @@ sections:
           - pl-4
           - pr-4
         textAlign: left
-    title: Publicaciones
 ---

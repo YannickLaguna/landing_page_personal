@@ -102,21 +102,21 @@ sections:
         textAlign: left
     subtitle: ''
     title: Projects
-  - type: FeaturedPostsSection
+  - type: RecentPostsSection
+    recentCount: 3
+    title: Publications
+    subtitle: ''
     elementId: ''
     colors: colors-f
     variant: variant-d
-    subtitle: ''
+    showDate: true
+    showExcerpt: true
     showFeaturedImage: false
+    showReadMoreLink: true
     actions:
       - type: Link
         label: See all posts
         url: /blog
-    posts:
-      - content\pages\blog\aaaa.es.md
-    showDate: true
-    showExcerpt: true
-    showReadMoreLink: true
     styles:
       self:
         height: auto
@@ -127,5 +127,4 @@ sections:
           - pl-4
           - pr-4
         textAlign: left
-    title: Publications
 ---
