@@ -13,7 +13,7 @@ export default function Header(props) {
     const headerWidth = styles.self?.width ?? 'narrow';
 
     return (
-        <header className={classNames(isSticky ? 'sticky top-0 z-10' : 'relative', 'border-b border-current')}>
+        <header data-theme="colors-b" className={classNames(isSticky ? 'sticky top-0 z-10' : 'relative', 'border-b border-current')}>
             <div
                 className={classNames({
                     'max-w-7xl mx-auto xl:border-x xl:border-current': headerWidth === 'narrow',

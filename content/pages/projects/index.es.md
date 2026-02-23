@@ -21,7 +21,7 @@ projectFeed:
 topSections:
   - type: HeroSection
     title: Proyectos
-    subtitle: Explora mis últimos proyectos y notebooks de Jupyter
+    subtitle: Explora mis últimos proyectos
     actions: []
     colors: colors-f
     backgroundSize: full
@@ -37,20 +37,6 @@ topSections:
           - pr-4
         flexDirection: row
         textAlign: left
-  - type: NotebooksSection
-    title: "\U0001F4D3 Notebooks de Jupyter"
-    subtitle: 'Análisis de datos, machine learning y optimización'
-    maxItems: 6
-    colors: colors-f
-    styles:
-      self:
-        width: wide
-        padding:
-          - pt-24
-          - pb-24
-          - pl-4
-          - pr-4
-        textAlign: center
 bottomSections:
   - type: CtaSection
     title: "Hablemos \U0001F4AC"

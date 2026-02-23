@@ -6,10 +6,10 @@ layer(base);
 
 @theme {
     --font-body: var(--theme-font-body, monospace);
-    --background-color-main: var(--theme-dark);
-    --background-color-inverse: var(--theme-on-dark);
-    --text-color-main: var(--theme-on-dark);
-    --text-color-inverse: var(--theme-dark);
+    --background-color-main: var(--theme-light);
+    --background-color-inverse: var(--theme-on-light);
+    --text-color-main: var(--theme-on-light);
+    --text-color-inverse: var(--theme-light);
     --container-8xl: 96rem;
     --spacing-icon: 1em;
 }
@@ -59,6 +59,12 @@ layer(base);
     }
 
     /* Color themes */
+    :where([data-theme='colors-a']) {
+        --background-color-main: var(--theme-dark);
+        --background-color-inverse: var(--theme-on-dark);
+        --text-color-main: var(--theme-on-dark);
+        --text-color-inverse: var(--theme-dark);
+    }
     :where([data-theme='colors-b']) {
         --background-color-main: var(--theme-light);
         --background-color-inverse: var(--theme-on-light);

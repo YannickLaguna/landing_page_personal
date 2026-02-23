@@ -29,14 +29,7 @@ addTitleSuffix: true
 metaDescription: >-
   GROWSAVE es una aplicación de planificación financiera personal con
   optimización de portafolios mediante programación cuadrática.
-colors: colors-a
-backgroundImage:
-  type: BackgroundImage
-  url: /images/bg2.jpg
-  backgroundSize: cover
-  backgroundPosition: center
-  backgroundRepeat: no-repeat
-  opacity: 100
+colors: colors-b
 ---
 
 GROWSAVE nace de la necesidad de democratizar la gestión financiera inteligente. La mayoría de las herramientas de planificación financiera ofrecen proyecciones simples, pero pocas integran optimización matemática real para la asignación de activos.

@@ -104,7 +104,7 @@ export const styleFields: Field[] = [
                 borderColor: '#ececec'
             }
         ],
-        default: 'colors-a'
+        default: 'colors-b'
     },
     {
         type: 'model',

@@ -21,7 +21,7 @@ projectFeed:
 topSections:
   - type: HeroSection
     title: Projects
-    subtitle: "Explore my latest projects and Jupyter notebooks"
+    subtitle: Explore my latest projects
     actions: []
     colors: colors-f
     backgroundSize: full
@@ -37,80 +37,29 @@ topSections:
           - pr-4
         flexDirection: row
         textAlign: left
-  - type: NotebooksSection
-    title: "📓 Notebooks de Jupyter"
-    subtitle: "Análisis de datos, machine learning y optimización"
-    maxItems: 6
+bottomSections:
+  - type: CtaSection
+    title: Let's talk 💬
     colors: colors-f
+    actions:
+      - type: Button
+        label: Get in touch
+        url: https://cal.com/ylaguna
+        showIcon: true
+        icon: arrowRight
+        iconPosition: right
+        style: primary
+        elementId: ''
     styles:
       self:
-        width: wide
+        height: auto
+        width: narrow
         padding:
           - pt-24
           - pb-24
           - pl-4
           - pr-4
         textAlign: center
-bottomSections:
-  - type: ContactSection
-    backgroundSize: full
-    title: "Let's talk... 💬"
-    colors: colors-f
-    form:
-      type: FormBlock
-      elementId: sign-up-form
-      fields:
-        - name: firstName
-          label: First Name
-          hideLabel: true
-          placeholder: First Name
-          isRequired: true
-          width: 1/2
-          type: TextFormControl
-        - name: lastName
-          label: Last Name
-          hideLabel: true
-          placeholder: Last Name
-          isRequired: false
-          width: 1/2
-          type: TextFormControl
-        - name: email
-          label: Email
-          hideLabel: true
-          placeholder: Email
-          isRequired: true
-          width: full
-          type: EmailFormControl
-        - name: message
-          label: Message
-          hideLabel: true
-          placeholder: Tell me about your project
-          isRequired: true
-          width: full
-          type: TextareaFormControl
-        - name: updatesConsent
-          label: Sign me up to recieve my words
-          isRequired: false
-          width: full
-          type: CheckboxFormControl
-      submitLabel: "Submit 🚀"
-      styles:
-        self:
-          textAlign: center
-    styles:
-      self:
-        height: auto
-        width: narrow
-        margin:
-          - mt-0
-          - mb-0
-          - ml-0
-          - mr-0
-        padding:
-          - pt-24
-          - pb-24
-          - pr-4
-          - pl-4
-        flexDirection: row
-        textAlign: left
+        flexDirection: col
+        alignItems: center
 ---

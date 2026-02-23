@@ -77,8 +77,6 @@
         "contacts": {
             "type": "ContactBlock",
             "title": "Contact details",
-            "phoneNumber": "+34 619 231 987",
-            "phoneAltText": "My phone number",
             "email": "ylaguna000@gmail.com",
             "emailAltText": "My email",
             "address": "Bilbao - Lanzarote",

@@ -65,7 +65,7 @@ projectFeed:
 topSections:
   - type: HeroSection
     title: Projects
-    subtitle: "Explore my latest projects and Jupyter notebooks"
+    subtitle: "Explore my latest projects"
     actions: []
     colors: colors-f
     backgroundSize: full
@@ -80,20 +80,6 @@ topSections:
           - pl-4
           - pr-4
         flexDirection: row
-        textAlign: center
-  - type: NotebooksSection
-    title: "📓 Notebooks de Jupyter"
-    subtitle: "Análisis de datos, machine learning y optimización"
-    maxItems: 6
-    colors: colors-f
-    styles:
-      self:
-        width: narrow
-        padding:
-          - pt-12
-          - pb-12
-          - pl-4
-          - pr-4
         textAlign: center
 bottomSections:
   - type: ContactSection
@@ -187,7 +173,7 @@ projectFeed:
 topSections:
   - type: HeroSection
     title: Proyectos
-    subtitle: "Explora mis últimos proyectos y notebooks de Jupyter"
+    subtitle: "Explora mis últimos proyectos"
     actions: []
     colors: colors-f
     backgroundSize: full
@@ -202,20 +188,6 @@ topSections:
           - pl-4
           - pr-4
         flexDirection: row
-        textAlign: center
-  - type: NotebooksSection
-    title: "📓 Notebooks de Jupyter"
-    subtitle: "Análisis de datos, machine learning y optimización"
-    maxItems: 6
-    colors: colors-f
-    styles:
-      self:
-        width: narrow
-        padding:
-          - pt-12
-          - pb-12
-          - pl-4
-          - pr-4
         textAlign: center
 bottomSections:
   - type: ContactSection

@@ -3,6 +3,7 @@
     "version": "0.2.0",
     "scripts": {
         "dev": "next dev",
+        "prebuild": "node scripts/generate-blog-from-notebooks.js",
         "build": "next build",
         "start": "next start",
         "generate-notebooks": "node scripts/generate-notebooks-feed.js",
@@ -13,6 +14,7 @@
         "stackbit": "stackbit dev"
     },
     "dependencies": {
+        "@giscus/react": "^3.1.0",
         "@tailwindcss/postcss": "^4.0.12",
         "axios": "^1.10.0",
         "classnames": "^2.5.1",

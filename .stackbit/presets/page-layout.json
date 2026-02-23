@@ -6,7 +6,7 @@
             "thumbnail": "images/page-empty.png",
             "data": {
                 "title": "Empty page",
-                "colors": "colors-a",
+                "colors": "colors-b",
                 "backgroundImage": {
                     "url": "/images/bg2.jpg",
                     "backgroundSize": "cover",
@@ -38,7 +38,7 @@
             "thumbnail": "images/page-landing.png",
             "data": {
                 "title": "Landing",
-                "colors": "colors-a",
+                "colors": "colors-b",
                 "backgroundImage": {
                     "url": "/images/bg1.jpg",
                     "backgroundSize": "cover",
@@ -199,7 +199,7 @@
             "thumbnail": "images/page-info.png",
             "data": {
                 "title": "Info page",
-                "colors": "colors-a",
+                "colors": "colors-b",
                 "backgroundImage": {
                     "url": "/images/bg2.jpg",
                     "backgroundSize": "cover",

@@ -111,12 +111,18 @@ function contentUrl(obj: ContentObject) {
 export function allContent(locale: string = 'en'): ContentObject[] {
     let allObjects = contentFilesInPath(contentBaseDir).map((file) => readContent(file));
 
-    // Filtrar archivos de configuración por locale
+    // Filtrar archivos de configuración por locale.
+    // Para español: usar .es.json si existe; si no, usar el .json genérico como fallback.
     const configObjects = allObjects.filter((obj) => {
         const id = obj.__metadata.id;
         if (!id.includes('/data/')) return false;
-        if (locale === 'es') return id.endsWith('.es.json');
-        return !id.endsWith('.es.json'); // inglés: solo .json sin sufijo .es
+        if (locale === 'es') {
+            if (id.endsWith('.es.json')) return true;
+            // Incluir .json genéricos que no tienen versión .es.json (ej. style.json)
+            const esVersion = id.replace(/\.json$/, '.es.json');
+            return !allObjects.some((o) => o.__metadata.id === esVersion);
+        }
+        return !id.endsWith('.es.json');
     });
 
     // Filtrar páginas por idioma

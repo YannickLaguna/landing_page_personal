@@ -503,6 +503,7 @@ export type PostLayout = BaseContentObject & {
     colors?: 'colors-a' | 'colors-b' | 'colors-c' | 'colors-d' | 'colors-e';
     backgroundImage?: BackgroundImage;
     markdownContent: string;
+    notebookUrl?: string;  // URL del HTML en GitHub Pages para mostrar en iframe
 };
 
 export type ProjectFeedLayout = BaseContentObject & {
