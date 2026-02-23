@@ -107,20 +107,6 @@ sections:
         textAlign: left
     subtitle: ''
     title: Proyectos
-  - type: NotebooksSection
-    title: "\U0001F4D3 Notebooks de Jupyter"
-    subtitle: 'Análisis de datos, machine learning y optimización'
-    maxItems: 6
-    colors: colors-f
-    styles:
-      self:
-        width: narrow
-        padding:
-          - pt-12
-          - pb-12
-          - pl-4
-          - pr-4
-        textAlign: center
   - type: FeaturedPostsSection
     elementId: ''
     colors: colors-f
