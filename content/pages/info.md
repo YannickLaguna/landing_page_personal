@@ -18,7 +18,7 @@ sections:
       professionally and personally.
 
 
-      Outside of work, I love being in touch with nature and I am usually the one who organizes plans with friends or
+      Outside of work, I love being in touch with nature and am usually the one who organizes plans with friends or
       family. I am motivated by challenges, teamwork, and the possibility of doing my part to make the world a better
       place. If you share that vision or simply want to chat about economics, business, or any other interesting topic,
       I would love to connect with you! 
