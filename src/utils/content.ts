@@ -248,5 +248,6 @@ export function leerPublicacionesParaFeed(): ContentObject[] {
                 } as ContentObject,
             ];
         })
-        .sort((a, b) => new Date(b.date as string).getTime() - new Date(a.date as string).getTime());
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .sort((a, b) => new Date((b as any).date ?? '').getTime() - new Date((a as any).date ?? '').getTime());
 }
