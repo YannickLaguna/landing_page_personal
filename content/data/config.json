@@ -20,8 +20,8 @@
             },
             {
                 "type": "Link",
-                "label": "Blog",
-                "url": "/blog"
+                "label": "Publicaciones",
+                "url": "/publicaciones"
             }
         ],
         "socialLinks": [
@@ -63,8 +63,8 @@
             },
             {
                 "type": "Link",
-                "label": "Blog",
-                "url": "/blog",
+                "label": "Publicaciones",
+                "url": "/publicaciones",
                 "altText": ""
             },
             {

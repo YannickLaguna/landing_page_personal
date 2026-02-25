@@ -1,14 +1,8 @@
 # Netlify Developer Portfolio Starter (auto-annotated)
 
 Landing page personal
+
 - Stack:Next.js, Tailwind CSS, [visual editor](https://docs.netlify.com/visual-editor/overview/) and the [Git Content Source](https://docs.netlify.com/create/content-sources/git/).
-
-The codebase showcases **how to apply annotations at scale**, meaning: how to make much of your components [highlightable in the visual editor](https://docs.netlify.com/visual-editor/visual-editing/inline-editor/) through data attributes without manually adding code throughout the codebase.
-
-**This is achieved by:**
-
-1. Adding an annotation property to the content objects at they're loaded (see `src/utils/content.ts`)
-1. When rendering the page, each content sub-object is dynamically matched to the appropriate component. At this point, wrap each component with an annotation, based on the abovementioned content property. See `src/components/components-registry.tsx`.
 
 Run the Next.js development server:
 
@@ -21,19 +15,11 @@ npm run dev
 stackbit dev
 ```
 
-## Scripts: usar con npm run nombre_script 
+## Scripts: usar con npm run nombre_script
+
 - recogidos en package.json
 
 ## Dependencias Comentadas
-
-### Dependencias deshabilitadas temporalmente:
-- `react-syntax-highlighter`: Para resaltado de sintaxis en bloques de código (actualmente deshabilitado por problemas de compatibilidad con versiones recientes)
-- `@types/react-syntax-highlighter`: Tipos de TypeScript para react-syntax-highlighter
-
-Para reactivar estas dependencias en el futuro:
-1. Descomenta las líneas en `package.json`
-2. Ejecuta `npm install`
-3. Actualiza `src/utils/highlighted-markdown.tsx` para usar la sintaxis correcta de la versión actual
 
 ## Mapeo de Iconos en Secciones Personalizadas
 
@@ -48,3 +34,52 @@ Para usar un icono, simplemente especifica el nombre correspondiente en el campo
 ```
 
 El componente buscará el icono en `iconMap` y lo renderizará automáticamente. Puedes ver y ampliar la lista de iconos disponibles en `src/components/svgs/index.js`.
+
+## Sistema publicaciones
+
+Las publicaciones viven en el submodule `Publicaciones/` (repo Git separado).
+Cada artículo es una carpeta `Publicaciones/{slug}/` con al menos `index.mdx`.
+
+### Flujo de publicación
+
+1. **Escribir el artículo** en Obsidian (o cualquier editor) como `index.mdx`
+   dentro de `Publicaciones/{slug}/`.
+   El frontmatter obligatorio es:
+   ```yaml
+   ---
+   titulo: Título del artículo
+   fecha: "2025-01-15"
+   resumen: Descripción breve que aparece en el listado.
+   ---
+   ```
+
+2. **Generar gráficas** en Jupyter con Plotly y exportarlas al mismo directorio:
+   ```python
+   fig.write_json("varianza.json")
+   fig.write_json("scores.json")
+   ```
+   Los archivos `.json` se cargan automáticamente en build time.
+
+3. **Usar el componente `<Grafica>`** dentro del MDX para renderizar cada figura:
+   ```mdx
+   <Grafica src="varianza" altura={400} />
+   ```
+   El prop `src` es el nombre del archivo sin extensión `.json`.
+
+4. **Publicar**: hacer `git add . && git commit -m "..." && git push` dentro de
+   la carpeta `Publicaciones/`. Netlify detecta el cambio vía webhook del
+   submodule y reconstruye el sitio automáticamente.
+
+5. Si se actualizó el puntero del submodule en el repo principal, también hacer
+   `git push` desde la raíz del proyecto para registrar la nueva referencia.
+
+### Estructura de un artículo
+
+```
+Publicaciones/
+└── mi-articulo/
+    ├── index.mdx        # artículo en MDX con frontmatter
+    ├── figura1.json     # datos Plotly exportados con fig.write_json()
+    └── figura2.json
+```
+

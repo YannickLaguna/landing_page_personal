@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { DynamicComponent } from '@/components/components-registry';
 import { PageComponentProps } from '@/types';
-import { allContent } from '@/utils/content';
+import { allContent, leerPublicacionesParaFeed } from '@/utils/content';
 import { seoGenerateMetaDescription, seoGenerateMetaTags, seoGenerateTitle } from '@/utils/seo-utils';
 import { resolveStaticProps } from '@/utils/static-props-resolvers';
 
@@ -56,10 +56,13 @@ export function getStaticPaths({ locales }) {
 
 export function getStaticProps({ params, locale }) {
     const allData = allContent(locale);
+    // Mezclar publicaciones MDX para que RecentPostsSection las encuentre
+    const publicacionesMdx = leerPublicacionesParaFeed();
+    const allDataConPublicaciones = [...allData, ...publicacionesMdx];
     let urlPath = '/' + (params.slug || []).join('/');
     // Stackbit abre /es/index/ para la home; lo remapeamos al urlPath real
     if (urlPath === '/index') urlPath = '/';
-    const props = resolveStaticProps(urlPath, allData);
+    const props = resolveStaticProps(urlPath, allDataConPublicaciones);
     return { props };
 }
 

@@ -3,11 +3,8 @@
     "version": "0.2.0",
     "scripts": {
         "dev": "next dev",
-        "prebuild": "node scripts/generate-blog-from-notebooks.js",
         "build": "next build",
         "start": "next start",
-        "generate-notebooks": "node scripts/generate-notebooks-feed.js",
-        "sync-notebooks": "npm run generate-notebooks",
         "translate": "node scripts/translate-md.js",
         "translate-force": "node scripts/translate-md.js --force",
         "stackbit": "stackbit dev"
@@ -15,6 +12,7 @@
     "dependencies": {
         "@giscus/react": "^3.1.0",
         "@tailwindcss/postcss": "^4.0.12",
+        "@types/react-plotly.js": "^2.6.4",
         "axios": "^1.10.0",
         "classnames": "^2.5.1",
         "dayjs": "^1.11.11",
@@ -23,8 +21,11 @@
         "js-yaml": "^4.1.0",
         "markdown-to-jsx": "^7.7.1",
         "next": "^16.1.6",
+        "next-mdx-remote": "^6.0.0",
+        "plotly.js-dist-min": "^3.4.0",
         "react": "^19.2.4",
         "react-dom": "^19.2.4",
+        "react-plotly.js": "^2.6.0",
         "tailwindcss": "^4.0.12"
     },
     "devDependencies": {

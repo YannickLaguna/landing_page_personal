@@ -116,7 +116,7 @@ sections:
     actions:
       - type: Link
         label: See all posts
-        url: /blog
+        url: /publicaciones
     styles:
       self:
         height: auto

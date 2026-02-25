@@ -8,6 +8,8 @@ import glob from 'glob';
 import path from 'path';
 import { isDev } from './common';
 
+const DIRECTORIO_PUBLICACIONES = path.join(process.cwd(), 'Publicaciones');
+
 const contentBaseDir = 'content';
 const pagesBaseDir = contentBaseDir + '/pages';
 
@@ -206,4 +208,45 @@ function annotateContentObject(o: any, prefix = '', depth = 0) {
 
 function deepClone(o: object) {
     return JSON.parse(JSON.stringify(o));
+}
+
+/**
+ * Lee el frontmatter de cada Publicaciones/{slug}/index.mdx y devuelve
+ * objetos con la forma que espera PostFeedSection / RecentPostsSection,
+ * simulando la estructura de un PostLayout del CMS.
+ *
+ * Se usa en [[...slug]].tsx para mezclar las publicaciones MDX con allData
+ * antes de resolver las props de la homepage, de modo que RecentPostsSection
+ * las encuentre al filtrar por modelName === 'PostLayout'.
+ */
+export function leerPublicacionesParaFeed(): ContentObject[] {
+    if (!fs.existsSync(DIRECTORIO_PUBLICACIONES)) return [];
+
+    return fs
+        .readdirSync(DIRECTORIO_PUBLICACIONES, { withFileTypes: true })
+        .filter((entrada) => entrada.isDirectory())
+        .flatMap((entrada) => {
+            const slug = entrada.name;
+            const archivoMdx = path.join(DIRECTORIO_PUBLICACIONES, slug, 'index.mdx');
+            if (!fs.existsSync(archivoMdx)) return [];
+
+            const contenido = fs.readFileSync(archivoMdx, 'utf8');
+            const { attributes } = frontmatter<any>(contenido);
+
+            return [
+                {
+                    __metadata: {
+                        id: slug,
+                        modelName: 'PostLayout',
+                        urlPath: '/publicaciones/' + slug,
+                    },
+                    type: 'PostLayout',
+                    title: attributes.titulo ?? slug,
+                    date: attributes.fecha ?? '',
+                    excerpt: attributes.resumen ?? '',
+                    markdownContent: '',
+                } as ContentObject,
+            ];
+        })
+        .sort((a, b) => new Date(b.date as string).getTime() - new Date(a.date as string).getTime());
 }
