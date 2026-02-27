@@ -21,7 +21,7 @@ projectFeed:
 topSections:
   - type: HeroSection
     title: Projects
-    subtitle: "Explore my latest projects"
+    subtitle: Explore my latest projects
     actions: []
     colors: colors-f
     backgroundSize: full
@@ -40,23 +40,23 @@ topSections:
 bottomSections:
   - type: ContactSection
     backgroundSize: full
-    title: "Let's talk... 💬"
+    title: Let's talk... 💬
     colors: colors-f
     form:
       type: FormBlock
       elementId: sign-up-form
       fields:
         - name: firstName
-          label: First Name
+          label: Number
           hideLabel: true
-          placeholder: First Name
+          placeholder: Nombre
           isRequired: true
           width: 1/2
           type: TextFormControl
         - name: lastName
-          label: Last Name
+          label: Last name
           hideLabel: true
-          placeholder: Last Name
+          placeholder: Apellido
           isRequired: false
           width: 1/2
           type: TextFormControl
@@ -70,16 +70,16 @@ bottomSections:
         - name: message
           label: Message
           hideLabel: true
-          placeholder: Tell me about your project
+          placeholder: Cuéntame sobre tu proyecto
           isRequired: true
           width: full
           type: TextareaFormControl
         - name: updatesConsent
-          label: Sign me up to recieve my words
+          label: Subscribe to receive my words
           isRequired: false
           width: full
           type: CheckboxFormControl
-      submitLabel: "Submit 🚀"
+      submitLabel: Enviar 🚀
       styles:
         self:
           textAlign: center

@@ -4,8 +4,8 @@ title: Home
 colors: colors-b
 sections:
   - type: HeroSection
-    title: Yannick Laguna
-    subtitle: Passionate about finance, analysis, and problem solving
+    title: I'm Yannick Laguna.
+    subtitle: ''
     actions:
       - type: Button
         label: Get in touch
@@ -36,46 +36,15 @@ sections:
           - pr-4
         flexDirection: row
         textAlign: left
-  - type: AreasOfInterestSection
-    title: Areas of interest
-    subtitle: Some of the things I love to work on.
-    interests:
-      - icon: optimizacion
-        title: Optimization
-        description: >-
-          I reduce costs and maximize results by identifying operational inefficiencies. I implement mathematical models
-          and algorithms that optimize resource use and increase your organization's profitability.
-      - icon: dashboard
-        title: Business Intelligence
-        description: >-
-          I transform complex data into actionable insights that drive strategic decisions. From interactive dashboards
-          to predictive analytics, I help organizations uncover hidden patterns and growth opportunities in their data.
-      - icon: brain
-        title: Machine Learning
-        description: >-
-          I develop customized ML solutions that go beyond basic tools. I love mathematics and theory as much as
-          implementation.
-      - icon: cog
-        title: Automation
-        description: >-
-          I eliminate repetitive tasks and optimize workflows. I free up your team's valuable time so you can focus on
-          what really matters.
-      - icon: chart
-        title: Data analysis
-        description: >-
-          I turn complex data into stories that drive action. I create presentations and reports that clearly
-          communicate insights to stakeholders at all levels.
-    colors: colors-f
-    styles:
-      self:
-        height: auto
-        width: wide
-        padding:
-          - pt-24
-          - pb-24
-          - pl-4
-          - pr-4
-        textAlign: center
+    text: >-
+      <div style="text-align: left">I am a 25-year-old Spanish economist with a special interest in personal and private
+      financial management. I am motivated by challenges, helping people and companies make better use of their
+      resources, and the possibility of doing my bit to make the world a better place.
+
+
+      I firmly believe that learning never ends and that we should all make informed decisions, which is why I develop
+      solutions aimed at freeing up your time, optimizing processes, and saving you money, combining economic modeling
+      with mathematical rigor to offer precise answers to specific problems. 
   - colors: colors-f
     type: FeaturedProjectsSection
     elementId: ''
