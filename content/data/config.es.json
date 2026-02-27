@@ -10,11 +10,6 @@
         "primaryLinks": [
             {
                 "type": "Link",
-                "label": "Sobre mí",
-                "url": "/info"
-            },
-            {
-                "type": "Link",
                 "label": "Proyectos",
                 "url": "/projects"
             },
@@ -49,12 +44,6 @@
     "footer": {
         "type": "Footer",
         "primaryLinks": [
-            {
-                "type": "Link",
-                "label": "Información",
-                "url": "/info",
-                "altText": ""
-            },
             {
                 "type": "Link",
                 "label": "Contacto",

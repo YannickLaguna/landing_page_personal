@@ -4,8 +4,8 @@ title: Inicio
 colors: colors-b
 sections:
   - type: HeroSection
-    title: Yannick Laguna
-    subtitle: 'Apasionado por las finanzas, el análisis, y la resolución de problemas'
+    title: Soy Yannick Laguna
+    subtitle: ''
     actions:
       - type: Button
         label: Póngase en contacto
@@ -36,51 +36,20 @@ sections:
           - pr-4
         flexDirection: row
         textAlign: left
-  - type: AreasOfInterestSection
-    title: Áreas de interés
-    subtitle: Algunas de las cosas en las que me encanta trabajar.
-    interests:
-      - icon: optimizacion
-        title: Optimización
-        description: >-
-          Reduzco costos y maximizo resultados identificando ineficiencias
-          operativas. Implemento modelos matemáticos y algoritmos que optimizan
-          el uso de recursos y aumentan la rentabilidad de tu organización.
-      - icon: dashboard
-        title: Business Intelligence
-        description: >-
-          Transformo datos complejos en insights accionables que impulsan
-          decisiones estratégicas. Desde dashboards interactivos hasta análisis
-          predictivos, ayudo a las organizaciones a descubrir patrones ocultos y
-          oportunidades de crecimiento en sus datos.
-      - icon: brain
-        title: Machine Learning
-        description: >-
-          Desarrollo soluciones de ML personalizadas que van más allá de
-          herramientas básicas. Me encanta tanto la matemática y la teoría tanto
-          como la implementación.
-      - icon: cog
-        title: Automatización
-        description: >-
-          Elimino tareas repetitivas y optimizo workflows. Libero tiempo valioso
-          de tu equipo para que lo dediques a lo que realmente importa.
-      - icon: chart
-        title: Análisis de datos
-        description: >-
-          Convierto datos complejos en historias que impulsan la acción. Creo
-          presentaciones y reportes que comunican insights de manera clara para
-          stakeholders de todos los niveles.
-    colors: colors-f
-    styles:
-      self:
-        height: auto
-        width: wide
-        padding:
-          - pt-24
-          - pb-24
-          - pl-4
-          - pr-4
-        textAlign: center
+    text: >+
+      <div style="text-align: left">Economista de 25 años español, con especial
+      interés en la gestión financiera personal y privada. Me motivan los retos,
+      ayudar a personas y empresas a hacer un mejor uso de sus recursos y la
+      posibilidad de aportar mi granito de arena para hacer del mundo un lugar
+      mejor.
+
+
+      Creo firmemente que el aprendizaje nunca termina y que todos deberíamos
+      tomar decisiones informadas, por eso desarrollo soluciones orientadas a
+      liberar tu tiempo, optimizar procesos y ahorrar tú dinero, combinando
+      modelización económica con rigor matemático para ofrecer respuestas
+      precisas a problemas concretos.</div>
+
   - colors: colors-f
     type: FeaturedProjectsSection
     elementId: ''
@@ -128,6 +97,100 @@ sections:
         width: narrow
         padding:
           - pt-28
+          - pb-24
+          - pl-4
+          - pr-4
+        textAlign: left
+  - type: DividerSection
+    styles:
+      self:
+        width: wide
+        padding:
+          - pt-12
+          - pb-12
+          - pl-4
+          - pr-4
+        borderWidth: 1
+        borderStyle: solid
+  - type: LabelsSection
+    colors: colors-f
+    subtitle: 'Skills:'
+    items:
+      - type: Label
+        label: 'WEB 1, 2, 3'
+      - type: Label
+        label: React
+      - type: Label
+        label: Microsoft Office
+      - type: Label
+        label: Next.js
+      - type: Label
+        label: Netlify
+      - type: Label
+        label: Pancakes
+      - type: Label
+        label: C++
+      - type: Label
+        label: Swift
+  - type: FeaturedItemsSection
+    colors: colors-f
+    items:
+      - type: FeaturedItem
+        subtitle: 'Experiencia:'
+        text: |-
+          **Actualmente**
+
+          * Freelancer
+
+          **2024**
+
+          * Técnico contable en Vocento
+
+          **2023**
+
+          * Auxiliar contable en Fullcarga Ibérica
+
+          **2023**
+
+          * Becario en Instituto de Capital Riesgo (INCARI)
+        styles:
+          self:
+            textAlign: left
+      - type: FeaturedItem
+        subtitle: 'Formación:'
+        text: >-
+          **2025**
+
+
+          * Máster en Modelización e Investigación Matemática, Estadística y
+          Computación
+
+
+          **2023**
+
+
+          * Grado en Economía en Universidad del País Vasco (UPV)
+
+
+          **Certificados**
+
+
+          * Contabilidad y fiscalidad (Plan General Contable) - 2024
+
+
+          * IBM Data Science - 2023
+        styles:
+          self:
+            textAlign: left
+    columns: 2
+    spacingX: 60
+    spacingY: 60
+    styles:
+      self:
+        height: auto
+        width: wide
+        padding:
+          - pt-8
           - pb-48
           - pl-4
           - pr-4

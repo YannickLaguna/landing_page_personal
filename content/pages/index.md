@@ -123,6 +123,70 @@ sections:
         width: narrow
         padding:
           - pt-28
+          - pb-24
+          - pl-4
+          - pr-4
+        textAlign: left
+  - type: DividerSection
+    styles:
+      self:
+        width: wide
+        padding:
+          - pt-12
+          - pb-12
+          - pl-4
+          - pr-4
+        borderWidth: 1
+        borderStyle: solid
+  - type: LabelsSection
+    colors: colors-f
+    subtitle: 'Skills:'
+    items:
+      - type: Label
+        label: WEB 1, 2, 3
+      - type: Label
+        label: React
+      - type: Label
+        label: Microsoft Office
+      - type: Label
+        label: Next.js
+      - type: Label
+        label: Netlify
+      - type: Label
+        label: Pancakes
+      - type: Label
+        label: C++
+      - type: Label
+        label: Swift
+  - type: FeaturedItemsSection
+    colors: colors-f
+    items:
+      - type: FeaturedItem
+        subtitle: 'Experience:'
+        text: >-
+          **Currently** * Freelancer **2024** * Accounting technician at Vocento **2023** * Accounting assistant at
+          Fullcarga Ibérica **2023** * Intern at the Venture Capital Institute (INCARI)
+        styles:
+          self:
+            textAlign: left
+      - type: FeaturedItem
+        subtitle: 'Education:'
+        text: >-
+          **2025** * Master's Degree in Mathematical Modeling and Research, Statistics, and Computing **2023** *
+          Bachelor's Degree in Economics from the University of the Basque Country (UPV) **Certificates** * Accounting
+          and Taxation (General Accounting Plan) - 2024 * IBM Data Science - 2023
+        styles:
+          self:
+            textAlign: left
+    columns: 2
+    spacingX: 60
+    spacingY: 60
+    styles:
+      self:
+        height: auto
+        width: wide
+        padding:
+          - pt-8
           - pb-48
           - pl-4
           - pr-4
