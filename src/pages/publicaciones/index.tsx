@@ -127,7 +127,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
             return {
                 __metadata: { urlPath: `/publicaciones/${slug}` },
                 title: attributes.titulo ?? slug,
-                date: attributes.fecha ?? '',
+                date: attributes.fecha instanceof Date ? attributes.fecha.toISOString().slice(0, 10) : (attributes.fecha ?? ''),
                 excerpt: attributes.resumen ?? '',
             };
         })
