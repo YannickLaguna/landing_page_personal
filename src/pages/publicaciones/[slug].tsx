@@ -114,7 +114,7 @@ export default function PaginaPublicacion({ fuenteMdx, frontmatter, datosGrafica
                                 )}
                             </header>
 
-                            <div className="prose sm:prose-lg prose-p:text-justify">
+                            <div className="prose sm:prose-lg prose-p:text-justify max-w-none">
                                 <GraficaDataProvider datos={datosGraficas}>
                                     <MDXRemote {...fuenteMdx} components={componentesMdx} />
                                 </GraficaDataProvider>
