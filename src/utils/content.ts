@@ -233,6 +233,10 @@ export function leerPublicacionesParaFeed(): ContentObject[] {
             const contenido = fs.readFileSync(archivoMdx, 'utf8');
             const { attributes } = frontmatter<any>(contenido);
 
+            // Excluir borradores del feed de la homepage (solo en producción)
+            const esProd = process.env.NODE_ENV === 'production';
+            if (esProd && attributes.published === false) return [];
+
             return [
                 {
                     __metadata: {
@@ -242,7 +246,7 @@ export function leerPublicacionesParaFeed(): ContentObject[] {
                     },
                     type: 'PostLayout',
                     title: attributes.titulo ?? slug,
-                    date: attributes.fecha ?? '',
+                    date: attributes.fecha instanceof Date ? attributes.fecha.toISOString().split('T')[0] : (attributes.fecha ?? ''),
                     excerpt: attributes.resumen ?? '',
                     markdownContent: '',
                 } as ContentObject,

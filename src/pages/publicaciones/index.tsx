@@ -50,26 +50,37 @@ export default function PaginaPublicaciones({ publicaciones, global }: Props) {
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <BaseLayout {...({ global } as any)}>
                 {/* Hero idéntico al del blog */}
-                <DynamicComponent
-                    {...({
-                        type: 'HeroSection',
-                        title: 'Publicaciones',
-                        subtitle: '',
-                        actions: [],
-                        colors: 'colors-f',
-                        backgroundSize: 'full',
-                        elementId: '',
-                        styles: {
-                            self: {
-                                height: 'auto',
-                                width: 'narrow',
-                                padding: ['pt-16', 'pb-16', 'pl-4', 'pr-4'],
-                                flexDirection: 'row',
-                                textAlign: 'left'
+                <div className="relative">
+                    <DynamicComponent
+                        {...({
+                            type: 'HeroSection',
+                            title: 'Publicaciones',
+                            subtitle: '',
+                            actions: [],
+                            colors: 'colors-f',
+                            backgroundSize: 'full',
+                            elementId: '',
+                            styles: {
+                                self: {
+                                    height: 'auto',
+                                    width: 'narrow',
+                                    padding: ['pt-16', 'pb-16', 'pl-4', 'pr-4'],
+                                    flexDirection: 'row',
+                                    textAlign: 'left'
+                                }
                             }
-                        }
-                    } as any)}
-                />
+                        } as any)}
+                    />
+                    <a
+                        href="/api/rss.xml"
+                        title="Feed RSS"
+                        className="absolute top-16 right-4 opacity-50 hover:opacity-100 transition-opacity"
+                        aria-label="Feed RSS"
+                    >
+                        {/* Icono RSS redondo */}
+                        <img src="/images/rss-round.svg" alt="RSS" className="w-5 h-5" />
+                    </a>
+                </div>
                 {/* Lista de publicaciones con el mismo estilo variant-d del blog */}
                 <PostFeedSection
                     colors="colors-f"
@@ -108,6 +119,10 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 
             const contenido = fs.readFileSync(archivoMdx, 'utf8');
             const { attributes } = frontmatterParser<any>(contenido);
+
+            // Excluir borradores: en producción published: false oculta la entrada
+            const esProd = process.env.NODE_ENV === 'production';
+            if (esProd && attributes.published === false) return null;
 
             return {
                 __metadata: { urlPath: `/publicaciones/${slug}` },

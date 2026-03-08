@@ -37,6 +37,19 @@ export default function Grafica({ src, titulo, altura = 420 }: GraficaProps) {
         );
     }
 
+    if (datos.__tipo === 'imagen') {
+        return (
+            <figure className="my-10">
+                <img src={datos.url} alt={titulo ?? src} style={{ maxWidth: '100%', height: 'auto' }} />
+                {titulo && (
+                    <figcaption className="text-sm text-center mt-2 opacity-60 italic">
+                        {titulo}
+                    </figcaption>
+                )}
+            </figure>
+        );
+    }
+
     // El JSON exportado por fig.write_json() de Plotly Python contiene: data, layout, frames, config
     return (
         <figure className="my-10">
