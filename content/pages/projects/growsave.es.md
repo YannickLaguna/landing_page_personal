@@ -19,7 +19,7 @@ media:
   altText: Dashboard de GROWSAVE
   caption: ''
   elementId: ''
-url: 'https://finpy.onrender.com/'
+url: 'https://growsave.ylaguna.com/'
 tags:
   - Python
   - FastAPI
