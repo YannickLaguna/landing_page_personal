@@ -1,0 +1,4 @@
+# deploy/.gitattributes — LF en ficheros que se usan en Linux (VPS)
+Caddyfile text eol=lf
+*.yml text eol=lf
+Dockerfile text eol=lf

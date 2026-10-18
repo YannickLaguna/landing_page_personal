@@ -1,0 +1,40 @@
+# ============================================================================
+# deploy/edge/Caddyfile — Tabla de dominios del VPS (ylaguna.com)
+#
+# Responsabilidad: HTTPS automático y reverse proxy por dominio.
+# Relación con otros módulos:
+#   - Montado por deploy/edge/docker-compose.yml.
+#   - Cada destino es un alias en la red Docker `edge`:
+#       landing:3000      → este repo (deploy/docker-compose.yml)
+#       growsave-web:8000 → repo TFM (deploy/docker-compose.prod.yml)
+#   - DNS en Cloudflare: registros A de @, www y growsave → IP del VPS.
+#     Con proxy naranja, SSL/TLS en "Full (strict)".
+# ============================================================================
+
+(comun) {
+	encode zstd gzip
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+	}
+}
+
+ylaguna.com {
+	import comun
+	reverse_proxy landing:3000
+}
+
+www.ylaguna.com {
+	redir https://ylaguna.com{uri} permanent
+}
+
+growsave.ylaguna.com {
+	import comun
+	reverse_proxy growsave-web:8000
+}
+
+# TEMPORAL: acceso por IP mientras se propagan los DNS de ylaguna.com. Borrar después.
+169-58-85-148.sslip.io {
+	import comun
+	reverse_proxy growsave-web:8000
+}

@@ -1,0 +1,16 @@
+# .dockerignore — Qué NO entra en el build de la landing
+# Responsabilidad: imagen ligera y sin secretos. Relación: deploy/Dockerfile.
+.git
+.github
+.claude
+.vscode
+.cache
+.stackbit/cache
+.next
+node_modules
+.env
+.env.*
+deploy
+netlify.toml
+renovate.json
+README.md

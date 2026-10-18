@@ -1,0 +1,30 @@
+# ============================================================================
+# deploy/docker-compose.yml — Landing personal en el VPS
+#
+# Responsabilidad: ejecutar el contenedor `landing` (Next.js) y conectarlo a la
+# red compartida `edge`, por la que entra el tráfico desde Caddy.
+# Relación con otros módulos:
+#   - Imagen: deploy/Dockerfile.
+#   - Proxy: deploy/edge/ (Caddy compartido para todos los dominios *.ylaguna.com).
+#   - No publica puertos: solo Caddy es accesible desde internet.
+#
+# Uso (desde la raíz del repo, en /opt/landing):
+#   docker compose -f deploy/docker-compose.yml up -d --build
+# ============================================================================
+
+name: landing
+
+services:
+  landing:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: landing-web:latest
+    restart: unless-stopped
+    networks:
+      edge:
+        aliases: [landing]
+
+networks:
+  edge:
+    external: true

@@ -1,0 +1,44 @@
+# ============================================================================
+# deploy/edge/docker-compose.yml — Caddy compartido del VPS (puerta de entrada)
+#
+# Responsabilidad: único contenedor con puertos públicos (80/443). Termina TLS
+# (Let's Encrypt automático) y reparte el tráfico por dominio a cada servicio
+# a través de la red Docker `edge`.
+# Relación con otros módulos:
+#   - deploy/edge/Caddyfile: tabla dominio → contenedor.
+#   - Servicios conectados a `edge`:
+#       landing       (este repo, deploy/docker-compose.yml)
+#       growsave-web  (repo TFM, deploy/docker-compose.prod.yml)
+#   - Vive aquí porque ylaguna.com es el sitio principal; añadir un proyecto
+#     nuevo = conectarlo a `edge` + un bloque en el Caddyfile.
+#
+# Uso (en /opt/landing):
+#   docker network create edge   # una sola vez
+#   docker compose -f deploy/edge/docker-compose.yml up -d
+#   Recargar config sin cortar: docker compose -f deploy/edge/docker-compose.yml exec caddy caddy reload --config /etc/caddy/Caddyfile
+# ============================================================================
+
+name: edge
+
+services:
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - edge
+
+networks:
+  edge:
+    external: true
+
+volumes:
+  caddy_data:
+  caddy_config:
