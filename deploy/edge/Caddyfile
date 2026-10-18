@@ -33,8 +33,3 @@ growsave.ylaguna.com {
 	reverse_proxy growsave-web:8000
 }
 
-# TEMPORAL: acceso por IP mientras se propagan los DNS de ylaguna.com. Borrar después.
-169-58-85-148.sslip.io {
-	import comun
-	reverse_proxy growsave-web:8000
-}
