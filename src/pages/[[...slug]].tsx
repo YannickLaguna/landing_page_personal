@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { DynamicComponent } from '@/components/components-registry';
 import { PageComponentProps } from '@/types';
 import { allContent, leerPublicacionesParaFeed } from '@/utils/content';
+import { aplicarContenidoRemoto, REVALIDAR_CONTENIDO_REMOTO } from '@/utils/contenido-remoto';
 import { seoGenerateMetaDescription, seoGenerateMetaTags, seoGenerateTitle } from '@/utils/seo-utils';
 import { resolveStaticProps } from '@/utils/static-props-resolvers';
 
@@ -54,7 +55,7 @@ export function getStaticPaths({ locales }) {
     return { paths, fallback: false };
 }
 
-export function getStaticProps({ params, locale }) {
+export async function getStaticProps({ params, locale }) {
     const allData = allContent(locale);
     // Mezclar publicaciones MDX para que RecentPostsSection las encuentre
     const publicacionesMdx = leerPublicacionesParaFeed();
@@ -63,6 +64,10 @@ export function getStaticProps({ params, locale }) {
     // Stackbit abre /es/index/ para la home; lo remapeamos al urlPath real
     if (urlPath === '/index') urlPath = '/';
     const props = resolveStaticProps(urlPath, allDataConPublicaciones);
+    // Páginas con `contenidoRemoto` (p.ej. fichas leídas del README de su repo): ISR cada hora
+    if (await aplicarContenidoRemoto(props)) {
+        return { props, revalidate: REVALIDAR_CONTENIDO_REMOTO };
+    }
     return { props };
 }
 

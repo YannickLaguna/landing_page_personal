@@ -66,6 +66,12 @@ export const ProjectLayoutModel: Model = {
             description: 'Enlace al proyecto publicado o demo'
         },
         {
+            type: 'string',
+            name: 'contenidoRemoto',
+            label: 'Contenido remoto (URL)',
+            description: 'URL que devuelve Markdown; sustituye al cuerpo de la página (se refresca cada hora)'
+        },
+        {
             type: 'list',
             name: 'tags',
             label: 'Tecnologías',

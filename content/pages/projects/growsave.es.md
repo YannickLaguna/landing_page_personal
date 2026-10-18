@@ -20,6 +20,8 @@ media:
   caption: ''
   elementId: ''
 url: 'https://growsave.ylaguna.com/'
+# Cuerpo leído del README del repo TFM (sección Ficha); el texto de abajo es solo respaldo
+contenidoRemoto: https://growsave.ylaguna.com/api/ficha?lang=es
 tags:
   - Python
   - FastAPI
@@ -32,18 +34,6 @@ metaDescription: >-
 colors: colors-b
 ---
 
-GROWSAVE nace de la necesidad de democratizar la gestión financiera inteligente. La mayoría de las herramientas de planificación financiera ofrecen proyecciones simples, pero pocas integran optimización matemática real para la asignación de activos.
+Servicio web de planificación financiera personal con optimización cuantitativa de carteras (MPT, Black-Litterman, CVaR, Monte Carlo).
 
-## Problema que resuelve
-
-Los usuarios definen sus metas de ahorro (emergencia, retiro, viaje, etc.) y el horizonte temporal para cada una. A partir de esos parámetros, el sistema calcula la asignación óptima de activos que maximiza el retorno esperado para un nivel de riesgo dado, usando **programación cuadrática** (modelo de Markowitz).
-
-## Stack técnico
-
-- **Backend**: Python + FastAPI
-- **Optimización**: `cvxpy` con solver OSQP para la frontera eficiente
-- **Despliegue**: Render (free tier)
-
-## Lo que aprendí
-
-Integrar un solver de optimización en un flujo web tiene sus retos: los tiempos de cómputo hay que gestionarlos con cuidado en instancias pequeñas, y la validación de los parámetros de entrada (matrices de covarianza semidefinidas positivas) requiere robustez extra.
+La ficha completa se mantiene en el README del proyecto. Pruébalo en [growsave.ylaguna.com](https://growsave.ylaguna.com/).
