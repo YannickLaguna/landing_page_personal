@@ -1,9 +1,0 @@
-[build]
-  publish = ".next"
-  command = "npm run build"
-
-[build.environment]
-  GIT_SUBMODULE_STRATEGY = "recursive"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
