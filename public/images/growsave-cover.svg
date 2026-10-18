@@ -1,0 +1,53 @@
+<!--
+  public/images/growsave-cover.svg — Portada de GrowSave para la landing (3:2, 1200x800).
+  Responsabilidad: imagen de featuredImage/media en content/pages/projects/growsave*.md.
+  Relación: el logo es una copia de Logo2 (repo TFM, app/frontend/components/ui/logo.tsx);
+  si el logo cambia allí, hay que actualizarlo aquí. El contenido va centrado porque las
+  tarjetas lo recortan con object-cover.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="fondo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1736"/>
+      <stop offset="1" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="curva" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#60A5FA" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#60A5FA" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#93C5FD" stop-opacity="0.8"/>
+    </linearGradient>
+    <pattern id="rejilla" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#FFFFFF" stroke-opacity="0.05"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#fondo)"/>
+  <rect width="1200" height="800" fill="url(#rejilla)"/>
+
+  <!-- Curva de crecimiento de fondo -->
+  <path d="M0 690 C180 680 260 640 380 610 S600 600 700 520 S920 430 1000 330 S1140 190 1200 150"
+        fill="none" stroke="url(#curva)" stroke-width="4"/>
+
+  <!-- Logo (Logo2) sobre tesela blanca -->
+  <g transform="translate(520 190)">
+    <rect width="160" height="160" rx="36" fill="#FFFFFF"/>
+    <g transform="translate(-10 -4) scale(1.68)">
+      <rect x="25" y="55" width="10" height="15" rx="2" fill="#60A5FA"/>
+      <rect x="40" y="45" width="10" height="25" rx="2" fill="#3B82F6"/>
+      <rect x="55" y="35" width="10" height="35" rx="2" fill="#2563EB"/>
+      <path d="M75 30 L82 37 L78.5 37 L78.5 48 L71.5 48 L71.5 37 L68 37 Z" fill="#1E40AF"/>
+    </g>
+  </g>
+
+  <text x="600" y="460" text-anchor="middle" fill="#FFFFFF"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="88" font-weight="700"
+        letter-spacing="-1">GrowSave</text>
+  <text x="600" y="520" text-anchor="middle" fill="#BFDBFE"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="400">
+    MPT · Black-Litterman · Monte Carlo
+  </text>
+  <text x="600" y="590" text-anchor="middle" fill="#93C5FD" fill-opacity="0.8"
+        font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="22" letter-spacing="2">
+    growsave.ylaguna.com
+  </text>
+</svg>

@@ -7,14 +7,14 @@ description: >-
   simulate investment scenarios, and receive an optimal asset allocation calculated using quadratic programming.
 featuredImage:
   type: ImageBlock
-  url: /images/growsave-thumb.jpg
-  altText: Captura de pantalla de GROWSAVE
+  url: /images/growsave-cover.svg
+  altText: GrowSave cover
   caption: ''
   elementId: ''
 media:
   type: ImageBlock
-  url: /images/growsave-thumb.jpg
-  altText: Dashboard de GROWSAVE
+  url: /images/growsave-cover.svg
+  altText: GrowSave cover
   caption: ''
   elementId: ''
 url: https://growsave.ylaguna.com/

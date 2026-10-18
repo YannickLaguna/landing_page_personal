@@ -9,14 +9,14 @@ description: >-
   calculada mediante programación cuadrática.
 featuredImage:
   type: ImageBlock
-  url: /images/growsave-thumb.jpg
-  altText: Captura de pantalla de GROWSAVE
+  url: /images/growsave-cover.svg
+  altText: Portada de GrowSave
   caption: ''
   elementId: ''
 media:
   type: ImageBlock
-  url: /images/growsave-thumb.jpg
-  altText: Dashboard de GROWSAVE
+  url: /images/growsave-cover.svg
+  altText: Portada de GrowSave
   caption: ''
   elementId: ''
 url: 'https://growsave.ylaguna.com/'
