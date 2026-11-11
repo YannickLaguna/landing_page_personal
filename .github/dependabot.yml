@@ -1,0 +1,20 @@
+# .github/dependabot.yml — Actualizaciones automáticas de dependencias de la landing
+#
+# Responsabilidad: abrir PRs semanales con parches de seguridad y versiones nuevas de
+# npm (package.json) y de las imágenes Docker (deploy/Dockerfile, deploy/edge).
+# Sustituye a renovate.json, que heredaba un preset de la plantilla de Netlify.
+# Relación: las PRs se revisan y despliegan a mano (deploy/README.md).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      menores:
+        update-types: [minor, patch]
+  - package-ecosystem: docker
+    directories: [/deploy, /deploy/edge]
+    schedule:
+      interval: monthly

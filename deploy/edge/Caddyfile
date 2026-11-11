@@ -16,11 +16,28 @@
 	header {
 		Strict-Transport-Security "max-age=31536000; includeSubDomains"
 		-Server
+		-X-Powered-By
+	}
+}
+
+# Cabeceras de endurecimiento de la landing. GrowSave no las importa porque su app
+# (app/services/security.py del repo TFM) ya envía las suyas y dos CSP se combinarían.
+# CSP en modo Report-Only hasta comprobar en el navegador que las publicaciones
+# (MDX con eval, KaTeX, Plotly, Giscus, iframes de notebooks/vídeo) no se rompen;
+# después renombrar a Content-Security-Policy.
+(cabeceras_landing) {
+	header {
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+		Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://giscus.app https://stats.ylaguna.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://giscus.app; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://api.github.com https://stats.ylaguna.com; frame-src https://giscus.app https://yannicklaguna.github.io https://www.youtube.com https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
 	}
 }
 
 ylaguna.com {
 	import comun
+	import cabeceras_landing
 	reverse_proxy landing:3000
 }
 

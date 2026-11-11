@@ -4,7 +4,7 @@ import * as types from '@/types';
 import { PAGE_MODEL_NAMES, PageModelType } from '@/types/generated';
 import frontmatter from 'front-matter';
 import * as fs from 'fs';
-import glob from 'glob';
+import { globSync } from 'glob';
 import path from 'path';
 import { isDev } from './common';
 
@@ -34,7 +34,8 @@ function isRefField(modelName: string, fieldName: string) {
 const supportedFileTypes = ['md', 'json'];
 function contentFilesInPath(dir: string) {
     const globPattern = `${dir}/**/*.{${supportedFileTypes.join(',')}}`;
-    return glob.sync(globPattern);
+    // posix + sort: mismas rutas con "/" y mismo orden que devolvía glob 7 (glob ≥ 9 no ordena)
+    return globSync(globPattern, { posix: true }).sort();
 }
 
 function readContent(file: string): ContentObject {

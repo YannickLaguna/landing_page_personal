@@ -91,8 +91,10 @@ const Component: React.FC<ComponentProps> = (props) => {
                     </figure>
                 )}
                 {markdownContent && (
+                    // disableParsingRawHTML: la ficha puede venir de una URL remota (contenidoRemoto,
+                    // README de TFM); su HTML crudo no debe inyectarse en ylaguna.com
                     <Markdown
-                        options={{ forceBlock: true, overrides: { pre: HighlightedPreBlock } }}
+                        options={{ forceBlock: true, disableParsingRawHTML: true, overrides: { pre: HighlightedPreBlock } }}
                         className="max-w-3xl mx-auto prose sm:prose-lg"
                     >
                         {markdownContent}
