@@ -1,6 +1,9 @@
 ---
 type: PageLayout
 title: Home
+metaTitle: "Yannick Laguna · Economist, data and quantitative finance"
+metaDescription: "Economist with a master's in Mathematical Modelling, Statistics and Computing. Financial data analysis, portfolio optimization and process automation. Creator of GrowSave."
+addTitleSuffix: false
 colors: colors-b
 sections:
   - type: HeroSection

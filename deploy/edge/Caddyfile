@@ -7,7 +7,8 @@
 #   - Cada destino es un alias en la red Docker `edge`:
 #       landing:3000      → este repo (deploy/docker-compose.yml)
 #       growsave-web:8000 → repo TFM (deploy/docker-compose.prod.yml)
-#   - DNS en Cloudflare: registros A de @, www y growsave → IP del VPS.
+#       umami:3000        → este repo (deploy/analitica/docker-compose.yml)
+#   - DNS en Cloudflare: registros A de @, www, growsave y stats → IP del VPS.
 #     Con proxy naranja, SSL/TLS en "Full (strict)".
 # ============================================================================
 
@@ -48,5 +49,16 @@ www.ylaguna.com {
 growsave.ylaguna.com {
 	import comun
 	reverse_proxy growsave-web:8000
+}
+
+# Umami (deploy/analitica/): panel + recogida de visitas sin cookies
+stats.ylaguna.com {
+	import comun
+	header {
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+	reverse_proxy umami:3000
 }
 

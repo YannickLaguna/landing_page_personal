@@ -1,3 +1,11 @@
+/**
+ * seo-utils.js — título, meta description y meta tags (og:title, og:image…) de las
+ * páginas de contenido a partir del frontmatter (metaTitle, metaDescription,
+ * socialImage) y de content/data/config.json (titleSuffix, defaultSocialImage).
+ * Relación: pages/[[...slug]].tsx; las URLs absolutas salen de utils/sitio.ts.
+ */
+import { urlAbsoluta } from './sitio';
+
 export function seoGenerateMetaTags(page, site) {
     let pageMetaTags = {};
 
@@ -75,18 +83,7 @@ export function seoGenerateOgImage(page, site) {
         ogImage = page.socialImage;
     }
 
-    // Relative or absolute URL
-    const absoluteUrlRegex = new RegExp('^(?:[a-z+]+:)?//', 'i');
-
-    // ogImage should use an absolute URL. Get the Netlify domain URL from the Netlify environment variable process.env.URL
-    const domainUrl = site?.env?.URL;
-
-    if (ogImage) {
-        if (domainUrl && !absoluteUrlRegex.test(ogImage)) {
-            return domainUrl + ogImage;
-        } else {
-            return ogImage;
-        }
-    }
-    return null;
+    // og:image debe ser absoluta: antes dependía de process.env.URL de Netlify (ya no existe);
+    // ahora usa NEXT_PUBLIC_SITE_URL vía utils/sitio.ts
+    return urlAbsoluta(ogImage);
 }

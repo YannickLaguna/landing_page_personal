@@ -1,21 +1,68 @@
+/**
+ * [[...slug]].tsx — páginas de contenido de la landing (home, info, proyectos), en/es.
+ * SSG desde content/pages (+ ISR si la página usa contenidoRemoto).
+ * SEO: título/descripción desde utils/seo-utils.js y canonical/hreflang/OG/JSON-LD
+ * desde components/atoms/MetaSeo.
+ */
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
+import MetaSeo from '@/components/atoms/MetaSeo';
 import { DynamicComponent } from '@/components/components-registry';
 import { PageComponentProps } from '@/types';
 import { allContent, leerPublicacionesParaFeed } from '@/utils/content';
 import { aplicarContenidoRemoto, REVALIDAR_CONTENIDO_REMOTO } from '@/utils/contenido-remoto';
 import { seoGenerateMetaDescription, seoGenerateMetaTags, seoGenerateTitle } from '@/utils/seo-utils';
+import { URL_SITIO } from '@/utils/sitio';
 import { resolveStaticProps } from '@/utils/static-props-resolvers';
+
+/** Datos estructurados (schema.org) según la página: persona en la home, app en la ficha de GrowSave. */
+function datosEstructurados(ruta: string, descripcion: string | null) {
+    if (ruta === '/') {
+        return {
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Yannick Laguna',
+            url: URL_SITIO,
+            jobTitle: 'Economist',
+            description: descripcion || undefined,
+            sameAs: ['https://github.com/YannickLaguna']
+        };
+    }
+    if (ruta.replace(/\/$/, '') === '/projects/growsave') {
+        return {
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: 'GrowSave',
+            url: 'https://growsave.ylaguna.com',
+            applicationCategory: 'FinanceApplication',
+            operatingSystem: 'Web',
+            description: descripcion || undefined,
+            author: { '@type': 'Person', name: 'Yannick Laguna', url: URL_SITIO }
+        };
+    }
+    return null;
+}
 
 const Page: React.FC<PageComponentProps> = (props) => {
     const { global, ...page } = props;
     const { site } = global || {};
+    const { locale } = useRouter();
     const title = seoGenerateTitle(page, site);
     const metaTags = seoGenerateMetaTags(page, site);
     const metaDescription = seoGenerateMetaDescription(page, site);
+    // urlPath ya viene sin idioma ("/", "/info", "/projects/growsave")
+    const ruta = (page as any).__metadata?.urlPath || '/';
 
     return (
         <>
+            <MetaSeo
+                ruta={ruta}
+                idioma={locale || 'en'}
+                descripcion={metaDescription}
+                tipo={ruta === '/' ? 'profile' : 'website'}
+                jsonLd={datosEstructurados(ruta, metaDescription)}
+            />
             <Head>
                 <title>{title}</title>
                 {metaDescription && <meta name="description" content={metaDescription} />}

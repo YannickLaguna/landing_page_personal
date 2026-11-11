@@ -19,6 +19,7 @@ import frontmatterParser from 'front-matter';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypeCitation from 'rehype-citation';
@@ -28,12 +29,14 @@ import rehypeKatex from 'rehype-katex';
 import GithubSlugger from 'github-slugger';
 import dayjs from 'dayjs';
 
+import MetaSeo from '@/components/atoms/MetaSeo';
 import BaseLayout from '@/components/layouts/BaseLayout';
 import Grafica from '@/components/molecules/Grafica';
 import GiscusComments from '@/components/molecules/GiscusComments';
 import TablaDContenidos from '@/components/molecules/TablaDContenidos';
 import { GraficaDataProvider } from '@/contexts/GraficaDataContext';
 import { allContent } from '@/utils/content';
+import { urlAbsoluta } from '@/utils/sitio';
 import { resolveStaticProps } from '@/utils/static-props-resolvers';
 
 const DIRECTORIO_PUBLICACIONES = path.join(process.cwd(), 'Publicaciones');
@@ -66,20 +69,37 @@ interface Props {
 export default function PaginaPublicacion({ fuenteMdx, frontmatter, datosGraficas, encabezados, ogImageUrl, global }: Props) {
     const fechaFormateada = dayjs(frontmatter.fecha).format('YYYY-MM-DD');
     const fechaAttr = dayjs(frontmatter.fecha).format('YYYY-MM-DD HH:mm:ss');
+    const { query, locale } = useRouter();
+    const ruta = `/publicaciones/${query.slug}/`;
 
     return (
         <>
+            {/* Las publicaciones están escritas en español: canonical a /es/ (evita contenido duplicado) */}
+            <MetaSeo
+                ruta={ruta}
+                idioma={locale || 'en'}
+                idiomaCanonico="es"
+                descripcion={frontmatter.resumen}
+                tipo="article"
+                jsonLd={{
+                    '@context': 'https://schema.org',
+                    '@type': 'Article',
+                    headline: frontmatter.titulo,
+                    description: frontmatter.resumen || undefined,
+                    datePublished: fechaFormateada,
+                    inLanguage: 'es',
+                    image: ogImageUrl || undefined,
+                    author: { '@type': 'Person', name: 'Yannick Laguna' }
+                }}
+            />
             <Head>
-                <title>{frontmatter.titulo}</title>
+                <title>{`${frontmatter.titulo} - Yannick Laguna`}</title>
                 {frontmatter.resumen && <meta name="description" content={frontmatter.resumen} />}
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 {/* Open Graph */}
                 <meta property="og:title" content={frontmatter.titulo} />
-                {frontmatter.resumen && <meta property="og:description" content={frontmatter.resumen} />}
-                <meta property="og:type" content="article" />
                 {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
-                {/* Twitter Card */}
-                <meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
+                {/* Twitter Card (twitter:card, og:type, og:description y og:url los pone MetaSeo) */}
                 <meta name="twitter:title" content={frontmatter.titulo} />
                 {frontmatter.resumen && <meta name="twitter:description" content={frontmatter.resumen} />}
                 {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
@@ -254,10 +274,7 @@ export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
     const propiedadesGlobales = resolveStaticProps('/', todosLosContenidos);
 
     // Resolver URL absoluta de la imagen OG para que sea válida en redes sociales
-    const urlBase = process.env.NEXT_PUBLIC_SITE_URL ?? '';
-    const ogImageUrl = frontmatter.ogImage
-        ? `${urlBase}${frontmatter.ogImage}`
-        : null;
+    const ogImageUrl = urlAbsoluta(frontmatter.ogImage);
 
     return {
         props: {

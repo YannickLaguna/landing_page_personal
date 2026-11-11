@@ -1,0 +1,8 @@
+# robots.txt de ylaguna.com — todo indexable salvo las rutas internas de API.
+# El sitemap lo genera src/pages/sitemap.xml.tsx.
+User-agent: *
+Allow: /
+Disallow: /api/
+Allow: /api/rss.xml
+
+Sitemap: https://ylaguna.com/sitemap.xml

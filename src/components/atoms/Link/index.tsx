@@ -4,7 +4,20 @@ import * as React from 'react';
 
 import { Annotated } from '@/components/Annotated';
 
+/**
+ * Link — enlace universal de la landing: NextLink para rutas internas y <a> para externas.
+ * Los enlaces externos llevan `data-umami-event` para medir conversiones en Umami
+ * (components/atoms/Analitica): reservar cita en Cal.com, ir a GrowSave, escribir un email.
+ */
 type RegularLinkProps = React.PropsWithChildren & NextLinkProps & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+/** Nombre del evento de Umami según el destino de un enlace externo. */
+function eventoAnalitica(href: string): string {
+    if (href.includes('cal.com')) return 'cta-reservar-cita';
+    if (href.includes('growsave.ylaguna.com')) return 'ir-a-growsave';
+    if (href.startsWith('mailto:')) return 'contacto-email';
+    return 'enlace-externo';
+}
 
 type LinkProps = RegularLinkProps | (Omit<RegularLinkProps, 'href'> & { href: PageModelType });
 
@@ -27,7 +40,7 @@ const Link: React.FC<LinkProps> = (props) => {
             {children}
         </NextLink>
     ) : (
-        <a href={hrefString} {...other}>
+        <a href={hrefString} data-umami-event={eventoAnalitica(hrefString || '')} data-umami-event-destino={hrefString} {...other}>
             {children}
         </a>
     );

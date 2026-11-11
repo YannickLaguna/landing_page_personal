@@ -18,6 +18,12 @@ WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_SITE_URL=https://ylaguna.com
 ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+# Analítica Umami (src/components/atoms/Analitica): vacías = sin script.
+# El id del sitio no es secreto (va en el HTML); se pasa con --build-arg desde deploy/docker-compose.yml
+ARG NEXT_PUBLIC_UMAMI_URL=""
+ARG NEXT_PUBLIC_UMAMI_WEBSITE_ID=""
+ENV NEXT_PUBLIC_UMAMI_URL=$NEXT_PUBLIC_UMAMI_URL \
+    NEXT_PUBLIC_UMAMI_WEBSITE_ID=$NEXT_PUBLIC_UMAMI_WEBSITE_ID
 
 COPY package.json package-lock.json ./
 RUN npm ci

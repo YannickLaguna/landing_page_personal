@@ -1,0 +1,62 @@
+# ============================================================================
+# deploy/analitica/docker-compose.yml — Umami (analítica web sin cookies) en el VPS
+#
+# Responsabilidad: medir visitas y eventos de ylaguna.com y growsave.ylaguna.com
+# sin cookies (no requiere banner de consentimiento). Panel en https://stats.ylaguna.com
+#   - umami    : app web + endpoint de recogida (/script.js, /api/send).
+#   - umami-db : PostgreSQL propio, aislado del de GrowSave (red interna `analitica`).
+# Relación con otros módulos:
+#   - deploy/edge/Caddyfile: bloque stats.ylaguna.com → umami:3000 (red `edge`).
+#   - src/components/atoms/Analitica (landing) y app/frontend/index.html (GrowSave)
+#     cargan /script.js con el id de cada sitio.
+#   - Variables en deploy/analitica/.env (plantilla: .env.example; no va a git).
+#
+# Uso (en /opt/landing):
+#   cp deploy/analitica/.env.example deploy/analitica/.env  # y rellenar
+#   docker compose -f deploy/analitica/docker-compose.yml --env-file deploy/analitica/.env up -d
+#   Primer acceso: https://stats.ylaguna.com, usuario admin / umami → CAMBIAR la contraseña.
+# ============================================================================
+
+name: analitica
+
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:3.4.1
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://umami:${UMAMI_DB_PASSWORD:?Define UMAMI_DB_PASSWORD}@umami-db:5432/umami
+      APP_SECRET: ${UMAMI_APP_SECRET:?Define UMAMI_APP_SECRET}
+      DISABLE_TELEMETRY: "1"
+    depends_on:
+      umami-db:
+        condition: service_healthy
+    networks:
+      edge:
+        aliases: [umami]
+      analitica:
+
+  umami-db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: ${UMAMI_DB_PASSWORD:?Define UMAMI_DB_PASSWORD}
+    volumes:
+      - umami_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami -d umami"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - analitica
+
+networks:
+  edge:        # compartida con Caddy (creada fuera: docker network create edge)
+    external: true
+  analitica:   # umami <-> umami-db, sin salida a internet
+    internal: true
+
+volumes:
+  umami_pgdata:

@@ -14,6 +14,7 @@ import path from 'path';
 import frontmatterParser from 'front-matter';
 
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { URL_SITIO, urlEnIdioma } from '@/utils/sitio';
 
 const DIRECTORIO_PUBLICACIONES = path.join(process.cwd(), 'Publicaciones');
 
@@ -27,7 +28,8 @@ function escaparXml(texto: string): string {
 }
 
 export default function handlerRss(_req: NextApiRequest, res: NextApiResponse) {
-    const urlBase = (process.env.NEXT_PUBLIC_SITE_URL ?? '').replace(/\/$/, '');
+    // URL absoluta aunque NEXT_PUBLIC_SITE_URL no esté en runtime (utils/sitio.ts)
+    const urlBase = URL_SITIO;
 
     let publicaciones: { slug: string; titulo: string; fecha: string; resumen: string }[] = [];
 
@@ -56,7 +58,8 @@ export default function handlerRss(_req: NextApiRequest, res: NextApiResponse) {
 
     const items = publicaciones
         .map((pub) => {
-            const url = `${urlBase}/publicaciones/${pub.slug}`;
+            // Slug codificado ("Movimiento Browniano" lleva espacio) y versión canónica en español
+            const url = urlEnIdioma(`/publicaciones/${pub.slug}`, 'es');
             const fechaRss = pub.fecha ? new Date(pub.fecha).toUTCString() : '';
             return `    <item>
       <title>${escaparXml(pub.titulo)}</title>

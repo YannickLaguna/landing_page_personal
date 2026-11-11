@@ -27,8 +27,8 @@ tags:
   - Finanzas personales
 addTitleSuffix: true
 metaDescription: >-
-  GROWSAVE es una aplicación de planificación financiera personal con optimización de portafolios mediante programación
-  cuadrática.
+  GrowSave: plan and track your financial goals. Savings simulator and portfolio optimization
+  (Markowitz and post-modern portfolio theory), free demo without sign-up.
 colors: colors-b
 ---
 

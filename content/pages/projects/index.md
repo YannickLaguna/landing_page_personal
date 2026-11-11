@@ -1,6 +1,7 @@
 ---
 type: ProjectFeedLayout
 title: Projects
+metaDescription: "Projects in quantitative finance, financial planning and data analysis: GrowSave and more."
 colors: colors-f
 projectFeed:
   type: ProjectFeedSection

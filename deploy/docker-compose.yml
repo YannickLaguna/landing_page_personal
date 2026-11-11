@@ -19,6 +19,11 @@ services:
     build:
       context: ..
       dockerfile: deploy/Dockerfile
+      args:
+        # Umami (deploy/analitica/): id del sitio "ylaguna.com" creado en el panel.
+        # Exportar antes del build: UMAMI_ID_LANDING=<uuid> docker compose ... up -d --build
+        NEXT_PUBLIC_UMAMI_URL: https://stats.ylaguna.com
+        NEXT_PUBLIC_UMAMI_WEBSITE_ID: ${UMAMI_ID_LANDING:-}
     image: landing-web:latest
     restart: unless-stopped
     networks:

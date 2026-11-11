@@ -17,6 +17,9 @@ import frontmatterParser from 'front-matter';
 
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+
+import MetaSeo from '@/components/atoms/MetaSeo';
 
 import { DynamicComponent } from '@/components/components-registry';
 import BaseLayout from '@/components/layouts/BaseLayout';
@@ -41,10 +44,18 @@ interface Props {
 }
 
 export default function PaginaPublicaciones({ publicaciones, global }: Props) {
+    const { locale } = useRouter();
     return (
         <>
+            <MetaSeo
+                ruta="/publicaciones/"
+                idioma={locale || 'en'}
+                idiomaCanonico="es"
+                descripcion="Publicaciones sobre finanzas cuantitativas, modelización y estadística, con gráficas interactivas."
+            />
             <Head>
-                <title>Publicaciones</title>
+                <title>Publicaciones - Yannick Laguna</title>
+                <meta name="description" content="Publicaciones sobre finanzas cuantitativas, modelización y estadística, con gráficas interactivas." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}

@@ -1,6 +1,8 @@
 ---
 type: PageLayout
 title: About
+metaTitle: "Sobre mí"
+metaDescription: "Quién soy, mi experiencia y mis habilidades en economía, estadística, Python y análisis de datos financieros."
 colors: colors-b
 sections:
   - elementId: ''
@@ -172,7 +174,7 @@ sections:
     actions:
       - type: Button
         label: Póngase en contacto
-        url: '‘https://cal.com/ylaguna’'
+        url: 'https://cal.com/ylaguna'
         showIcon: true
         icon: arrowRight
         iconPosition: right

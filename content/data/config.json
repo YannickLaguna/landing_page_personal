@@ -1,6 +1,7 @@
 {
     "type": "Config",
     "favicon": "/images/favicon.svg",
+    "titleSuffix": "Yannick Laguna",
     "header": {
         "type": "Header",
         "headerVariant": "variant-c",
@@ -47,7 +48,7 @@
             {
                 "type": "Link",
                 "label": "Contact",
-                "url": "mailto:thisismyemail.@myemail.me",
+                "url": "mailto:ylaguna000@gmail.com",
                 "altText": ""
             },
             {
@@ -60,7 +61,7 @@
                 "type": "Link",
                 "label": "GitHub",
                 "url": "https://github.com/YannickLaguna",
-                "altText": "Netlify templates"
+                "altText": "GitHub de Yannick Laguna"
             }
         ],
         "contacts": {
@@ -71,7 +72,7 @@
             "address": "Bilbao - Lanzarote",
             "addressAltText": "My address"
         },
-        "copyrightText": "Powered by [Netlify](https://www.netlify.com/)",
+        "copyrightText": "© Yannick Laguna",
         "styles": {
             "self": {
                 "width": "narrow",
