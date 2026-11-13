@@ -13,7 +13,7 @@
 # ============================================================================
 
 # ---------- 1. Build ----------
-FROM node:22-slim AS builder
+FROM node:25-slim AS builder
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_SITE_URL=https://ylaguna.com
@@ -31,7 +31,7 @@ COPY . .
 RUN npm run build
 
 # ---------- 2. Runtime ----------
-FROM node:22-slim AS runtime
+FROM node:25-slim AS runtime
 WORKDIR /app
 ENV NODE_ENV=production \
     NEXT_TELEMETRY_DISABLED=1 \
