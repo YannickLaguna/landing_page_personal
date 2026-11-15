@@ -2,8 +2,9 @@
   public/images/growsave-cover.svg — Portada de GrowSave para la landing (3:2, 1200x800).
   Responsabilidad: imagen de featuredImage/media en content/pages/projects/growsave*.md.
   Identidad 2026-11 (repo TFM, app/frontend/tailwind.config.js): fondo «tinta», verde
-  «brote» para el ahorro y dorado «meta» solo para la línea del objetivo. Dibuja el gráfico
-  de la portada de GrowSave: banda de escenarios (P10–P90), mediana y la meta.
+  «brote» para el ahorro y una línea continua clara para el objetivo; el dorado «meta» solo
+  queda en la flecha del logo. Dibuja el gráfico de la portada de GrowSave: banda de
+  escenarios (P10–P90), mediana y la meta.
   Relación: el logo es una copia de Logo2 (repo TFM, app/frontend/components/ui/logo.tsx);
   si el logo cambia allí, hay que actualizarlo aquí. El contenido va centrado porque las
   tarjetas lo recortan con object-cover. Sin texto en un idioma: se usa en es y en.
@@ -24,8 +25,8 @@
   <path d="M0 728 C300 712 620 670 900 590 S1130 480 1200 450"
         fill="none" stroke="#8FBFA8" stroke-width="5" stroke-linecap="round"/>
 
-  <!-- Meta: única línea dorada -->
-  <line x1="0" y1="470" x2="1200" y2="470" stroke="#D9A42B" stroke-width="4" stroke-dasharray="18 12"/>
+  <!-- Meta: línea continua y discreta -->
+  <line x1="0" y1="470" x2="1200" y2="470" stroke="#C6DDD1" stroke-opacity="0.45" stroke-width="3"/>
 
   <!-- Logo (Logo2) sobre tesela clara -->
   <g transform="translate(520 120)">
