@@ -3,10 +3,10 @@ type: ProjectLayout
 title: GROWSAVE
 date: '2025-01-01'
 description: >-
-  Servicio web de planificación financiera personal con optimización de
-  portafolios integrada. Permite a los usuarios definir metas de ahorro,
-  simular escenarios de inversión y recibir una asignación de activos óptima
-  calculada mediante programación cuadrática.
+  Planificador de objetivos de ahorro para quien no tiene asesor: pon cifra y
+  fecha a lo que quieres conseguir y GrowSave te dice cuánto apartar al mes,
+  con qué probabilidad llegas y si vas al día. Incluye un optimizador de
+  carteras cuantitativo.
 featuredImage:
   type: ImageBlock
   url: /images/growsave-cover.svg
@@ -25,15 +25,17 @@ contenidoRemoto: https://growsave.ylaguna.com/api/ficha?lang=es
 tags:
   - Python
   - FastAPI
-  - Optimización de portafolios
+  - React
+  - Monte Carlo
   - Finanzas personales
+  - Optimización de portafolios
 addTitleSuffix: true
 metaDescription: >-
-  GrowSave: planifica y sigue tus objetivos financieros. Simulador de ahorro y optimización
-  de carteras (Markowitz y teoría post-moderna), con demo gratuita sin registro.
+  GrowSave: pon cifra y fecha a tus objetivos de ahorro y descubre cuánto apartar al mes y si vas
+  al día. Simulación Monte Carlo y optimizador de carteras, con demo gratuita sin registro.
 colors: colors-b
 ---
 
-Servicio web de planificación financiera personal con optimización cuantitativa de carteras (MPT, Black-Litterman, CVaR, Monte Carlo).
+Planificador de objetivos de ahorro con simulación Monte Carlo y optimizador de carteras cuantitativo (MPT, Black-Litterman, CVaR).
 
 La ficha completa se mantiene en el README del proyecto. Pruébalo en [growsave.ylaguna.com](https://growsave.ylaguna.com/).

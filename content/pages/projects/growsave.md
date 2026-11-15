@@ -3,8 +3,10 @@ type: ProjectLayout
 title: GROWSAVE
 date: '2025-01-01'
 description: >-
-  Personal financial planning web service with integrated portfolio optimization. It allows users to set savings goals,
-  simulate investment scenarios, and receive an optimal asset allocation calculated using quadratic programming.
+  A savings-goal planner for people without an advisor: give what you want a
+  figure and a date, and GrowSave tells you how much to set aside each month,
+  how likely you are to get there and whether you are on track. Includes a
+  quantitative portfolio optimizer.
 featuredImage:
   type: ImageBlock
   url: /images/growsave-cover.svg
@@ -23,15 +25,17 @@ contenidoRemoto: https://growsave.ylaguna.com/api/ficha?lang=en
 tags:
   - Python
   - FastAPI
-  - Optimización de portafolios
+  - React
+  - Monte Carlo
   - Finanzas personales
+  - Optimización de portafolios
 addTitleSuffix: true
 metaDescription: >-
-  GrowSave: plan and track your financial goals. Savings simulator and portfolio optimization
-  (Markowitz and post-modern portfolio theory), free demo without sign-up.
+  GrowSave: give your savings goals a figure and a date, and know how much to set aside each month
+  and whether you are on track. Monte Carlo simulation and portfolio optimizer, free demo without sign-up.
 colors: colors-b
 ---
 
-Personal financial planning web service with quantitative portfolio optimization (MPT, Black-Litterman, CVaR, Monte Carlo).
+Savings-goal planner with Monte Carlo simulation and a quantitative portfolio optimizer (MPT, Black-Litterman, CVaR).
 
 The full description is kept in the project's README. Try it at [growsave.ylaguna.com](https://growsave.ylaguna.com/).
