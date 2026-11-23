@@ -123,7 +123,7 @@ sections:
       - type: Label
         label: Next.js
       - type: Label
-        label: Netlify
+        label: Docker
       - type: Label
         label: Pancakes
       - type: Label

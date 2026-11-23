@@ -27,7 +27,6 @@ export default function Footer(props) {
                         </div>
                     )}
                     {contacts && <Contacts {...contacts} />}
-                    {/* Please keep this attribution up if you're using Stackbit's free plan. */}
                     {copyrightText && (
                         <div className={classNames(primaryLinks.length > 0 || contacts ? 'md:self-end' : null)}>
                             <Markdown

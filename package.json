@@ -6,8 +6,7 @@
         "build": "next build",
         "start": "next start",
         "translate": "node scripts/translate-md.js",
-        "translate-force": "node scripts/translate-md.js --force",
-        "stackbit": "stackbit dev"
+        "translate-force": "node scripts/translate-md.js --force"
     },
     "dependencies": {
         "@giscus/react": "^3.1.0",
@@ -19,8 +18,9 @@
         "front-matter": "^4.0.2",
         "github-slugger": "^2.0.0",
         "glob": "14.0.3",
+        "katex": "0.18.3",
         "markdown-to-jsx": "^7.7.1",
-        "next": "16.4.3",
+        "next": "16.4.6",
         "next-mdx-remote": "^6.0.0",
         "plotly.js-dist-min": "^3.4.0",
         "react": "^19.2.4",
@@ -33,18 +33,21 @@
         "tailwindcss": "^4.0.12"
     },
     "devDependencies": {
-        "@stackbit/cms-git": "^1.0.35",
         "@stackbit/types": "^2.1.11",
         "@tailwindcss/typography": "^0.5.16",
+        "@types/node": "22.20.5",
         "@types/react": "^19.0.1",
         "axios": "^1.21.1",
         "dotenv": "^17.4.2",
         "eslint": "^9.21.0",
-        "eslint-config-next": "16.4.3",
+        "eslint-config-next": "16.4.6",
         "js-yaml": "^4.3.2",
         "postcss": "^8.5.3",
         "prettier": "^3.5.2",
         "typescript": "^5.8.2"
+    },
+    "overrides": {
+        "katex": "$katex"
     },
     "license": "MIT"
 }

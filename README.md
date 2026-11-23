@@ -1,18 +1,14 @@
-# Netlify Developer Portfolio Starter (auto-annotated)
+# Landing page personal — ylaguna.com
 
-Landing page personal
+Web personal de Yannick Laguna (portafolio, proyectos y publicaciones).
 
-- Stack:Next.js, Tailwind CSS, [visual editor](https://docs.netlify.com/visual-editor/overview/) and the [Git Content Source](https://docs.netlify.com/create/content-sources/git/).
+- Stack: Next.js (salida standalone) y Tailwind CSS. El contenido vive en `content/` (Markdown/JSON) y sus modelos en `.stackbit/models/` (heredados de la plantilla original; ya no se usa el editor visual de Netlify/Stackbit).
+- Despliegue: Docker en el VPS propio, detrás de Caddy, desde la rama `deploy/vps`. Detalle en `deploy/README.md`.
 
-Run the Next.js development server:
+Servidor de desarrollo:
 
 ```txt
-cd ...
 npm run dev
-```
-
-```txt
-stackbit dev
 ```
 
 ## Scripts: usar con npm run nombre_script
@@ -67,11 +63,12 @@ Cada artículo es una carpeta `Publicaciones/{slug}/` con al menos `index.mdx`.
    El prop `src` es el nombre del archivo sin extensión `.json`.
 
 4. **Publicar**: hacer `git add . && git commit -m "..." && git push` dentro de
-   la carpeta `Publicaciones/`. Netlify detecta el cambio vía webhook del
-   submodule y reconstruye el sitio automáticamente.
+   la carpeta `Publicaciones/`.
 
-5. Si se actualizó el puntero del submodule en el repo principal, también hacer
-   `git push` desde la raíz del proyecto para registrar la nueva referencia.
+5. Actualizar el puntero del submodule en el repo principal y volver a desplegar
+   en el VPS (ver `deploy/README.md`): el sitio se reconstruye en la imagen Docker.
+
+6. Hacer `git push` desde la raíz del proyecto para registrar la nueva referencia.
 
 ### Estructura de un artículo
 

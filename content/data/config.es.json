@@ -73,7 +73,7 @@
             "address": "Bilbao - Lanzarote",
             "addressAltText": "Mi dirección"
         },
-        "copyrightText": "Desarrollado con [Netlify](https://www.netlify.com/)",
+        "copyrightText": "© Yannick Laguna",
         "styles": {
             "self": {
                 "width": "narrow",
