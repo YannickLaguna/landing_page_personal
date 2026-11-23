@@ -1,6 +1,7 @@
 {
     "type": "Config",
     "favicon": "/images/favicon.svg",
+    "defaultSocialImage": "/images/og-ylaguna.png",
     "header": {
         "type": "Header",
         "headerVariant": "variant-c",

@@ -1,6 +1,7 @@
 {
     "type": "Config",
     "favicon": "/images/favicon.svg",
+    "defaultSocialImage": "/images/og-ylaguna-en.png",
     "titleSuffix": "Yannick Laguna",
     "header": {
         "type": "Header",
