@@ -39,65 +39,33 @@ topSections:
         flexDirection: row
         textAlign: center
 bottomSections:
-  - type: ContactSection
-    backgroundSize: full
-    title: "Hablemos... 💬"
+  # Contacto: cita en Cal.com o email (sustituye al formulario de la plantilla, que no enviaba nada)
+  - type: CtaSection
+    title: "Hablemos 💬"
+    text: Agenda una cita o escríbeme un email.
     colors: colors-f
-    form:
-      type: FormBlock
-      elementId: sign-up-form
-      fields:
-        - name: firstName
-          label: Nombre
-          hideLabel: true
-          placeholder: Nombre
-          isRequired: true
-          width: 1/2
-          type: TextFormControl
-        - name: lastName
-          label: Apellido
-          hideLabel: true
-          placeholder: Apellido
-          isRequired: false
-          width: 1/2
-          type: TextFormControl
-        - name: email
-          label: Email
-          hideLabel: true
-          placeholder: Email
-          isRequired: true
-          width: full
-          type: EmailFormControl
-        - name: message
-          label: Mensaje
-          hideLabel: true
-          placeholder: Cuéntame sobre tu proyecto
-          isRequired: true
-          width: full
-          type: TextareaFormControl
-        - name: updatesConsent
-          label: Suscríbeme para recibir mis palabras
-          isRequired: false
-          width: full
-          type: CheckboxFormControl
-      submitLabel: "Enviar 🚀"
-      styles:
-        self:
-          textAlign: center
+    actions:
+      - type: Button
+        label: Agenda una cita
+        url: 'https://cal.com/ylaguna'
+        showIcon: true
+        icon: arrowRight
+        iconPosition: right
+        style: primary
+      - type: Button
+        label: Escríbeme
+        url: 'mailto:ylaguna000@gmail.com'
+        style: secondary
     styles:
       self:
         height: auto
         width: narrow
-        margin:
-          - mt-0
-          - mb-0
-          - ml-4
-          - mr-4
         padding:
           - pt-24
           - pb-24
-          - pr-4
           - pl-4
-        flexDirection: row
-        textAlign: left
+          - pr-4
+        textAlign: center
+        flexDirection: col
+        alignItems: center
 ---

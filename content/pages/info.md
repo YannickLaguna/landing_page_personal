@@ -2,7 +2,7 @@
 type: PageLayout
 title: About
 metaTitle: "About me"
-metaDescription: "Who I am, my experience and skills in economics, statistics, Python and financial data analysis."
+metaDescription: "Who I am, my education and skills in economics, statistics, Python and financial data analysis."
 colors: colors-b
 sections:
   - elementId: ''
@@ -67,11 +67,6 @@ sections:
         label: Docker
       - type: Label
         label: n8n
-  - type: TextSection
-    variant: variant-a
-    subtitle: 'Contact:'
-    colors: colors-f
-    text: '[thisismyemail.@myemail.me](mailto:thisismyemail.@myemail.me) '
   - type: DividerSection
     styles:
       self:
@@ -131,16 +126,20 @@ sections:
         borderStyle: solid
   - type: CtaSection
     title: Let's talk 💬
+    text: Book a call or send me an email.
     colors: colors-f
     actions:
       - type: Button
-        label: Get in touch
+        label: Book a call
         url: 'https://cal.com/ylaguna'
         showIcon: true
         icon: arrowRight
         iconPosition: right
         style: primary
-        elementId: ‘’
+      - type: Button
+        label: Email me
+        url: 'mailto:ylaguna000@gmail.com'
+        style: secondary
     styles:
       self:
         height: auto

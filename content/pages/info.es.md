@@ -2,7 +2,7 @@
 type: PageLayout
 title: About
 metaTitle: "Sobre mí"
-metaDescription: "Quién soy, mi experiencia y mis habilidades en economía, estadística, Python y análisis de datos financieros."
+metaDescription: "Quién soy, mi formación y mis habilidades en economía, estadística, Python y análisis de datos financieros."
 colors: colors-b
 sections:
   - elementId: ''
@@ -73,12 +73,6 @@ sections:
         label: Docker
       - type: Label
         label: n8n
-  - type: TextSection
-    variant: variant-a
-    subtitle: 'Contact:'
-    colors: colors-f
-    text: |
-      [thisismyemail.@myemail.me](mailto:thisismyemail.@myemail.me)
   - type: DividerSection
     styles:
       self:
@@ -145,16 +139,20 @@ sections:
         borderStyle: solid
   - type: CtaSection
     title: "Hablemos \U0001F4AC"
+    text: Agenda una cita o escríbeme un email.
     colors: colors-f
     actions:
       - type: Button
-        label: Póngase en contacto
+        label: Agenda una cita
         url: 'https://cal.com/ylaguna'
         showIcon: true
         icon: arrowRight
         iconPosition: right
         style: primary
-        elementId: ‘’
+      - type: Button
+        label: Escríbeme
+        url: 'mailto:ylaguna000@gmail.com'
+        style: secondary
     styles:
       self:
         height: auto
