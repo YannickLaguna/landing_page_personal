@@ -8,7 +8,8 @@
  *
  * Relaciones:
  * - Lee de: Publicaciones/{slug}/index.mdx y archivos .json del mismo directorio
- * - Usa: BaseLayout, GraficaDataProvider, Grafica, GiscusComments
+ * - Usa: BaseLayout, GraficaDataProvider, Grafica, GiscusComments, utils/textos-interfaz
+ *   (enlace de vuelta «Publicaciones»/«Posts» según el idioma activo)
  * - La configuración global (header/footer) se obtiene de allContent igual que el
  *   resto del sitio, para mantener consistencia visual.
  */
@@ -19,6 +20,7 @@ import frontmatterParser from 'front-matter';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -37,6 +39,7 @@ import TablaDContenidos from '@/components/molecules/TablaDContenidos';
 import { GraficaDataProvider } from '@/contexts/GraficaDataContext';
 import { allContent } from '@/utils/content';
 import { urlAbsoluta } from '@/utils/sitio';
+import { textoInterfaz } from '@/utils/textos-interfaz';
 import { resolveStaticProps } from '@/utils/static-props-resolvers';
 
 const DIRECTORIO_PUBLICACIONES = path.join(process.cwd(), 'Publicaciones');
@@ -113,15 +116,16 @@ export default function PaginaPublicacion({ fuenteMdx, frontmatter, datosGrafica
                         {/* Columna artículo: ocupa 4/5 en desktop */}
                         <div className="xl:col-span-4">
                             <div className="mb-6">
-                                <a
+                                {/* NextLink conserva el idioma activo (/es/publicaciones/ o /publicaciones/) */}
+                                <NextLink
                                     href="/publicaciones"
                                     className="inline-flex items-center gap-2 text-sm uppercase tracking-wide opacity-60 hover:opacity-100 transition-opacity"
                                 >
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                                     </svg>
-                                    Publicaciones
-                                </a>
+                                    {textoInterfaz('publicaciones', locale)}
+                                </NextLink>
                             </div>
 
                             <header className="mb-10 sm:mb-14">

@@ -54,7 +54,7 @@
             {
                 "type": "Link",
                 "label": "Publicaciones",
-                "url": "/blog",
+                "url": "/publicaciones",
                 "altText": ""
             },
             {

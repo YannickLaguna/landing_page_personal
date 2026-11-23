@@ -7,7 +7,11 @@
  * Relaciones:
  * - Consumido por: src/pages/publicaciones/[slug].tsx
  * - Los IDs de los encabezados son generados por rehype-slug (misma lógica que github-slugger)
+ * - Título «En esta página»/«On this page» desde utils/textos-interfaz según el idioma activo
  */
+import { useRouter } from 'next/router';
+
+import { textoInterfaz } from '@/utils/textos-interfaz';
 
 interface Encabezado {
     nivel: 1 | 2 | 3;
@@ -26,11 +30,12 @@ const sangriasPorNivel: Record<number, string> = {
 };
 
 export default function TablaDContenidos({ encabezados }: Props) {
+    const { locale } = useRouter();
     if (encabezados.length === 0) return null;
 
     return (
         <nav className="sticky top-24 max-h-[80vh] overflow-y-auto">
-            <p className="text-sm uppercase tracking-widest opacity-50 mb-3">En esta página</p>
+            <p className="text-sm uppercase tracking-widest opacity-50 mb-3">{textoInterfaz('enEstaPagina', locale)}</p>
             <ul className="space-y-1.5 text-xl">
                 {encabezados.map((enc) => (
                     <li key={enc.id} className={sangriasPorNivel[enc.nivel]}>

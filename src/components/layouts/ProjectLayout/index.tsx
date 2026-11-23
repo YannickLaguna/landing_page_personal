@@ -1,8 +1,11 @@
 // Responsabilidad: renderiza la página individual de un proyecto (ProjectLayout).
-// Se relaciona con: BaseLayout, ImageBlock, DynamicComponent, Link (atoms), ArrowUpRightIcon, tipos ProjectLayout, seo-utils.
+// Se relaciona con: BaseLayout, ImageBlock, DynamicComponent, Link (atoms), ArrowUpRightIcon, tipos ProjectLayout, seo-utils,
+// utils/textos-interfaz (etiquetas «Proyectos» y «Ver proyecto» según el idioma activo).
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import Markdown from 'markdown-to-jsx';
+import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import * as React from 'react';
 
 import { Annotated } from '@/components/Annotated';
@@ -12,6 +15,7 @@ import ArrowUpRightIcon from '@/components/svgs/arrow-up-right';
 import ImageBlock from '@/components/molecules/ImageBlock';
 import { PageComponentProps, ProjectLayout } from '@/types';
 import HighlightedPreBlock from '@/utils/highlighted-markdown';
+import { textoInterfaz } from '@/utils/textos-interfaz';
 import BaseLayout from '../BaseLayout';
 
 type ComponentProps = PageComponentProps &
@@ -36,20 +40,22 @@ const Component: React.FC<ComponentProps> = (props) => {
     } = props;
     const dateTimeAttr = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
     const formattedDate = dayjs(date).format('YYYY-MM-DD');
+    // Idioma activo: NextLink conserva el prefijo /es/ en el enlace de vuelta
+    const { locale } = useRouter();
 
     return (
         <BaseLayout {...props}>
             <article className="px-4 py-14 lg:py-20">
                 <div className="max-w-5xl mx-auto mb-6">
-                    <a
+                    <NextLink
                         href="/projects"
                         className="inline-flex items-center gap-2 text-sm uppercase tracking-wide opacity-60 hover:opacity-100 transition-opacity"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
-                        Proyectos
-                    </a>
+                        {textoInterfaz('proyectos', locale)}
+                    </NextLink>
                 </div>
                 <header className="max-w-5xl mx-auto mb-10 sm:mb-14">
                     {client && <div className="text-lg uppercase md:mb-6">{client}</div>}
@@ -76,7 +82,7 @@ const Component: React.FC<ComponentProps> = (props) => {
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 text-sm uppercase tracking-wide border-b border-current pb-0.5 hover:opacity-70 transition-opacity"
                             >
-                                Ver proyecto
+                                {textoInterfaz('verProyecto', locale)}
                                 <ArrowUpRightIcon className="fill-current w-4 h-4" />
                             </a>
                         </div>

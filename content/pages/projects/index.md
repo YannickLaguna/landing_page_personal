@@ -48,7 +48,7 @@ bottomSections:
       elementId: sign-up-form
       fields:
         - name: firstName
-          label: Number
+          label: First name
           hideLabel: true
           placeholder: Nombre
           isRequired: true
