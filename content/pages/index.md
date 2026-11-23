@@ -40,7 +40,7 @@ sections:
         flexDirection: row
         textAlign: left
     text: >-
-      <div style="text-align: left">I am a 26-year-old Spanish economist with a special interest in personal and private
+      <div style="text-align: left">I am a Spanish economist with a special interest in personal and private
       financial management. I am motivated by challenges, helping people and companies make better use of their
       resources, and the possibility of doing my bit to make the world a better place.
 

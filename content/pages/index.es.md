@@ -40,7 +40,7 @@ sections:
         flexDirection: row
         textAlign: left
     text: >+
-      <div style="text-align: left">Economista español de 26 años, con especial
+      <div style="text-align: left">Economista español con especial
       interés en la gestión financiera personal y privada. Me motivan los retos,
       ayudar a personas y empresas a hacer un mejor uso de sus recursos y la
       posibilidad de aportar mi granito de arena para hacer del mundo un lugar
