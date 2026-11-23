@@ -3,7 +3,7 @@
 #
 # Responsabilidad: compilar el sitio Next.js (i18n en/es + rutas API) y
 # ejecutarlo como servidor Node autocontenido (`output: 'standalone'` en
-# next.config.js). Sustituye al despliegue en Netlify.
+# next.config.js).
 # Relación con otros módulos:
 #   - Contexto de build: la raíz del repo, con el submódulo `Publicaciones`
 #     ya descargado (git clone --recurse-submodules). Filtrado por .dockerignore.

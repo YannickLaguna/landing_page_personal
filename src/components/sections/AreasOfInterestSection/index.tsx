@@ -5,7 +5,6 @@ import Section from '../Section';
 
 /**
  * Sección de Áreas de Interés para mostrar ítems con icono, título y descripción.
- * Compatible con Netlify Create.
  * @param {object} props
  * @param {string} props.title - Título de la sección
  * @param {string} props.subtitle - Subtítulo de la sección

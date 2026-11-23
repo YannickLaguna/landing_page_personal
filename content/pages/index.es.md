@@ -40,7 +40,7 @@ sections:
         flexDirection: row
         textAlign: left
     text: >+
-      <div style="text-align: left">Economista de 25 años español, con especial
+      <div style="text-align: left">Economista español de 26 años, con especial
       interés en la gestión financiera personal y privada. Me motivan los retos,
       ayudar a personas y empresas a hacer un mejor uso de sus recursos y la
       posibilidad de aportar mi granito de arena para hacer del mundo un lugar
@@ -49,7 +49,7 @@ sections:
 
       Creo firmemente que el aprendizaje nunca termina y que todos deberíamos
       tomar decisiones informadas, por eso desarrollo soluciones orientadas a
-      liberar tu tiempo, optimizar procesos y ahorrar tú dinero, combinando
+      liberar tu tiempo, optimizar procesos y ahorrar tu dinero, combinando
       modelización económica con rigor matemático para ofrecer respuestas
       precisas a problemas concretos.</div>
 
@@ -120,45 +120,20 @@ sections:
     subtitle: 'Skills:'
     items:
       - type: Label
-        label: 'WEB 1, 2, 3'
+        label: Python
       - type: Label
-        label: React
+        label: SQL
       - type: Label
-        label: Microsoft Office
+        label: R
       - type: Label
         label: Next.js
       - type: Label
         label: Docker
       - type: Label
-        label: Pancakes
-      - type: Label
-        label: C++
-      - type: Label
-        label: Swift
+        label: n8n
   - type: FeaturedItemsSection
     colors: colors-f
     items:
-      - type: FeaturedItem
-        subtitle: 'Experiencia:'
-        text: |-
-          **Actualmente**
-
-          * Freelancer
-
-          **2024**
-
-          * Técnico contable en Vocento
-
-          **2023**
-
-          * Auxiliar contable en Fullcarga Ibérica
-
-          **2023**
-
-          * Becario en Instituto de Capital Riesgo (INCARI)
-        styles:
-          self:
-            textAlign: left
       - type: FeaturedItem
         subtitle: 'Formación:'
         text: >-
@@ -185,7 +160,7 @@ sections:
         styles:
           self:
             textAlign: left
-    columns: 2
+    columns: 1
     spacingX: 60
     spacingY: 60
     styles:

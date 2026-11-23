@@ -1,6 +1,6 @@
 # deploy/ — Landing y proxy del VPS (ylaguna.com)
 
-**Responsabilidad:** publicar la landing personal en el VPS (sustituye a Netlify) y alojar el **Caddy compartido** que sirve todos los dominios `*.ylaguna.com`.
+**Responsabilidad:** publicar la landing personal en el VPS y alojar el **Caddy compartido** que sirve todos los dominios `*.ylaguna.com`.
 
 | Fichero | Para qué |
 |---|---|

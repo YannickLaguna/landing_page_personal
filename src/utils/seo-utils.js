@@ -83,7 +83,7 @@ export function seoGenerateOgImage(page, site) {
         ogImage = page.socialImage;
     }
 
-    // og:image debe ser absoluta: antes dependía de process.env.URL de Netlify (ya no existe);
+    // og:image debe ser absoluta: se construye con la URL del sitio;
     // ahora usa NEXT_PUBLIC_SITE_URL vía utils/sitio.ts
     return urlAbsoluta(ogImage);
 }

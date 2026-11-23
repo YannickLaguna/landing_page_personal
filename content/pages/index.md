@@ -40,7 +40,7 @@ sections:
         flexDirection: row
         textAlign: left
     text: >-
-      <div style="text-align: left">I am a 25-year-old Spanish economist with a special interest in personal and private
+      <div style="text-align: left">I am a 26-year-old Spanish economist with a special interest in personal and private
       financial management. I am motivated by challenges, helping people and companies make better use of their
       resources, and the possibility of doing my bit to make the world a better place.
 
@@ -115,42 +115,40 @@ sections:
     subtitle: 'Skills:'
     items:
       - type: Label
-        label: WEB 1, 2, 3
+        label: Python
       - type: Label
-        label: React
+        label: SQL
       - type: Label
-        label: Microsoft Office
+        label: R
       - type: Label
         label: Next.js
       - type: Label
         label: Docker
       - type: Label
-        label: Pancakes
-      - type: Label
-        label: C++
-      - type: Label
-        label: Swift
+        label: n8n
   - type: FeaturedItemsSection
     colors: colors-f
     items:
       - type: FeaturedItem
-        subtitle: 'Experience:'
-        text: >-
-          **Currently** * Freelancer **2024** * Accounting technician at Vocento **2023** * Accounting assistant at
-          Fullcarga Ibérica **2023** * Intern at the Venture Capital Institute (INCARI)
-        styles:
-          self:
-            textAlign: left
-      - type: FeaturedItem
         subtitle: 'Education:'
-        text: >-
-          **2025** * Master's Degree in Mathematical Modeling and Research, Statistics, and Computing **2023** *
-          Bachelor's Degree in Economics from the University of the Basque Country (UPV) **Certificates** * Accounting
-          and Taxation (General Accounting Plan) - 2024 * IBM Data Science - 2023
+        text: |-
+          **2025**
+
+          * Master's Degree in Mathematical Modelling and Research, Statistics and Computing
+
+          **2023**
+
+          * Bachelor's Degree in Economics, University of the Basque Country (UPV/EHU)
+
+          **Certificates**
+
+          * Accounting and Taxation (Spanish General Accounting Plan) - 2024
+
+          * IBM Data Science - 2023
         styles:
           self:
             textAlign: left
-    columns: 2
+    columns: 1
     spacingX: 60
     spacingY: 60
     styles:

@@ -56,21 +56,17 @@ sections:
     subtitle: 'Skills:'
     items:
       - type: Label
-        label: WEB 1, 2, 3
+        label: Python
       - type: Label
-        label: React
+        label: SQL
       - type: Label
-        label: Microsoft Office
+        label: R
       - type: Label
         label: Next.js
       - type: Label
         label: Docker
       - type: Label
-        label: Pancakes
-      - type: Label
-        label: C++
-      - type: Label
-        label: Swift
+        label: n8n
   - type: TextSection
     variant: variant-a
     subtitle: 'Contact:'
@@ -91,23 +87,25 @@ sections:
     colors: colors-f
     items:
       - type: FeaturedItem
-        subtitle: 'Experience:'
-        text: >-
-          **Currently** * Freelancer **2024** * Accounting technician at Vocento **2023** * Accounting assistant at
-          Fullcarga Ibérica **2023** * Intern at the Venture Capital Institute (INCARI)
-        styles:
-          self:
-            textAlign: left
-      - type: FeaturedItem
         subtitle: 'Education:'
-        text: >-
-          **2025** * Master's Degree in Mathematical Modeling and Research, Statistics, and Computing **2023** *
-          Bachelor's Degree in Economics from the University of the Basque Country (UPV) **Certificates** * Accounting
-          and Taxation (General Accounting Plan) - 2024 * IBM Data Science - 2023
+        text: |-
+          **2025**
+
+          * Master's Degree in Mathematical Modelling and Research, Statistics and Computing
+
+          **2023**
+
+          * Bachelor's Degree in Economics, University of the Basque Country (UPV/EHU)
+
+          **Certificates**
+
+          * Accounting and Taxation (Spanish General Accounting Plan) - 2024
+
+          * IBM Data Science - 2023
         styles:
           self:
             textAlign: left
-    columns: 2
+    columns: 1
     spacingX: 60
     spacingY: 60
     styles:

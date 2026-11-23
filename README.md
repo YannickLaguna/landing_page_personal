@@ -2,7 +2,7 @@
 
 Web personal de Yannick Laguna (portafolio, proyectos y publicaciones).
 
-- Stack: Next.js (salida standalone) y Tailwind CSS. El contenido vive en `content/` (Markdown/JSON) y sus modelos en `.stackbit/models/` (heredados de la plantilla original; ya no se usa el editor visual de Netlify/Stackbit).
+- Stack: Next.js (salida standalone) y Tailwind CSS. El contenido vive en `content/` (Markdown/JSON) y sus modelos en `.stackbit/models/` (heredados de la plantilla original; ya no se usa su editor visual).
 - Despliegue: Docker en el VPS propio, detrás de Caddy, desde la rama `deploy/vps`. Detalle en `deploy/README.md`.
 
 Servidor de desarrollo:

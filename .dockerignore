@@ -11,6 +11,5 @@ node_modules
 .env
 .env.*
 deploy
-netlify.toml
 renovate.json
 README.md

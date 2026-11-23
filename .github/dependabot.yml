@@ -2,7 +2,7 @@
 #
 # Responsabilidad: abrir PRs semanales con parches de seguridad y versiones nuevas de
 # npm (package.json) y de las imágenes Docker (deploy/Dockerfile, deploy/edge).
-# Sustituye a renovate.json, que heredaba un preset de la plantilla de Netlify.
+# Sustituye a renovate.json, que heredaba un preset de la plantilla original.
 # Relación: las PRs se revisan y despliegan a mano (deploy/README.md).
 version: 2
 updates:

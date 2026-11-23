@@ -1,6 +1,6 @@
 /**
  * Modelo Stackbit para la sección de Áreas de Interés.
- * Responsabilidad: define el esquema de contenido editable en el editor visual de Netlify
+ * Responsabilidad: define el esquema de contenido editable en el editor visual original
  * para la sección AreasOfInterestSection.
  * Se relaciona con: src/components/sections/AreasOfInterestSection/index.tsx,
  * PageLayout.ts (via grupo SectionModels), section-common-fields.ts

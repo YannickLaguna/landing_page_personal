@@ -62,21 +62,17 @@ sections:
     subtitle: 'Skills:'
     items:
       - type: Label
-        label: 'WEB 1, 2, 3'
+        label: Python
       - type: Label
-        label: React
+        label: SQL
       - type: Label
-        label: Microsoft Office
+        label: R
       - type: Label
         label: Next.js
       - type: Label
         label: Docker
       - type: Label
-        label: Pancakes
-      - type: Label
-        label: C++
-      - type: Label
-        label: Swift
+        label: n8n
   - type: TextSection
     variant: variant-a
     subtitle: 'Contact:'
@@ -97,27 +93,6 @@ sections:
   - type: FeaturedItemsSection
     colors: colors-f
     items:
-      - type: FeaturedItem
-        subtitle: 'Experiencia:'
-        text: |-
-          **Actualmente**
-
-          * Freelancer
-
-          **2024**
-
-          * Técnico contable en Vocento
-
-          **2023**
-
-          * Auxiliar contable en Fullcarga Ibérica
-
-          **2023**
-
-          * Becario en Instituto de Capital Riesgo (INCARI)
-        styles:
-          self:
-            textAlign: left
       - type: FeaturedItem
         subtitle: 'Formación:'
         text: >-
@@ -144,7 +119,7 @@ sections:
         styles:
           self:
             textAlign: left
-    columns: 2
+    columns: 1
     spacingX: 60
     spacingY: 60
     styles:
