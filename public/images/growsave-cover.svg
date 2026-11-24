@@ -2,8 +2,8 @@
   public/images/growsave-cover.svg — Portada de GrowSave para la landing (3:2, 1200x800).
   Responsabilidad: imagen de featuredImage/media en content/pages/projects/growsave*.md.
   Generada con un script (semilla fija): abanico de 40 trayectorias de ahorro simuladas
-  (Monte Carlo log-normal con aportación mensual), banda P10–P90, mediana, barras de aportación
-  mensual al pie y un punto dorado «meta» sobre la mediana. Sin línea horizontal de meta (2026-11).
+  (Monte Carlo log-normal con aportación mensual), banda P10–P90, mediana y un punto dorado «meta» sobre la mediana.
+  Sin línea horizontal de meta ni barras de aportación al pie (2026-11).
   Identidad 2026-11 (repo TFM, app/frontend/tailwind.config.js): fondo «tinta», verdes «brote»,
   dorado «meta» solo en la flecha del logo y el punto de meta.
   Relación: el logo es una copia de Logo2 (repo TFM, app/frontend/components/ui/logo.tsx);
@@ -30,40 +30,6 @@
 
   <rect width="1200" height="800" fill="url(#fondo)"/>
   <rect width="1200" height="800" fill="url(#halo)"/>
-
-  <!-- Aportaciones mensuales -->
-  <g fill="#2F6F57" fill-opacity="0.45">
-    <rect x="17.3" y="791.0" width="8" height="9.0" rx="2"/>
-    <rect x="58.7" y="790.0" width="8" height="10.0" rx="2"/>
-    <rect x="100.0" y="789.0" width="8" height="11.0" rx="2"/>
-    <rect x="141.3" y="787.9" width="8" height="12.1" rx="2"/>
-    <rect x="182.7" y="786.9" width="8" height="13.1" rx="2"/>
-    <rect x="224.0" y="785.8" width="8" height="14.2" rx="2"/>
-    <rect x="265.3" y="784.7" width="8" height="15.3" rx="2"/>
-    <rect x="306.7" y="783.6" width="8" height="16.4" rx="2"/>
-    <rect x="348.0" y="782.8" width="8" height="17.2" rx="2"/>
-    <rect x="389.3" y="781.8" width="8" height="18.2" rx="2"/>
-    <rect x="430.7" y="780.7" width="8" height="19.3" rx="2"/>
-    <rect x="472.0" y="779.4" width="8" height="20.6" rx="2"/>
-    <rect x="513.3" y="778.6" width="8" height="21.4" rx="2"/>
-    <rect x="554.7" y="777.3" width="8" height="22.7" rx="2"/>
-    <rect x="596.0" y="775.9" width="8" height="24.1" rx="2"/>
-    <rect x="637.3" y="775.0" width="8" height="25.0" rx="2"/>
-    <rect x="678.7" y="774.3" width="8" height="25.7" rx="2"/>
-    <rect x="720.0" y="772.5" width="8" height="27.5" rx="2"/>
-    <rect x="761.3" y="771.4" width="8" height="28.6" rx="2"/>
-    <rect x="802.7" y="770.4" width="8" height="29.6" rx="2"/>
-    <rect x="844.0" y="769.7" width="8" height="30.3" rx="2"/>
-    <rect x="885.3" y="768.0" width="8" height="32.0" rx="2"/>
-    <rect x="926.7" y="766.0" width="8" height="34.0" rx="2"/>
-    <rect x="968.0" y="765.2" width="8" height="34.8" rx="2"/>
-    <rect x="1009.3" y="763.9" width="8" height="36.1" rx="2"/>
-    <rect x="1050.7" y="763.5" width="8" height="36.5" rx="2"/>
-    <rect x="1092.0" y="761.3" width="8" height="38.7" rx="2"/>
-    <rect x="1133.3" y="760.3" width="8" height="39.7" rx="2"/>
-    <rect x="1174.7" y="758.8" width="8" height="41.2" rx="2"/>
-    <rect x="1216.0" y="758.0" width="8" height="42.0" rx="2"/>
-  </g>
 
   <g mask="url(#mascara)">
     <!-- Banda de escenarios P10–P90 -->
