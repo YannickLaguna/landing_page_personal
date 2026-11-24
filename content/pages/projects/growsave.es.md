@@ -1,7 +1,6 @@
 ---
 type: ProjectLayout
-title: GROWSAVE
-date: '2025-01-01'
+title: GROWSAVE · DEMO
 description: >-
   Planificador de objetivos de ahorro para quien no tiene asesor: pon cifra y
   fecha a lo que quieres conseguir y GrowSave te dice cuánto apartar al mes,

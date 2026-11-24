@@ -1,7 +1,6 @@
 ---
 type: ProjectLayout
-title: GROWSAVE
-date: '2025-01-01'
+title: GROWSAVE · DEMO
 description: >-
   A savings-goal planner for people without an advisor: give what you want a
   figure and a date, and GrowSave tells you how much to set aside each month,
