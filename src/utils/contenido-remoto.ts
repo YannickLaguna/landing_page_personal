@@ -7,6 +7,11 @@
  * README de su repo y no aquí. Si la URL falla, se queda el cuerpo del .md
  * como respaldo.
  *
+ * Si además tiene `seccionesRemotas` (lista de títulos `## …`), solo se
+ * conservan esas secciones, en su orden original, y se descarta el texto
+ * anterior al primer `##` (la intro). Así el README completo sigue en GitHub
+ * y la landing enseña solo lo que interesa.
+ *
  * Relación con otros módulos:
  *   - src/pages/[[...slug]].tsx: lo llama en getStaticProps y activa ISR
  *     (revalidate) en las páginas que lo usan.
@@ -19,6 +24,23 @@
 export const REVALIDAR_CONTENIDO_REMOTO = 3600;
 
 const TIEMPO_MAXIMO_MS = 5000;
+
+/**
+ * Filtra un Markdown por secciones de nivel 2: conserva solo las `## Título`
+ * cuyo título está en `titulos` (sin distinguir mayúsculas), con su contenido
+ * hasta el siguiente `## `. El texto previo al primer `## ` se descarta.
+ * Si ninguna coincide devuelve el Markdown original, para no dejar la página vacía.
+ */
+export function filtrarSecciones(markdown: string, titulos: string[]): string {
+    const buscados = new Set(titulos.map((titulo) => titulo.trim().toLowerCase()));
+    // Trozos que empiezan por "## " (el primero puede ser la intro sin título)
+    const trozos = markdown.split(/^(?=## )/m);
+    const conservados = trozos.filter((trozo) => {
+        const cabecera = trozo.match(/^## (.+)$/m);
+        return trozo.startsWith('## ') && cabecera && buscados.has(cabecera[1].trim().toLowerCase());
+    });
+    return conservados.length ? conservados.map((trozo) => trozo.trim()).join('\n\n') : markdown;
+}
 
 /**
  * Descarga el Markdown de `pagina.contenidoRemoto` y lo pone en
@@ -37,7 +59,9 @@ export async function aplicarContenidoRemoto(pagina: Record<string, any>): Promi
         }
         const markdown = (await respuesta.text()).trim();
         if (markdown) {
-            pagina.markdownContent = markdown;
+            const secciones = pagina?.seccionesRemotas;
+            pagina.markdownContent =
+                Array.isArray(secciones) && secciones.length ? filtrarSecciones(markdown, secciones) : markdown;
         }
     } catch (error) {
         console.warn(`[contenidoRemoto] No se pudo leer ${url}; se usa el cuerpo local.`, error);

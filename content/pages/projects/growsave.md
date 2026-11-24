@@ -22,6 +22,10 @@ socialImage: /images/og-growsave.png
 url: https://growsave.ylaguna.com/
 # Cuerpo leído del README del repo TFM (sección Ficha); el texto de abajo es solo respaldo
 contenidoRemoto: https://growsave.ylaguna.com/api/ficha?lang=en
+# Solo estas secciones de la ficha: la intro repite la descripción y el stack/«Under the hood» se quedan en el README
+seccionesRemotas:
+  - What it solves
+  - Status
 tags:
   - Python
   - FastAPI

@@ -73,6 +73,13 @@ export const ProjectLayoutModel: Model = {
         },
         {
             type: 'list',
+            name: 'seccionesRemotas',
+            label: 'Secciones del contenido remoto',
+            description: 'Títulos `##` del contenido remoto que se muestran; el resto (y la intro) se descartan',
+            items: { type: 'string' }
+        },
+        {
+            type: 'list',
             name: 'tags',
             label: 'Tecnologías',
             description: 'Tecnologías utilizadas en el proyecto',
