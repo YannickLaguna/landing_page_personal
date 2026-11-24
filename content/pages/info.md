@@ -1,5 +1,7 @@
 ---
 type: PageLayout
+# Página oculta: no se publica (sin ruta ni sitemap), pero se conserva el contenido
+oculta: true
 title: About
 metaTitle: "About me"
 metaDescription: "Who I am, my education and skills in economics, statistics, Python and financial data analysis."

@@ -132,6 +132,9 @@ export function allContent(locale: string = 'en'): ContentObject[] {
     const pageObjects = allObjects.filter((obj) => {
         const fileName = obj.__metadata.id;
         if (fileName.includes('/data/')) return false;
+        // Páginas con `oculta: true` en el frontmatter: se conservan en content/ pero no se publican
+        // (sin ruta en getStaticPaths, fuera del sitemap y de cualquier referencia)
+        if ((obj as any).oculta === true) return false;
         if (locale === 'es') {
             return fileName.endsWith('.es.md') || fileName.endsWith('.es.json');
         }
